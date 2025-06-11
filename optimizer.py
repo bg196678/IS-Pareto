@@ -4,23 +4,52 @@ from summit.strategies import TSEMO, LHS
 from summit.utils.dataset import DataSet
 from reactor_model import simulate_reactor
 
-domain = Domain()
-domain += ContinuousVariable("temperature", bounds=[60, 140], description="Temperature (°C)")
-domain += ContinuousVariable("conc", bounds=[100, 500], description="Concentration (mol/m3)")
-domain += ContinuousVariable("ratio", bounds=[1.0, 5.0], description="Molar Ratio")
-domain += ContinuousVariable("res_time", bounds=[0.5, 2.0], description="Residence Time (min)")
-domain += ContinuousVariable("STY", is_objective=True, bounds=[0, 1e8], maximize=True, description="Space-Time Yield")
-domain += ContinuousVariable("E_factor", is_objective=True, bounds=[0, 50], maximize=False, description="E-Factor")
+###################
+# Domain Definition
+###################
 
-columns = [v.name for v in domain.variables]
-strategy = TSEMO(
-    domain=domain
+domain = Domain()
+domain += ContinuousVariable(
+    "temperature",
+    bounds=[60, 140],
+    description="Temperature (°C)"
+)
+domain += ContinuousVariable(
+    "conc",
+    bounds=[100, 500],
+    description="Concentration (mol/m3)"
+)
+domain += ContinuousVariable(
+    "ratio",
+    bounds=[1.0, 5.0],
+    description="Molar Ratio"
+)
+domain += ContinuousVariable(
+    "res_time",
+    bounds=[0.5, 2.0],
+    description="Residence Time (min)"
+)
+domain += ContinuousVariable(
+    "STY",
+    is_objective=True,
+    bounds=[0, 1e8],
+    maximize=True,
+    description="Space-Time Yield"
+)
+domain += ContinuousVariable(
+    "E_factor",
+    is_objective=True,
+    bounds=[0, 50],
+    maximize=False,
+    description="E-Factor"
 )
 
-df = pd.DataFrame(columns=columns)
+columns = [v.name for v in domain.variables]
+
+results_dataframe = pd.DataFrame(columns=columns)
 
 # --- Evaluierungsfunktion ---
-def evaluate_row(suggestion):
+def reactor(suggestion: DataSet) -> pd.DataFrame:
     data = suggestion.to_dict()["data"][0]
     T = round(data[columns.index("temperature")], 4)
     conc = round(data[columns.index("conc")], 4)
@@ -29,41 +58,55 @@ def evaluate_row(suggestion):
 
     STY, E = simulate_reactor(T, conc, ratio, res_time)
 
-    return pd.DataFrame([{
-        "temperature": T,
-        "conc": conc,
-        "ratio": ratio,
-        "res_time": res_time,
-        "STY": STY,
-        "E_factor": E,
-    }], columns=columns)
+    return pd.DataFrame(
+        [{
+                "temperature": T,
+                "conc": conc,
+                "ratio": ratio,
+                "res_time": res_time,
+                "STY": STY,
+                "E_factor": E,
+            }],
+        columns=columns
+    )
 
-# Sample 3 initial points
-print("Generating initial samples...")
+#######################
+# Initial Sampling
+#######################
+
+num_initial_samples = 3
 lhs_sampler = LHS(domain)
-initial_suggestions = lhs_sampler.suggest_experiments(3)
-for i in range(len(initial_suggestions)):
+initial_suggestions = lhs_sampler.suggest_experiments(num_initial_samples)
+
+for i in range(num_initial_samples):
     suggestion = initial_suggestions.iloc[[i]]
-    evaluation = evaluate_row(suggestion)
+    evaluation = reactor(suggestion)
     print(f"Outcome of initial experiment {i+1}:\n{evaluation}\n")
-    df = pd.concat([df, evaluation], ignore_index=True)
+    results_dataframe = pd.concat(
+        [results_dataframe, evaluation], ignore_index=True
+    )
 
 
-# --- Optimierungsschleife ---
-N_ITER = 100
-for i in range(N_ITER):
-    print(f"Iteration {i+1}")
-    df_clean = df.dropna().copy()
-    dataset = DataSet.from_df(df_clean)
+###################
+# Optimization Strategy
+###################
 
+num_samples = 100
+tsemo_strategy = TSEMO(
+    domain=domain
+)
 
-    suggestion = strategy.suggest_experiments(1, prev_res=dataset)
+for i in range(num_samples):
 
+    dataset = DataSet.from_df(results_dataframe)
+    suggestion = tsemo_strategy.suggest_experiments(
+        1, prev_res=dataset
+    )
+    evaluation = reactor(suggestion)
 
-    evaluation = evaluate_row(suggestion)
     print(f"Outcome of experiment:\n{evaluation}\n")
 
-    df = pd.concat([df, evaluation], ignore_index=True)
-    df.to_csv("data/tsemo_results.csv", index=False)
-
-print("Optimierung abgeschlossen.")
+    results_dataframe = pd.concat(
+        [results_dataframe, evaluation], ignore_index=True
+    )
+    results_dataframe.to_csv("data/tsemo_results.csv", index=False)

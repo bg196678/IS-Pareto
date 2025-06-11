@@ -3,25 +3,27 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from reactor_model import simulate_reactor
 
-# Experimentdaten laden
+
 experimental_data = pd.read_excel("data/experimental.xlsx")
 
-# Ergebnislisten
+# Simulated Reactor Data
 E_reactor = []
 STY_reactor = []
 
+# Experimental Data
 E_experimental = []
 STY_experimental = []
 
+# Conditions
 temps = []
 ratios = []
 concs = []
 
 for index, row in experimental_data.iterrows():
-    print(f"\nSimulation iteration {index}")
+
     tres_min = row["tres/min"]
     ratio = row["2:1"]
-    concentration = row["Conc 1/M"] * 1000  # in mol/m³
+    concentration = row["Conc 1/M"] * 1000
     temperature = row["Temp/°C"]
     E_ex = row["E-factor"]
     STY_ex = row["STY/kg m-3 h-1"]
@@ -37,10 +39,6 @@ for index, row in experimental_data.iterrows():
         ratio=ratio,
         t_res_min=tres_min,
     )
-
-    if result is None:
-        print("⚠️ Simulation übersprungen (ungültig)")
-        continue
 
     STY, E = result
 
@@ -60,25 +58,23 @@ for index, row in experimental_data.iterrows():
     ratios.append(ratio)
     concs.append(concentration)
 
-# In NumPy konvertieren
 E_reactor = np.array(E_reactor)
 STY_reactor = np.array(STY_reactor)
 E_experimental = np.array(E_experimental)
 STY_experimental = np.array(STY_experimental)
 
-# Fehlerberechnungen
 E_abs_errors = np.abs(E_reactor - E_experimental)
 E_rel_errors = np.abs(E_reactor - E_experimental) / E_experimental * 100
 STY_abs_errors = np.abs(STY_reactor - STY_experimental)
-STY_rel_errors = np.abs(STY_reactor - STY_experimental) / STY_experimental * 100
+STY_rel_errors = np.abs(
+    STY_reactor - STY_experimental
+) / STY_experimental * 100
 
-# Korrelationsanalyse
 E_correlation = np.corrcoef(E_reactor, E_experimental)[0, 1]
 STY_correlation = np.corrcoef(STY_reactor, STY_experimental)[0, 1]
 E_r2 = E_correlation**2
 STY_r2 = STY_correlation**2
 
-# Ausgabe der Fehlerstatistik
 print("\n" + "="*50)
 print("ERROR STATISTICS")
 print("="*50)
@@ -101,7 +97,8 @@ print(f"Max Absolute Error: {np.max(STY_abs_errors):.4f}")
 print(f"Min Absolute Error: {np.min(STY_abs_errors):.4f}")
 print(f"R²: {STY_r2:.4f}")
 
-# Plotten
+
+
 fig, axes = plt.subplots(2, 3, figsize=(15, 10))
 
 axes[0, 0].scatter(E_experimental, E_reactor, alpha=0.6)
@@ -135,12 +132,11 @@ axes[1, 1].set_title('STY Relative Error Distribution')
 axes[1, 2].boxplot([STY_abs_errors], labels=['STY'])
 axes[1, 2].set_ylabel('Absolute Error')
 axes[1, 2].set_title('STY Absolute Error Box Plot')
-
+plt.savefig("plots/reactor_model_analysis.png")
 plt.tight_layout()
 plt.show()
-# === KORRELATIONSBALKENPLOTS hinzufügen ===
 
-# Als DataFrames vorbereiten
+
 df_sim = pd.DataFrame({
     "Temp": temps,
     "Ratio_2_1": ratios,
@@ -157,13 +153,11 @@ df_exp = pd.DataFrame({
     "E_factor": E_experimental
 })
 
-# Korrelationsmatrizen berechnen
 params = ["Temp", "Ratio_2_1", "Conc"]
 
 corr_exp = df_exp[params + ["STY", "E_factor"]].corr()
 corr_sim = df_sim[params + ["STY", "E_factor"]].corr()
 
-# Korrelationen extrahieren
 sty_corr = pd.DataFrame({
     "Experiment": corr_exp["STY"].drop("STY"),
     "Simulation": corr_sim["STY"].drop("STY")
@@ -174,7 +168,6 @@ e_corr = pd.DataFrame({
     "Simulation": corr_sim["E_factor"].drop("E_factor")
 })
 
-# === Plot STY-Korrelationen ===
 plt.figure(figsize=(8, 5))
 sty_corr.plot(kind="bar", ax=plt.gca())
 plt.title("Korrelation der Parameter mit STY")
@@ -182,9 +175,9 @@ plt.ylabel("Korrelationskoeffizient")
 plt.axhline(0, color="black", linewidth=0.8)
 plt.xticks(rotation=0)
 plt.tight_layout()
+plt.savefig("plots/sty_correlation.png")
 plt.show()
 
-# === Plot E-Factor-Korrelationen ===
 plt.figure(figsize=(8, 5))
 e_corr.plot(kind="bar", ax=plt.gca())
 plt.title("Korrelation der Parameter mit E-Factor")
@@ -192,4 +185,5 @@ plt.ylabel("Korrelationskoeffizient")
 plt.axhline(0, color="black", linewidth=0.8)
 plt.xticks(rotation=0)
 plt.tight_layout()
+plt.savefig("plots/e_factor_correlation.png")
 plt.show()
