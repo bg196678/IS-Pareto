@@ -74,7 +74,7 @@ def reactor(suggestion: DataSet) -> pd.DataFrame:
 # Initial Sampling
 #######################
 
-num_initial_samples = 3
+num_initial_samples = 20
 lhs_sampler = LHS(domain)
 initial_suggestions = lhs_sampler.suggest_experiments(num_initial_samples)
 
@@ -91,7 +91,7 @@ for i in range(num_initial_samples):
 # Optimization Strategy
 ###################
 
-num_samples = 100
+num_samples = 70
 tsemo_strategy = TSEMO(
     domain=domain
 )
@@ -104,7 +104,7 @@ for i in range(num_samples):
     )
     evaluation = reactor(suggestion)
 
-    print(f"Outcome of experiment:\n{evaluation}\n")
+    print(f"Outcome of experiment {i}:\n{evaluation}\n")
 
     results_dataframe = pd.concat(
         [results_dataframe, evaluation], ignore_index=True

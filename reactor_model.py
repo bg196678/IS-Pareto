@@ -112,7 +112,7 @@ molar_masses = {
 }
 
 def interpolate_value(
-        df: pd.Dataframe,
+        df: pd.DataFrame,
         x_col: str,
         y_col: str,
         x_val: float,
@@ -128,11 +128,18 @@ def get_k_gas(T: float, reaction: str) -> float:
     )
 
 def get_gsolv(T: float, species_name: str) -> float:
-    return interpolate_value(gsolv_dataframe, "Temperature (K)", species_name, T)
+    return interpolate_value(
+        gsolv_dataframe, "Temperature (K)", species_name, T
+    )
 
 def get_correction_factor(T, reaction):
     ts = reaction_TS_map[reaction]
-    deltaG = (get_gsolv(T, ts) - sum(get_gsolv(T, r) for r in reaction_reactants_map[reaction])) * 4184
+    deltaG = (
+                 get_gsolv(T, ts) - sum(
+                 get_gsolv(T, r)
+                 for r in reaction_reactants_map[reaction]
+             )
+             ) * 4184
     return np.exp(-deltaG / (R * T))
 
 def simulate_reactor(T_C, conc_substrate, ratio, t_res_min):
@@ -140,7 +147,9 @@ def simulate_reactor(T_C, conc_substrate, ratio, t_res_min):
     t_res = t_res_min * 60
     conc_nucleophilic = conc_substrate * ratio
 
-    k_values = {r: get_k_gas(T, r) * get_correction_factor(T, r) for r in reactions}
+    k_values = {
+        r: get_k_gas(T, r) * get_correction_factor(T, r) for r in reactions
+    }
 
     model = ConcreteModel()
     model.t = ContinuousSet(bounds=(0, t_res))
@@ -159,7 +168,9 @@ def simulate_reactor(T_C, conc_substrate, ratio, t_res_min):
             stoich[j].get(i, 0) * rate_rule(j, t) for j in reactions
         )
 
-    model.mass_bal = Constraint(species, model.t, rule=mass_balance_rule)
+    model.mass_bal = Constraint(
+        species, model.t, rule=mass_balance_rule
+    )
 
     def init_conds(m):
         m.C["Substrate", 0].fix(conc_substrate)
@@ -170,37 +181,29 @@ def simulate_reactor(T_C, conc_substrate, ratio, t_res_min):
 
     model.init = BuildAction(rule=init_conds)
 
-    TransformationFactory("dae.finite_difference").apply_to(model, nfe=200, scheme="BACKWARD")
+    TransformationFactory(
+        "dae.finite_difference"
+    ).apply_to(model, nfe=200, scheme="BACKWARD")
     solver = SolverFactory("ipopt")
     result = solver.solve(model, tee=False)
 
-    if result.solver.termination_condition != TerminationCondition.optimal:
-        print("❌ Solver konnte nicht konvergieren.")
-        return None
-
     c_raw = {sp: value(model.C[sp, t_res]) for sp in species}
-    mass_in = conc_substrate * molar_masses["Substrate"] + conc_nucleophilic * molar_masses["Nucleophilic"]
+    mass_in = (
+            conc_substrate * molar_masses["Substrate"] +
+           conc_nucleophilic * molar_masses["Nucleophilic"]
+    )
     mass_sim = sum(c_raw[sp] * molar_masses[sp] for sp in species)
 
-    if mass_sim == 0:
-        print("⚠️ Leeres Ergebnis – keine Masse generiert.")
-        return None
-
     norm_factor = min(1.0, mass_in / mass_sim)
-    if norm_factor < 0.999:
-        delta = abs(mass_sim - mass_in)
-        print(f"⚠️ Massenbilanzabweichung! Δ = {delta:.4f} kg/m³ – skaliert.")
 
     c_end_normed = {sp: c_raw[sp] * norm_factor for sp in species}
     c_end = {sp: c_raw[sp] for sp in species}
 
     V = 1.0
     mass_product_normed = c_end_normed["Product1"] * molar_masses["Product1"]
-    #mass_product = c_end["Product1"] * molar_masses["Product1"]
-
-    #mass_waste_normed = c_end_normed["Product2"] * molar_masses["Product2"] + c_end_normed["Product3"] * molar_masses["Product3"]
-    mass_waste_normed_total = sum([c_end[sp] * molar_masses[sp] for sp in species if sp != "Product1"])
-    #mass_waste = c_end["Product2"] * molar_masses["Product2"] + c_end["Product3"] * molar_masses["Product3"]
+    mass_waste_normed_total = sum(
+        [c_end[sp] * molar_masses[sp] for sp in species if sp != "Product1"]
+    )
 
     STY = 3600 * mass_product_normed / (V * t_res)
     E_factor = mass_waste_normed_total / mass_product_normed

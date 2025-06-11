@@ -28,37 +28,47 @@ def pareto_front(df: pd.DataFrame) -> pd.DataFrame:
 def plot_pareto_front(
         df: pd.DataFrame,
         all_points_df: pd.DataFrame,
-        iteration: int
+        iteration: int,
+        num_lhs_points: int
 ) -> str:
     """Plot the Pareto front from a DataFrame with 'STY' and 'E_factor'
     columns.
     """
     pareto_df = pareto_front(df)
+    initial_lhs_points = df.iloc[:num_lhs_points] if len(
+        df
+    ) >= num_lhs_points else df
 
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(8, 6))
     plt.scatter(
-        all_points_df['STY'], all_points_df['E_factor'],
-        c='gray', label='All Data Points', alpha=0.3
+        initial_lhs_points['STY'], initial_lhs_points['E_factor'],
+        marker='s', color='black', label=f'Initial LHS Points',
+        s=64, zorder=4
     )
     plt.scatter(
         df['STY'], df['E_factor'],
-        c='blue', label=f'Points Considered ({len(df)})', alpha=0.6
+        marker='x', color='blue', label=f'TSEMO Points',
+        alpha=0.7, zorder=3
     )
     plt.scatter(
         pareto_df['STY'], pareto_df['E_factor'],
-        c='red', label='Pareto Front', s=100, edgecolors='black', zorder=5
+        facecolors='orange', edgecolors='red', s=100, linewidths=1.5,
+        label='Pareto Front', zorder=5, marker='o'
     )
     plt.plot(
         pareto_df['STY'], pareto_df['E_factor'],
-        c='red', linestyle='-', marker='', zorder=4
+        color='red', linewidth=2, linestyle='--', zorder=2,
+        label='Pareto Curve'
     )
     plt.xlim(0, 14500)
     plt.ylim(0, 3)
-    plt.xlabel('STY')
-    plt.ylabel('E-Factor')
-    plt.title('Pareto Front: E-Factor vs. STY')
-    plt.legend()
-    plt.grid(True)
+    plt.xlabel('STY [kg/m³/h]', fontsize=18)
+    plt.ylabel('E-Factor', fontsize=18)
+    plt.title(f'TS-Emo Optimization - Iteration {iteration}', fontsize=22)
+    plt.tick_params(axis='both', which='major', labelsize=15)
+    plt.legend(fontsize=15)
+    plt.grid(True, linestyle='--', alpha=0.5)
+    plt.tight_layout()
     file_path = f"plots/pareto_fronts/pareto_front_iteration_{iteration}.png"
     plt.savefig(
         file_path,
@@ -71,16 +81,20 @@ if __name__ == "__main__":
 
     results_dataframe = pd.read_csv('data/tsemo_results.csv')
     num_starting_points = 5
+    num_lhs_points = 20
 
     frame_paths = []
 
     for i in range(num_starting_points, len(results_dataframe) + 1):
         current_df_subset = results_dataframe.iloc[:i]
-        frame_path = plot_pareto_front(current_df_subset, results_dataframe, i,)
+        frame_path = plot_pareto_front(
+            current_df_subset, results_dataframe, i, num_lhs_points
+        )
         frame_paths.append(frame_path)
 
     with imageio.get_writer(
-            "plots/pareto_front_animation.gif", mode='I', duration=0.2, loop=0
+            "plots/pareto_front_animation.gif",
+            mode='I', duration=0.4, loop=0,
     ) as writer:
         for frame_path in frame_paths:
             image = imageio.imread(frame_path)
