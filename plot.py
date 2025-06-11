@@ -9,7 +9,6 @@ for i, row in df.iterrows():
     for j, other_row in df.iterrows():
         if i == j:
             continue
-        # Check if other_row dominates row
         if (
                 other_row['STY'] >= row['STY'] and
                 other_row['E_factor'] <= row['E_factor']) and \
@@ -38,6 +37,7 @@ plt.plot(
     pareto_df['E_factor']
     , c='red', linestyle='-', marker=''
 )
+plt.xlim(0, 3)
 plt.xlabel('STY')
 plt.ylabel('E_factor')
 plt.title('Pareto Front: E_factor vs. STY')
