@@ -3,19 +3,43 @@ import numpy as np
 from pyomo.environ import *
 from pyomo.dae import *
 
-# Daten laden
-kinetics_df = pd.read_excel("data/kinetics.xlsx")
-gsolv_df = pd.read_excel("data/gsolv.xlsx")
+kinetics_dataframe = pd.read_excel("data/kinetics.xlsx")
+gsolv_dataframe = pd.read_excel("data/gsolv.xlsx")
 
 R = 8.3145  # J/mol/K
 MAX_RATE = 1e5  # mol/(m³·s)
 
-species = ['Substrate', 'Nucleophilic', 'ITS1', 'ITS2', 'ITS3', 'ITS4',
-           'Product1', 'Product2', 'Product3', 'LeavingGroup']
+species = [
+    'Substrate',
+    'Nucleophilic',
+    'ITS1',
+    'ITS2',
+    'ITS3',
+    'ITS4',
+    'Product1',
+    'Product2',
+    'Product3',
+    'LeavingGroup'
+]
 
-reactions = ['R1_fwd', 'R1_rev', 'R2_fwd', 'R2_rev', 'R3_fwd', 'R3_rev',
-             'R4_fwd', 'R4_rev', 'R5_fwd', 'R5_rev', 'R6_fwd', 'R6_rev',
-             'R7_fwd', 'R7_rev', 'R8_fwd', 'R8_rev']
+reactions = [
+    'R1_fwd',
+    'R1_rev',
+    'R2_fwd',
+    'R2_rev',
+    'R3_fwd',
+    'R3_rev',
+    'R4_fwd',
+    'R4_rev',
+    'R5_fwd',
+    'R5_rev',
+    'R6_fwd',
+    'R6_rev',
+    'R7_fwd',
+    'R7_rev',
+    'R8_fwd',
+    'R8_rev'
+]
 
 stoich = {
     'R1_fwd': {'Substrate': -1, 'Nucleophilic': -1, 'ITS1': 1},
@@ -37,25 +61,41 @@ stoich = {
 }
 
 reaction_TS_map = {
-    'R1_fwd': 'TS1_fwd', 'R1_rev': 'TS1_rev',
-    'R2_fwd': 'TS2_fwd', 'R2_rev': 'TS2_rev',
-    'R3_fwd': 'TS3_fwd', 'R3_rev': 'TS3_rev',
-    'R4_fwd': 'TS4_fwd', 'R4_rev': 'TS4_rev',
-    'R5_fwd': 'TS12_fwd', 'R5_rev': 'TS12_rev',
-    'R6_fwd': 'TS22_fwd', 'R6_rev': 'TS22_rev',
-    'R7_fwd': 'TS32_fwd', 'R7_rev': 'TS32_rev',
-    'R8_fwd': 'TS42_fwd', 'R8_rev': 'TS42_rev',
+    'R1_fwd': 'TS1_fwd',
+    'R1_rev': 'TS1_rev',
+    'R2_fwd': 'TS2_fwd',
+    'R2_rev': 'TS2_rev',
+    'R3_fwd': 'TS3_fwd',
+    'R3_rev': 'TS3_rev',
+    'R4_fwd': 'TS4_fwd',
+    'R4_rev': 'TS4_rev',
+    'R5_fwd': 'TS12_fwd',
+    'R5_rev': 'TS12_rev',
+    'R6_fwd': 'TS22_fwd',
+    'R6_rev': 'TS22_rev',
+    'R7_fwd': 'TS32_fwd',
+    'R7_rev': 'TS32_rev',
+    'R8_fwd': 'TS42_fwd',
+    'R8_rev': 'TS42_rev',
 }
 
 reaction_reactants_map = {
-    'R1_fwd': ['Substrate', 'Nucleophilic'], 'R1_rev': ['ITS1'],
-    'R2_fwd': ['Substrate', 'Nucleophilic'], 'R2_rev': ['ITS2'],
-    'R3_fwd': ['Product2', 'Nucleophilic'], 'R3_rev': ['ITS3'],
-    'R4_fwd': ['Product1', 'Nucleophilic'], 'R4_rev': ['ITS4'],
-    'R5_fwd': ['ITS1'], 'R5_rev': ['Product1', 'LeavingGroup'],
-    'R6_fwd': ['ITS2'], 'R6_rev': ['Product2', 'LeavingGroup'],
-    'R7_fwd': ['ITS3'], 'R7_rev': ['Product3', 'LeavingGroup'],
-    'R8_fwd': ['ITS4'], 'R8_rev': ['Product3', 'LeavingGroup'],
+    'R1_fwd': ['Substrate', 'Nucleophilic'],
+    'R1_rev': ['ITS1'],
+    'R2_fwd': ['Substrate', 'Nucleophilic'],
+    'R2_rev': ['ITS2'],
+    'R3_fwd': ['Product2', 'Nucleophilic'],
+    'R3_rev': ['ITS3'],
+    'R4_fwd': ['Product1', 'Nucleophilic'],
+    'R4_rev': ['ITS4'],
+    'R5_fwd': ['ITS1'],
+    'R5_rev': ['Product1', 'LeavingGroup'],
+    'R6_fwd': ['ITS2'],
+    'R6_rev': ['Product2', 'LeavingGroup'],
+    'R7_fwd': ['ITS3'],
+    'R7_rev': ['Product3', 'LeavingGroup'],
+    'R8_fwd': ['ITS4'],
+    'R8_rev': ['Product3', 'LeavingGroup'],
 }
 
 molar_masses = {
@@ -71,15 +111,24 @@ molar_masses = {
     "LeavingGroup": 0.020,
 }
 
-def interpolate_value(df, x_col, y_col, x_val):
+def interpolate_value(
+        df: pd.Dataframe,
+        x_col: str,
+        y_col: str,
+        x_val: float,
+) -> float:
+    """Interpolates the grid values in the excel sheets"""
     df_sorted = df.sort_values(by=x_col)
-    return np.interp(x_val, df_sorted[x_col], df_sorted[y_col])
+    return float(np.interp(x_val, df_sorted[x_col], df_sorted[y_col]))
 
-def get_k_gas(T, reaction):
-    return interpolate_value(kinetics_df, "Temperature", reaction_TS_map[reaction], T)
+def get_k_gas(T: float, reaction: str) -> float:
+    """Returns the gas phase rate constant for a reaction at temperature T"""
+    return interpolate_value(
+        kinetics_dataframe, "Temperature", reaction_TS_map[reaction], T
+    )
 
-def get_gsolv(T, species_name):
-    return interpolate_value(gsolv_df, "Temperature (K)", species_name, T)
+def get_gsolv(T: float, species_name: str) -> float:
+    return interpolate_value(gsolv_dataframe, "Temperature (K)", species_name, T)
 
 def get_correction_factor(T, reaction):
     ts = reaction_TS_map[reaction]
