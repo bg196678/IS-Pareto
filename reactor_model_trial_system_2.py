@@ -35,7 +35,7 @@ for index, row in experimental_data.iterrows():
 
     result = simulate_reactor(
         T_C=temperature,
-        conc_substrate=concentration,
+        conc_reactant1=concentration,
         ratio=ratio,
         t_res_min=tres_min,
     )

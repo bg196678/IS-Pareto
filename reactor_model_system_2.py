@@ -5,6 +5,11 @@ from pyomo.dae import *
 
 kinetics_dataframe = pd.read_excel("data/system_2/kinetics.xlsx")
 gsolv_dataframe = pd.read_excel("data/system_2/gsolv.xlsx")
+gsolv_dataframe = gsolv_dataframe.rename(columns={
+    'HBr': 'LeavingGroup',
+    "Reactant1": 'Reactant2',
+    "Reactant2": 'Reactant1',
+})
 
 R = 8.3145  # J/mol/K
 
@@ -87,10 +92,10 @@ def get_correction_factor(T, reaction):
              ) * 4184
     return np.exp(-deltaG / (R * T))
 
-def simulate_reactor(T_C, conc_substrate, ratio, t_res_min):
+def simulate_reactor(T_C, conc_reactant1, ratio, t_res_min):
     T = T_C + 273.15
     t_res = t_res_min * 60
-    conc_nucleophilic = conc_substrate * ratio
+    conc_reactant2 = conc_reactant1 * ratio
 
     k_values = {
         r: get_k_gas(T, r) * get_correction_factor(T, r) for r in reactions
@@ -118,8 +123,8 @@ def simulate_reactor(T_C, conc_substrate, ratio, t_res_min):
     )
 
     def init_conds(m):
-        m.C["Reactant1", 0].fix(conc_substrate)
-        m.C["Reactant2", 0].fix(conc_nucleophilic)
+        m.C["Reactant1", 0].fix(conc_reactant1)
+        m.C["Reactant2", 0].fix(conc_reactant2)
         for sp in species:
             if sp not in ["Reactant1", "Reactant2"]:
                 m.C[sp, 0].fix(0.0)
@@ -134,12 +139,12 @@ def simulate_reactor(T_C, conc_substrate, ratio, t_res_min):
 
     c_raw = {sp: value(model.C[sp, t_res]) for sp in species}
     mass_in = (
-            conc_substrate * molar_masses["Reactant1"] +
-           conc_nucleophilic * molar_masses["Reactant2"]
+            conc_reactant1 * molar_masses["Reactant1"] +
+           conc_reactant2 * molar_masses["Reactant2"]
     )
     mass_sim = sum(c_raw[sp] * molar_masses[sp] for sp in species)
 
-    norm_factor = min(1.0, mass_in / mass_sim)
+    norm_factor = mass_in / mass_sim
 
     c_end_normed = {sp: c_raw[sp] * norm_factor for sp in species}
     c_end = {sp: c_raw[sp] for sp in species}
