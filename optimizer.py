@@ -91,7 +91,7 @@ for i in range(num_initial_samples):
 # Optimization Strategy
 ###################
 
-num_samples = 70
+num_samples = 250
 tsemo_strategy = TSEMO(
     domain=domain
 )
