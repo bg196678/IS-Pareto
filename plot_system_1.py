@@ -69,7 +69,10 @@ def plot_pareto_front(
     plt.legend(fontsize=15)
     plt.grid(True, linestyle='--', alpha=0.5)
     plt.tight_layout()
-    file_path = f"plots/pareto_fronts/pareto_front_iteration_{iteration}.png"
+    file_path = (
+        f"plots//system_1/pareto_fronts/"
+        f"pareto_front_iteration_{iteration}.png"
+    )
     plt.savefig(
         file_path,
         dpi=300
@@ -79,7 +82,7 @@ def plot_pareto_front(
 
 if __name__ == "__main__":
 
-    results_dataframe = pd.read_csv('data/tsemo_results.csv')
+    results_dataframe = pd.read_csv('data/system_1/tsemo_results.csv')
     num_starting_points = 5
     num_lhs_points = 20
 
@@ -93,7 +96,7 @@ if __name__ == "__main__":
         frame_paths.append(frame_path)
 
     with imageio.get_writer(
-            "plots/pareto_front_animation.gif",
+            "plots/system_1/pareto_front_animation.gif",
             mode='I', duration=0.4, loop=0,
     ) as writer:
         for frame_path in frame_paths:

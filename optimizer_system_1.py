@@ -2,7 +2,7 @@ import pandas as pd
 from summit.domain import ContinuousVariable, Domain
 from summit.strategies import TSEMO, LHS
 from summit.utils.dataset import DataSet
-from reactor_model import simulate_reactor
+from reactor_model_system_1 import simulate_reactor
 
 ###################
 # Domain Definition
@@ -109,4 +109,6 @@ for i in range(num_samples):
     results_dataframe = pd.concat(
         [results_dataframe, evaluation], ignore_index=True
     )
-    results_dataframe.to_csv("data/tsemo_results.csv", index=False)
+    results_dataframe.to_csv(
+        "data/system_1/tsemo_results.csv", index=False
+    )

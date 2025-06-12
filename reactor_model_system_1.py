@@ -3,8 +3,8 @@ import numpy as np
 from pyomo.environ import *
 from pyomo.dae import *
 
-kinetics_dataframe = pd.read_excel("data/kinetics.xlsx")
-gsolv_dataframe = pd.read_excel("data/gsolv.xlsx")
+kinetics_dataframe = pd.read_excel("data/system_1/kinetics.xlsx")
+gsolv_dataframe = pd.read_excel("data/system_1/gsolv.xlsx")
 
 R = 8.3145  # J/mol/K
 MAX_RATE = 1e5  # mol/(m³·s)

@@ -1,10 +1,10 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from reactor_model import simulate_reactor
+from reactor_model_system_1 import simulate_reactor
 
 
-experimental_data = pd.read_excel("data/experimental.xlsx")
+experimental_data = pd.read_excel("data/system_1/experimental.xlsx")
 
 # Simulated Reactor Data
 E_reactor = []
@@ -132,7 +132,7 @@ axes[1, 1].set_title('STY Relative Error Distribution')
 axes[1, 2].boxplot([STY_abs_errors], labels=['STY'])
 axes[1, 2].set_ylabel('Absolute Error')
 axes[1, 2].set_title('STY Absolute Error Box Plot')
-plt.savefig("plots/reactor_model_analysis.png")
+plt.savefig("plots/system_1/reactor_model_analysis.png")
 plt.tight_layout()
 plt.show()
 
@@ -175,7 +175,7 @@ plt.ylabel("Korrelationskoeffizient")
 plt.axhline(0, color="black", linewidth=0.8)
 plt.xticks(rotation=0)
 plt.tight_layout()
-plt.savefig("plots/sty_correlation.png")
+plt.savefig("plots/system_1/sty_correlation.png")
 plt.show()
 
 plt.figure(figsize=(8, 5))
@@ -185,5 +185,5 @@ plt.ylabel("Korrelationskoeffizient")
 plt.axhline(0, color="black", linewidth=0.8)
 plt.xticks(rotation=0)
 plt.tight_layout()
-plt.savefig("plots/e_factor_correlation.png")
+plt.savefig("plots/system_1/e_factor_correlation.png")
 plt.show()
