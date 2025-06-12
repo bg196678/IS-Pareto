@@ -7,7 +7,6 @@ kinetics_dataframe = pd.read_excel("data/system_1/kinetics.xlsx")
 gsolv_dataframe = pd.read_excel("data/system_1/gsolv.xlsx")
 
 R = 8.3145  # J/mol/K
-MAX_RATE = 1e5  # mol/(m³·s)
 
 species = [
     'Substrate',
@@ -185,7 +184,7 @@ def simulate_reactor(T_C, conc_substrate, ratio, t_res_min):
         "dae.finite_difference"
     ).apply_to(model, nfe=200, scheme="BACKWARD")
     solver = SolverFactory("ipopt")
-    result = solver.solve(model, tee=False)
+    _ = solver.solve(model, tee=False)
 
     c_raw = {sp: value(model.C[sp, t_res]) for sp in species}
     mass_in = (
