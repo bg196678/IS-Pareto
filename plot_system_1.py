@@ -64,13 +64,13 @@ def plot_pareto_front(
     plt.ylim(0, 3)
     plt.xlabel('STY [kg/m³/h]', fontsize=18)
     plt.ylabel('E-Factor', fontsize=18)
-    plt.title(f'TS-Emo Optimization - Iteration {iteration}', fontsize=22)
+    plt.title(f'In-silicio closed loop multi-objective optimization - Iteration {iteration}', fontsize=16)
     plt.tick_params(axis='both', which='major', labelsize=15)
     plt.legend(fontsize=15)
     plt.grid(True, linestyle='--', alpha=0.5)
     plt.tight_layout()
     file_path = (
-        f"plots//system_1/pareto_fronts/"
+        f"plots/system_1/pareto_fronts/"
         f"pareto_front_iteration_{iteration}.png"
     )
     plt.savefig(

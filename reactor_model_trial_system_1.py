@@ -99,41 +99,66 @@ print(f"R²: {STY_r2:.4f}")
 
 
 
-fig, axes = plt.subplots(2, 3, figsize=(15, 10))
-
-axes[0, 0].scatter(E_experimental, E_reactor, alpha=0.6)
-axes[0, 0].plot([E_experimental.min(), E_experimental.max()],
-                [E_experimental.min(), E_experimental.max()], 'r--')
-axes[0, 0].set_xlabel('Experimental E-factor')
-axes[0, 0].set_ylabel('Model E-factor')
-axes[0, 0].set_title('E-factor: Model vs Experimental')
-
-axes[0, 1].hist(E_rel_errors, bins=20, edgecolor='black')
-axes[0, 1].set_xlabel('Relative Error (%)')
-axes[0, 1].set_ylabel('Frequency')
-axes[0, 1].set_title('E-factor Relative Error Distribution')
-
-axes[0, 2].boxplot([E_abs_errors], labels=['E-factor'])
-axes[0, 2].set_ylabel('Absolute Error')
-axes[0, 2].set_title('E-factor Absolute Error Box Plot')
-
-axes[1, 0].scatter(STY_experimental, STY_reactor, alpha=0.6)
-axes[1, 0].plot([STY_experimental.min(), STY_experimental.max()],
-                [STY_experimental.min(), STY_experimental.max()], 'r--')
-axes[1, 0].set_xlabel('Experimental STY')
-axes[1, 0].set_ylabel('Model STY')
-axes[1, 0].set_title('STY: Model vs Experimental')
-
-axes[1, 1].hist(STY_rel_errors, bins=20, edgecolor='black')
-axes[1, 1].set_xlabel('Relative Error (%)')
-axes[1, 1].set_ylabel('Frequency')
-axes[1, 1].set_title('STY Relative Error Distribution')
-
-axes[1, 2].boxplot([STY_abs_errors], labels=['STY'])
-axes[1, 2].set_ylabel('Absolute Error')
-axes[1, 2].set_title('STY Absolute Error Box Plot')
-plt.savefig("plots/system_1/reactor_model_analysis.png")
+# E-factor: Model vs Experimental
+plt.figure(figsize=(8, 6))
+plt.scatter(E_experimental, E_reactor, alpha=0.6)
+plt.plot([E_experimental.min(), E_experimental.max()],
+         [E_experimental.min(), E_experimental.max()], 'r--')
+plt.xlabel('Experimental E-factor')
+plt.ylabel('Model E-factor')
+plt.title('E-factor: Model vs Experimental')
 plt.tight_layout()
+plt.savefig("plots/system_1/e_factor_model_vs_experimental.png")
+plt.show()
+
+# E-factor Relative Error Distribution
+plt.figure(figsize=(8, 6))
+plt.hist(E_rel_errors, bins=20, edgecolor='black')
+plt.xlabel('Relative Error (%)')
+plt.ylabel('Frequency')
+plt.title('E-factor Relative Error Distribution')
+plt.tight_layout()
+plt.savefig("plots/system_1/e_factor_relative_error_distribution.png")
+plt.show()
+
+# E-factor Absolute Error Box Plot
+plt.figure(figsize=(8, 6))
+plt.boxplot([E_abs_errors], labels=['E-factor'])
+plt.ylabel('Absolute Error')
+plt.title('E-factor Absolute Error Box Plot')
+plt.tight_layout()
+plt.savefig("plots/system_1/e_factor_absolute_error_boxplot.png")
+plt.show()
+
+# STY: Model vs Experimental
+plt.figure(figsize=(8, 6))
+plt.scatter(STY_experimental, STY_reactor, alpha=0.6)
+plt.plot([STY_experimental.min(), STY_experimental.max()],
+         [STY_experimental.min(), STY_experimental.max()], 'r--')
+plt.xlabel('Experimental STY')
+plt.ylabel('Model STY')
+plt.title('STY: Model vs Experimental')
+plt.tight_layout()
+plt.savefig("plots/system_1/sty_model_vs_experimental.png")
+plt.show()
+
+# STY Relative Error Distribution
+plt.figure(figsize=(8, 6))
+plt.hist(STY_rel_errors, bins=20, edgecolor='black')
+plt.xlabel('Relative Error (%)')
+plt.ylabel('Frequency')
+plt.title('STY Relative Error Distribution')
+plt.tight_layout()
+plt.savefig("plots/system_1/sty_relative_error_distribution.png")
+plt.show()
+
+# STY Absolute Error Box Plot
+plt.figure(figsize=(8, 6))
+plt.boxplot([STY_abs_errors], labels=['STY'])
+plt.ylabel('Absolute Error')
+plt.title('STY Absolute Error Box Plot')
+plt.tight_layout()
+plt.savefig("plots/system_1/sty_absolute_error_boxplot.png")
 plt.show()
 
 
@@ -170,8 +195,8 @@ e_corr = pd.DataFrame({
 
 plt.figure(figsize=(8, 5))
 sty_corr.plot(kind="bar", ax=plt.gca())
-plt.title("Korrelation der Parameter mit STY")
-plt.ylabel("Korrelationskoeffizient")
+plt.title("Correlation of Parameters with STY")
+plt.ylabel("Correlation Coefficient")
 plt.axhline(0, color="black", linewidth=0.8)
 plt.xticks(rotation=0)
 plt.tight_layout()
@@ -180,8 +205,8 @@ plt.show()
 
 plt.figure(figsize=(8, 5))
 e_corr.plot(kind="bar", ax=plt.gca())
-plt.title("Korrelation der Parameter mit E-Factor")
-plt.ylabel("Korrelationskoeffizient")
+plt.title("Correlation of Parameters with E-Factor")
+plt.ylabel("Correlation Coefficient")
 plt.axhline(0, color="black", linewidth=0.8)
 plt.xticks(rotation=0)
 plt.tight_layout()
