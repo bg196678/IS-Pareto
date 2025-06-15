@@ -52,8 +52,9 @@ class Reactor(ReactionInput):
         self.kinetics = kinetics
         self.solvation = solvation
 
+    @staticmethod
     def _convert_conditions(
-            self, conditions: ReactorConditions
+            conditions: ReactorConditions
     ) -> ReactorConditions:
         conditions_converted = ReactorConditions(
             temperature=conditions.temperature + 273.15,  # Kelvin
