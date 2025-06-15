@@ -7,8 +7,11 @@ class Species:
     name: str
     """Name Identifier for the Species"""
 
-    mass: float
+    mass: float | None
     """Mass of the Species"""
+
+    energy: float | None
+    """Energy (high fidelity) correction of the Species (not necessary)"""
 
     fchk_file_path: Path
     """Gaussian Fchk File Path"""
@@ -16,8 +19,9 @@ class Species:
     def __init__(
             self,
             name: str,
-            mass: float,
+            mass: float | None,
             fchk_file_path: Path,
+            energy: float | None = None
     ):
         self._logger: logging.Logger = logging.getLogger(
             f"Species('{name}')"
@@ -25,6 +29,7 @@ class Species:
 
         self.name = name
         self.mass = mass
+        self.energy = energy
         self.fchk_file_path = fchk_file_path
 
     def __eq__(self, other):
@@ -53,6 +58,19 @@ class Product(Species):
 
 class TransitionState(Species):
     """Transition states"""
+
+    def __init__(
+            self,
+            name: str,
+            fchk_file_path: Path,
+            energy: float | None = None,
+    ) -> None:
+        super().__init__(
+            name=name,
+            mass=None, # Transition States do not need mass
+            fchk_file_path=fchk_file_path,
+            energy=energy,
+        )
 
 
 class ReactionTerm:
@@ -109,10 +127,13 @@ class Reaction:
     name: str | None = None
     """Name Identifier for the Reaction"""
 
+    transition_state: TransitionState | None = None
+
     def __init__(
             self,
             name: str | None = None,
             stoichiometry: dict[Species, int] | None = None,
+            transition_state: TransitionState | None = None,
     ):
         """
         Initialize a Reaction with stoichiometry
@@ -124,6 +145,7 @@ class Reaction:
             name or __class__.__name__
         )
         self.name = name
+        self.transition_state = transition_state
         self.stoichiometry = stoichiometry or {}
         self.stoichiometry = {
             k: v for k, v in self.stoichiometry.items() if v != 0

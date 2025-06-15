@@ -48,11 +48,11 @@ class TestSpecies:
 
     def test_transition_state_inheritance(self):
         """Test TransitionState class inherits from Species"""
-        ts = TransitionState("TS1", 30.0, Path("/path/to/ts1.fchk"))
+        ts = TransitionState("TS1", Path("/path/to/ts1.fchk"))
 
         assert isinstance(ts, Species)
         assert ts.name == "TS1"
-        assert ts.mass == 30.0
+        assert ts.mass is None
 
     def test_species_equality_and_hash(self):
         """Test Species equality and hash for use as dict keys"""
