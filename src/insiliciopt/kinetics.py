@@ -14,7 +14,7 @@ from tamkin import (
 
 from insiliciopt.species import (
     Reaction,
-    Species, TransitionState,
+    Species,
 )
 
 
@@ -45,6 +45,8 @@ class Kinetics:
         self.reactions = reactions
         self.tunneling_correction = tunneling_correction
         self.gradient_threshold = gradient_threshold
+
+        self._kinetics_models = {}
 
         self._check_input()
         self._construct_kinetics_model()
