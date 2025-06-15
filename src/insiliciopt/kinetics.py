@@ -16,12 +16,10 @@ from insiliciopt.species import (
     Reaction,
     Species,
 )
+from insiliciopt.utils import ReactionInput
 
 
-class Kinetics:
-
-    reactions: list[Reaction]
-    """Contains the Reactions present in the System"""
+class Kinetics(ReactionInput):
 
     tunneling_correction: str | None
     """Includes Tunneling into the Kinetics calculation, types are:
@@ -40,9 +38,9 @@ class Kinetics:
             tunneling_correction: str | None = None,
             gradient_threshold: float = 4e-3,
     ):
+        super().__init__(reactions)
         self._logger: logging.Logger = logging.getLogger(__class__.__name__)
 
-        self.reactions = reactions
         self.tunneling_correction = tunneling_correction
         self.gradient_threshold = gradient_threshold
 
@@ -50,24 +48,6 @@ class Kinetics:
 
         self._check_input()
         self._construct_kinetics_model()
-
-    def _check_input(self):
-
-        for reaction in self.reactions:
-            if not isinstance(reaction, Reaction):
-                raise TypeError(
-                    "Reaction must be a list of insiliciopt.Reactions"
-                )
-
-            if not reaction.reactants:
-                raise ValueError(
-                    "Reaction must have at least one reactant"
-                )
-
-            if not reaction.transition_state:
-                raise ValueError(
-                    "Reaction must have one transition state"
-                )
 
     def _construct_tunneling_correction(
             self,
