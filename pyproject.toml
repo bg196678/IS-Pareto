@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "insiliciopt"
+version = "0.1.0"
+description = "In Silicio Multi Objective Optimization"
+readme = "README.md"
+authors = [
+    {name = "Bjoern Grandke"},
+    {name = "Lennart Thiele"}
+]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = "==3.10"
+dependencies = [
+    "summit",
+    "pyomo",
+    "openpyxl",
+    "scikit-learn==1.0.2"
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
