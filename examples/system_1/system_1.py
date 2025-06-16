@@ -181,8 +181,8 @@ ts_1_2_rev = TransitionState(
 ts_2_2_fwd = TransitionState(
     name="TS22_fwd",
     fchk_file_path=gaussian_dir / "TS22_fwd.fchk",
-    energy=-847.729373816,
     # TODO
+    energy=-847.729373816,
 )
 
 ts_2_2_rev = TransitionState(

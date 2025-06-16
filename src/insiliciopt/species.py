@@ -16,7 +16,7 @@ class Species:
     fchk_file_path: Path
     """Gaussian Fchk File Path"""
 
-    tab_file_path: Path | None
+    tab_file_path: Path
     """Cosmotherm Tab File Path"""
 
     def __init__(
@@ -24,7 +24,7 @@ class Species:
             name: str,
             mass: float | None,
             fchk_file_path: Path,
-            tab_file_path: Path | None = None,
+            tab_file_path: Path,
             energy: float | None = None
     ):
         self._logger: logging.Logger = logging.getLogger(
