@@ -1,0 +1,306 @@
+
+ Property  job 1 : Henry law coefficients H ;
+ Settings  job 1 : T= 333.65 K ; x(1)= 1.0000 ;
+ Units     job 1 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 1 : Free energy of solvation in molar frame ; Solvent density = 729.734 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      0.45909165        0.00000000    459.09164912       -4.55102148
+   2 Neu_Substrate                0.01051025        1.24633629      3.02228833       -7.05522084
+
+ Property  job 2 : Henry law coefficients H ;
+ Settings  job 2 : T= 337.95 K ; x(1)= 1.0000 ;
+ Units     job 2 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 2 : Free energy of solvation in molar frame ; Solvent density = 726.010 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      0.55000184        0.00000000    550.00183667       -4.49350311
+   2 Neu_Substrate                0.01316923        1.22643529      3.86301321       -6.99984879
+
+ Property  job 3 : Henry law coefficients H ;
+ Settings  job 3 : T= 344.75 K ; x(1)= 1.0000 ;
+ Units     job 3 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 3 : Free energy of solvation in molar frame ; Solvent density = 720.190 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      0.72340991        0.00000000    723.40990850       -4.40430121
+   2 Neu_Substrate                0.01852910        1.19473881      5.61029746       -6.91489924
+
+ Property  job 4 : Henry law coefficients H ;
+ Settings  job 4 : T= 347.85 K ; x(1)= 1.0000 ;
+ Units     job 4 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 4 : Free energy of solvation in molar frame ; Solvent density = 717.565 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      0.81596872        0.00000000    815.96871681       -4.36434209
+   2 Neu_Substrate                0.02152318        1.18023383      6.61207045       -6.87720097
+
+ Property  job 5 : Henry law coefficients H ;
+ Settings  job 5 : T= 352.55 K ; x(1)= 1.0000 ;
+ Units     job 5 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 5 : Free energy of solvation in molar frame ; Solvent density = 713.618 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      0.97431738        0.00000000    974.31738303       -4.30459208
+   2 Neu_Substrate                0.02683097        1.15821812      8.42613986       -6.82123269
+
+ Property  job 6 : Henry law coefficients H ;
+ Settings  job 6 : T= 353.85 K ; x(1)= 1.0000 ;
+ Units     job 6 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 6 : Free energy of solvation in molar frame ; Solvent density = 712.533 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      1.02221017        0.00000000   1022.21017037       -4.28824126
+   2 Neu_Substrate                0.02847852        1.15212865      8.99817368       -6.80599929
+
+ Property  job 7 : Henry law coefficients H ;
+ Settings  job 7 : T= 357.35 K ; x(1)= 1.0000 ;
+ Units     job 7 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 7 : Free energy of solvation in molar frame ; Solvent density = 709.626 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      1.16057450        0.00000000   1160.57449931       -4.24459498
+   2 Neu_Substrate                0.03333895        1.13574484     10.70789800       -6.76550678
+
+ Property  job 8 : Henry law coefficients H ;
+ Settings  job 8 : T= 361.95 K ; x(1)= 1.0000 ;
+ Units     job 8 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 8 : Free energy of solvation in molar frame ; Solvent density = 705.839 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      1.36468743        0.00000000   1364.68743317       -4.18805546
+   2 Neu_Substrate                0.04075858        1.11425856     13.37527412       -6.71341693
+
+ Property  job 9 : Henry law coefficients H ;
+ Settings  job 9 : T= 365.35 K ; x(1)= 1.0000 ;
+ Units     job 9 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 9 : Free energy of solvation in molar frame ; Solvent density = 703.063 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      1.53305481        0.00000000   1533.05481027       -4.14685980
+   2 Neu_Substrate                0.04708063        1.09843042     15.69639752       -6.67571755
+
+ Property  job 10 : Henry law coefficients H ;
+ Settings  job 10 : T= 370.25 K ; x(1)= 1.0000 ;
+ Units     job 10 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 10 : Free energy of solvation in molar frame ; Solvent density = 699.097 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      1.80402341        0.00000000   1804.02340917       -4.08836591
+   2 Neu_Substrate                0.05759745        1.07572772     19.64357915       -6.62254880
+
+ Property  job 11 : Henry law coefficients H ;
+ Settings  job 11 : T= 377.05 K ; x(1)= 1.0000 ;
+ Units     job 11 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 11 : Free energy of solvation in molar frame ; Solvent density = 693.659 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      2.24052859        0.00000000   2240.52859240       -4.00887563
+   2 Neu_Substrate                0.07531989        1.04449424     26.50278822       -6.55095849
+
+ Property  job 12 : Henry law coefficients H ;
+ Settings  job 12 : T= 378.25 K ; x(1)= 1.0000 ;
+ Units     job 12 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 12 : Free energy of solvation in molar frame ; Solvent density = 692.707 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      2.32538642        0.00000000   2325.38642001       -3.99504816
+   2 Neu_Substrate                0.07886613        1.03902096     27.90290827       -6.53858183
+
+ Property  job 13 : Henry law coefficients H ;
+ Settings  job 13 : T= 384.15 K ; x(1)= 1.0000 ;
+ Units     job 13 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 13 : Free energy of solvation in molar frame ; Solvent density = 688.061 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      2.77929633        0.00000000   2779.29632792       -3.92792195
+   2 Neu_Substrate                0.09833641        1.01230241     35.73361962       -6.47881526
+
+ Property  job 14 : Henry law coefficients H ;
+ Settings  job 14 : T= 384.75 K ; x(1)= 1.0000 ;
+ Units     job 14 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 14 : Free energy of solvation in molar frame ; Solvent density = 687.592 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      2.82900467        0.00000000   2829.00466775       -3.92117475
+   2 Neu_Substrate                0.10051705        1.00960424     36.62471070       -6.47283656
+
+ Property  job 15 : Henry law coefficients H ;
+ Settings  job 15 : T= 388.35 K ; x(1)= 1.0000 ;
+ Units     job 15 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 15 : Free energy of solvation in molar frame ; Solvent density = 684.788 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      3.14168368        0.00000000   3141.68368497       -3.88099461
+   2 Neu_Substrate                0.11443753        0.99349405     42.37400146       -6.43734044
+
+ Property  job 16 : Henry law coefficients H ;
+ Settings  job 16 : T= 389.45 K ; x(1)= 1.0000 ;
+ Units     job 16 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 16 : Free energy of solvation in molar frame ; Solvent density = 683.936 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      3.24227937        0.00000000   3242.27937065       -3.86882027
+   2 Neu_Substrate                0.11898797        0.98859932     44.27512780       -6.42662144
+
+ Property  job 17 : Henry law coefficients H ;
+ Settings  job 17 : T= 394.65 K ; x(1)= 1.0000 ;
+ Units     job 17 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 17 : Free energy of solvation in molar frame ; Solvent density = 679.931 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      3.75128746        0.00000000   3751.28746287       -3.81191253
+   2 Neu_Substrate                0.14251355        0.96564660     54.26017077       -6.37673699
+
+ Property  job 18 : Henry law coefficients H ;
+ Settings  job 18 : T= 395.75 K ; x(1)= 1.0000 ;
+ Units     job 18 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 18 : Free energy of solvation in molar frame ; Solvent density = 679.089 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      3.86626787        0.00000000   3866.26786622       -3.80000918
+   2 Neu_Substrate                0.14793779        0.96083197     56.59722209       -6.36634830
+
+ Property  job 19 : Henry law coefficients H ;
+ Settings  job 19 : T= 397.95 K ; x(1)= 1.0000 ;
+ Units     job 19 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 19 : Free energy of solvation in molar frame ; Solvent density = 677.411 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      4.10415403        0.00000000   4104.15403254       -3.77634213
+   2 Neu_Substrate                0.15928184        0.95124697     61.52405421       -6.34573930
+
+ Property  job 20 : Henry law coefficients H ;
+ Settings  job 20 : T= 399.85 K ; x(1)= 1.0000 ;
+ Units     job 20 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 20 : Free energy of solvation in molar frame ; Solvent density = 675.968 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      4.31828284        0.00000000   4318.28284096       -3.75605117
+   2 Neu_Substrate                0.16962853        0.94301747     66.06198419       -6.32811924
+
+ Property  job 21 : Henry law coefficients H ;
+ Settings  job 21 : T= 402.25 K ; x(1)= 1.0000 ;
+ Units     job 21 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 21 : Free energy of solvation in molar frame ; Solvent density = 674.153 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      4.60055564        0.00000000   4600.55563513       -3.73061582
+   2 Neu_Substrate                0.18345611        0.93268798     72.18898383       -6.30609562
+
+ Property  job 22 : Henry law coefficients H ;
+ Settings  job 22 : T= 402.85 K ; x(1)= 1.0000 ;
+ Units     job 22 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 22 : Free energy of solvation in molar frame ; Solvent density = 673.700 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      4.67321933        0.00000000   4673.21933433       -3.72429082
+   2 Neu_Substrate                0.18704923        0.93011725     73.79231431       -6.30062998
+
+ Property  job 23 : Henry law coefficients H ;
+ Settings  job 23 : T= 403.75 K ; x(1)= 1.0000 ;
+ Units     job 23 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 23 : Free energy of solvation in molar frame ; Solvent density = 673.023 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      4.78380931        0.00000000   4783.80930608       -3.71482857
+   2 Neu_Substrate                0.19254350        0.92626998     76.25264556       -6.29246146
+
+ Property  job 24 : Henry law coefficients H ;
+ Settings  job 24 : T= 405.15 K ; x(1)= 1.0000 ;
+ Units     job 24 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 24 : Free energy of solvation in molar frame ; Solvent density = 671.971 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      4.95968140        0.00000000   4959.68140200       -3.70016946
+   2 Neu_Substrate                0.20134393        0.92030658     80.21479535       -6.27982585
+
+ Property  job 25 : Henry law coefficients H ;
+ Settings  job 25 : T= 407.25 K ; x(1)= 1.0000 ;
+ Units     job 25 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 25 : Free energy of solvation in molar frame ; Solvent density = 670.399 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      5.23240097        0.00000000   5232.40097027       -3.67831684
+   2 Neu_Substrate                0.21513904        0.91141055     86.47660942       -6.26103294
+
+ Property  job 26 : Henry law coefficients H ;
+ Settings  job 26 : T= 407.35 K ; x(1)= 1.0000 ;
+ Units     job 26 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 26 : Free energy of solvation in molar frame ; Solvent density = 670.325 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      5.24565774        0.00000000   5245.65773689       -3.67728029
+   2 Neu_Substrate                0.21581412        0.91098842     86.78458846       -6.26014281
+
+ Property  job 27 : Henry law coefficients H ;
+ Settings  job 27 : T= 407.65 K ; x(1)= 1.0000 ;
+ Units     job 27 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 27 : Free energy of solvation in molar frame ; Solvent density = 670.101 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      5.28557665        0.00000000   5285.57665189       -3.67417284
+   2 Neu_Substrate                0.21784940        0.90972282     87.71396994       -6.25747500
+
+ Property  job 28 : Henry law coefficients H ;
+ Settings  job 28 : T= 410.95 K ; x(1)= 1.0000 ;
+ Units     job 28 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 28 : Free energy of solvation in molar frame ; Solvent density = 667.646 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      5.73958347        0.00000000   5739.58347017       -3.64020773
+   2 Neu_Substrate                0.24125371        0.89588248     98.49114353       -6.22838320
+
+ Property  job 29 : Henry law coefficients H ;
+ Settings  job 29 : T= 411.05 K ; x(1)= 1.0000 ;
+ Units     job 29 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 29 : Free energy of solvation in molar frame ; Solvent density = 667.572 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      5.75377294        0.00000000   5753.77294303       -3.63918466
+   2 Neu_Substrate                0.24199262        0.89546542     98.83401329       -6.22750885
+
+ Property  job 30 : Henry law coefficients H ;
+ Settings  job 30 : T= 412.55 K ; x(1)= 1.0000 ;
+ Units     job 30 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 30 : Free energy of solvation in molar frame ; Solvent density = 666.461 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      5.96971144        0.00000000   5969.71144303       -3.62388185
+   2 Neu_Substrate                0.25329160        0.88922624    104.09616558       -6.21444398
+
+ Property  job 31 : Henry law coefficients H ;
+ Settings  job 31 : T= 412.75 K ; x(1)= 1.0000 ;
+ Units     job 31 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 31 : Free energy of solvation in molar frame ; Solvent density = 666.314 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      5.99894444        0.00000000   5998.94444297       -3.62184759
+   2 Neu_Substrate                0.25482893        0.88839672    104.81487741       -6.21270911
+
+ Property  job 32 : Henry law coefficients H ;
+ Settings  job 32 : T= 412.95 K ; x(1)= 1.0000 ;
+ Units     job 32 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 32 : Free energy of solvation in molar frame ; Solvent density = 666.166 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      6.02828188        0.00000000   6028.28188435       -3.61981476
+   2 Neu_Substrate                0.25637358        0.88756777    105.53766531       -6.21097591
+
+ Property  job 33 : Henry law coefficients H ;
+ Settings  job 33 : T= 413.05 K ; x(1)= 1.0000 ;
+ Units     job 33 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 33 : Free energy of solvation in molar frame ; Solvent density = 666.092 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      6.04298983        0.00000000   6042.98983255       -3.61879888
+   2 Neu_Substrate                0.25714866        0.88715351    105.90059319       -6.21010994
+
+ Property  job 34 : Henry law coefficients H ;
+ Settings  job 34 : T= 413.15 K ; x(1)= 1.0000 ;
+ Units     job 34 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 34 : Free energy of solvation in molar frame ; Solvent density = 666.018 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      6.05772397        0.00000000   6057.72396543       -3.61778337
+   2 Neu_Substrate                0.25792558        0.88673938    106.26454659       -6.20924438

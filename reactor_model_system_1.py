@@ -21,6 +21,19 @@ species = [
     'LeavingGroup'
 ]
 
+molar_masses = {
+    "Substrate": 0.159,
+    "Nucleophilic": 0.071,
+    "ITS1": 0.159 + 0.071,
+    "ITS2": 0.159 + 0.071,
+    "ITS3": 0.159 + 0.071 + 0.071,
+    "ITS4": 0.159 + 0.071 + 0.071,
+    "Product1": 0.21008046,
+    "Product2": 0.21008046,
+    "Product3": 0.26114773,
+    "LeavingGroup": 0.020,
+}
+
 reactions = [
     'R1_fwd',
     'R1_rev',

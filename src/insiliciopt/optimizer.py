@@ -75,10 +75,10 @@ class Optimizer(ABC):
     """Dataframe holding the results"""
 
     _results_columns_names: list[str] = [
-        "Temperature [Celsius]",
-        "Concentration [%]",
-        "Concentration Ratio",
-        "Time [Minutes]",
+        "Temperature[Celsius]",
+        "Concentration[%]",
+        "ConcentrationRatio",
+        "Time[Minutes]",
         "STY",
         "E",
     ]
@@ -241,12 +241,28 @@ class TSEmoOptimizer(Optimizer):
     def _construct_optimization_conditions(
             self, suggestion: DataSet
     ) -> _OptimizerConditions:
-        """Converst summit Dataset to Optimizer Conditions"""
+        """Convert summit Dataset to Optimizer Conditions"""
         data = suggestion.to_dict()["data"][0]
-        temperature = data[self._columns.index("Temperature")]
-        concentration = data[self._columns.index("Concentration")]
-        ratio = data[self._columns.index("Concentration Ratio")]
-        time = data[self._columns.index("Time")]
+        temperature = data[
+            self._columns.index(
+                self._results_columns_names[0]
+            )
+        ]
+        concentration = data[
+            self._columns.index(
+                self._results_columns_names[1]
+            )
+        ]
+        ratio = data[
+            self._columns.index(
+                self._results_columns_names[2]
+            )
+        ]
+        time = data[
+            self._columns.index(
+                self._results_columns_names[3]
+            )
+        ]
 
         optimization_conditions = _OptimizerConditions(
             temperature=temperature,
@@ -285,5 +301,6 @@ class TSEmoOptimizer(Optimizer):
 
     def run(self, num_iterations: int) -> None:
         """Runs the TSEMO optimizer"""
+        self._create_domain()
         self._run_lhs()
         self._run_tsemo(num_iterations=num_iterations)

@@ -65,6 +65,38 @@ class TestSpecies:
         assert hash(species1) == hash(species2)
         assert hash(species1) != hash(species3)
 
+    def test_species_addition(self):
+        """Test Species + Species creates a Reaction"""
+        species1 = Species("H2O", 18.015, Path("/path/to/h2o.fchk"))
+        species2 = Species("CO2", 44.01, Path("/path/to/co2.fchk"))
+
+        reaction = species1 + species2
+
+        assert isinstance(reaction, Reaction)
+        assert reaction.stoichiometry[species1] == 1
+        assert reaction.stoichiometry[species2] == 1
+
+    def test_species_subtraction(self):
+        """Test Species - Species creates a Reaction"""
+        species1 = Species("H2O", 18.015, Path("/path/to/h2o.fchk"))
+        species2 = Species("CO2", 44.01, Path("/path/to/co2.fchk"))
+
+        reaction = species1 - species2
+
+        assert isinstance(reaction, Reaction)
+        assert reaction.stoichiometry[species1] == 1
+        assert reaction.stoichiometry[species2] == -1
+
+    def test_species_invalid_operations(self):
+        """Test Species with invalid types"""
+        species = Species("H2O", 18.015, Path("/path/to/h2o.fchk"))
+
+        with pytest.raises(TypeError):
+            species + "invalid"
+
+        with pytest.raises(TypeError):
+            species - 42
+
 
 class TestReactionTerm:
     """Tests for ReactionTerm class"""
@@ -126,6 +158,30 @@ class TestReactionTerm:
 
         with pytest.raises(TypeError):
             term - 42
+
+    def test_species_add_reaction_term(self):
+        """Test Species + ReactionTerm"""
+        species1 = Species("H2O", 18.015, Path("/path/to/h2o.fchk"))
+        species2 = Species("CO2", 44.01, Path("/path/to/co2.fchk"))
+        term = ReactionTerm(species2, 2)
+
+        reaction = species1 + term
+
+        assert isinstance(reaction, Reaction)
+        assert reaction.stoichiometry[species1] == 1
+        assert reaction.stoichiometry[species2] == 2
+
+    def test_species_sub_reaction_term(self):
+        """Test Species - ReactionTerm"""
+        species1 = Species("H2O", 18.015, Path("/path/to/h2o.fchk"))
+        species2 = Species("CO2", 44.01, Path("/path/to/co2.fchk"))
+        term = ReactionTerm(species2, 2)
+
+        reaction = species1 - term
+
+        assert isinstance(reaction, Reaction)
+        assert reaction.stoichiometry[species1] == 1
+        assert reaction.stoichiometry[species2] == -2
 
 
 class TestReaction:
@@ -262,6 +318,36 @@ class TestReaction:
         repr_str = repr(reaction)
         assert "Reaction(" in repr_str
         assert str(stoich) in repr_str
+
+    def test_species_add_reaction(self):
+        """Test Species + Reaction"""
+        species1 = Species("H2O", 18.015, Path("/path/to/h2o.fchk"))
+        species2 = Species("CO2", 44.01, Path("/path/to/co2.fchk"))
+        species3 = Species("CH4", 16.04, Path("/path/to/ch4.fchk"))
+
+        reaction = Reaction(stoichiometry={species2: -1, species3: 1})
+
+        result = species1 + reaction
+
+        assert isinstance(result, Reaction)
+        assert result.stoichiometry[species1] == 1
+        assert result.stoichiometry[species2] == -1
+        assert result.stoichiometry[species3] == 1
+
+    def test_species_sub_reaction(self):
+        """Test Species - Reaction"""
+        species1 = Species("H2O", 18.015, Path("/path/to/h2o.fchk"))
+        species2 = Species("CO2", 44.01, Path("/path/to/co2.fchk"))
+        species3 = Species("CH4", 16.04, Path("/path/to/ch4.fchk"))
+
+        reaction = Reaction(stoichiometry={species2: -1, species3: 1})
+
+        result = species1 - reaction
+
+        assert isinstance(result, Reaction)
+        assert result.stoichiometry[species1] == 1
+        assert result.stoichiometry[species2] == 1  # Negated from -1
+        assert result.stoichiometry[species3] == -1  # Negated from 1
 
 
 class TestComplexStoichiometryReconstruction:

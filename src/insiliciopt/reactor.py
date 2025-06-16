@@ -79,7 +79,11 @@ class Reactor(ReactionInput):
             reaction: Reaction,
             time: float
     ) -> float:
-        rate = self.kinetics.k(reaction, self.conditions.temperature)
+        k = self.kinetics.k(reaction, self.conditions.temperature)
+        correction = self.solvation.correction_factor(
+            reaction, self.conditions.temperature
+        )
+        rate = k * correction
         for reactant in reaction.reactants:
             rate *= model.C[reactant, time]
         return rate
@@ -111,7 +115,7 @@ class Reactor(ReactionInput):
         model.mass_balance = Constraint(
             self.species, model.t, rule=self.__mass_balance
         )
-        model.init = BuildAction(rule=self.__init_conditions)
+        model.init = BuildAction(rule=lambda m: self.__init_conditions(m))
         return model
 
     def _extract_results(self, model: ConcreteModel) -> tuple[float, float]:

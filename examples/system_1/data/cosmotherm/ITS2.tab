@@ -1,0 +1,306 @@
+
+ Property  job 1 : Henry law coefficients H ;
+ Settings  job 1 : T= 333.65 K ; x(1)= 1.0000 ;
+ Units     job 1 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 1 : Free energy of solvation in molar frame ; Solvent density = 729.734 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      0.45909165        0.00000000    459.09164912       -4.55102148
+   2 ITS2                         6.6383E-16        2.12524371      7.9264E-14      -27.20677175
+
+ Property  job 2 : Henry law coefficients H ;
+ Settings  job 2 : T= 337.95 K ; x(1)= 1.0000 ;
+ Units     job 2 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 2 : Free energy of solvation in molar frame ; Solvent density = 726.010 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      0.55000184        0.00000000    550.00183667       -4.49350311
+   2 ITS2                         1.3817E-15        2.06802974      1.7469E-13      -27.07027787
+
+ Property  job 3 : Henry law coefficients H ;
+ Settings  job 3 : T= 344.75 K ; x(1)= 1.0000 ;
+ Units     job 3 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 3 : Free energy of solvation in molar frame ; Solvent density = 720.190 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      0.72340991        0.00000000    723.40990850       -4.40430121
+   2 ITS2                         4.2175E-15        1.98026353      5.8215E-13      -26.85859502
+
+ Property  job 4 : Henry law coefficients H ;
+ Settings  job 4 : T= 347.85 K ; x(1)= 1.0000 ;
+ Units     job 4 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 4 : Free energy of solvation in molar frame ; Solvent density = 717.565 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      0.81596872        0.00000000    815.96871681       -4.36434209
+   2 ITS2                         6.8974E-15        1.94134906      9.8985E-13      -26.76374192
+
+ Property  job 5 : Henry law coefficients H ;
+ Settings  job 5 : T= 352.55 K ; x(1)= 1.0000 ;
+ Units     job 5 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 5 : Free energy of solvation in molar frame ; Solvent density = 713.618 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      0.97431738        0.00000000    974.31738303       -4.30459208
+   2 ITS2                         1.4264E-14        1.88364943      2.1686E-12      -26.62184925
+
+ Property  job 6 : Henry law coefficients H ;
+ Settings  job 6 : T= 353.85 K ; x(1)= 1.0000 ;
+ Units     job 6 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 6 : Free energy of solvation in molar frame ; Solvent density = 712.533 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      1.02221017        0.00000000   1022.21017037       -4.28824126
+   2 ITS2                         1.7370E-14        1.86796482      2.6826E-12      -26.58300338
+
+ Property  job 7 : Henry law coefficients H ;
+ Settings  job 7 : T= 357.35 K ; x(1)= 1.0000 ;
+ Units     job 7 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 7 : Free energy of solvation in molar frame ; Solvent density = 709.626 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      1.16057450        0.00000000   1160.57449931       -4.24459498
+   2 ITS2                         2.9279E-14        1.82632475      4.7140E-12      -26.47926729
+
+ Property  job 8 : Henry law coefficients H ;
+ Settings  job 8 : T= 361.95 K ; x(1)= 1.0000 ;
+ Units     job 8 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 8 : Free energy of solvation in molar frame ; Solvent density = 705.839 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      1.36468743        0.00000000   1364.68743317       -4.18805546
+   2 ITS2                         5.7121E-14        1.77289073      9.7015E-12      -26.34477981
+
+ Property  job 9 : Henry law coefficients H ;
+ Settings  job 9 : T= 365.35 K ; x(1)= 1.0000 ;
+ Units     job 9 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 9 : Free energy of solvation in molar frame ; Solvent density = 703.063 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      1.53305481        0.00000000   1533.05481027       -4.14685980
+   2 ITS2                         9.2437E-14        1.73432949      1.6317E-11      -26.24670038
+
+ Property  job 10 : Henry law coefficients H ;
+ Settings  job 10 : T= 370.25 K ; x(1)= 1.0000 ;
+ Units     job 10 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 10 : Free energy of solvation in molar frame ; Solvent density = 699.097 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      1.80402341        0.00000000   1804.02340917       -4.08836591
+   2 ITS2                         1.8166E-13        1.68013251      3.3851E-11      -26.10728710
+
+ Property  job 11 : Henry law coefficients H ;
+ Settings  job 11 : T= 377.05 K ; x(1)= 1.0000 ;
+ Units     job 11 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 11 : Free energy of solvation in molar frame ; Solvent density = 693.659 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      2.24052859        0.00000000   2240.52859240       -4.00887563
+   2 ITS2                         4.4841E-13        1.60756500      8.9851E-11      -25.91750893
+
+ Property  job 12 : Henry law coefficients H ;
+ Settings  job 12 : T= 378.25 K ; x(1)= 1.0000 ;
+ Units     job 12 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 12 : Free energy of solvation in molar frame ; Solvent density = 692.707 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      2.32538642        0.00000000   2325.38642001       -3.99504816
+   2 ITS2                         5.2386E-13        1.59507277      1.0629E-10      -25.88445495
+
+ Property  job 13 : Henry law coefficients H ;
+ Settings  job 13 : T= 384.15 K ; x(1)= 1.0000 ;
+ Units     job 13 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 13 : Free energy of solvation in molar frame ; Solvent density = 688.061 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      2.77929633        0.00000000   2779.29632792       -3.92792195
+   2 ITS2                         1.1069E-12        1.53499537      2.3849E-10      -25.72380135
+
+ Property  job 14 : Henry law coefficients H ;
+ Settings  job 14 : T= 384.75 K ; x(1)= 1.0000 ;
+ Units     job 14 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 14 : Free energy of solvation in molar frame ; Solvent density = 687.592 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      2.82900467        0.00000000   2829.00466775       -3.92117475
+   2 ITS2                         1.1926E-12        1.52900939      2.5850E-10      -25.70763496
+
+ Property  job 15 : Henry law coefficients H ;
+ Settings  job 15 : T= 388.35 K ; x(1)= 1.0000 ;
+ Units     job 15 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 15 : Free energy of solvation in molar frame ; Solvent density = 684.788 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      3.14168369        0.00000000   3141.68368507       -3.88099461
+   2 ITS2                         1.8550E-12        1.49356527      4.1658E-10      -25.61129031
+
+ Property  job 16 : Henry law coefficients H ;
+ Settings  job 16 : T= 389.45 K ; x(1)= 1.0000 ;
+ Units     job 16 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 16 : Free energy of solvation in molar frame ; Solvent density = 683.936 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      3.24227937        0.00000000   3242.27937065       -3.86882027
+   2 ITS2                         2.1191E-12        1.48289506      4.8098E-10      -25.58207341
+
+ Property  job 17 : Henry law coefficients H ;
+ Settings  job 17 : T= 394.65 K ; x(1)= 1.0000 ;
+ Units     job 17 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 17 : Free energy of solvation in molar frame ; Solvent density = 679.931 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      3.75128746        0.00000000   3751.28746299       -3.81191253
+   2 ITS2                         3.9285E-12        1.43345117      9.3688E-10      -25.44534167
+
+ Property  job 18 : Henry law coefficients H ;
+ Settings  job 18 : T= 395.75 K ; x(1)= 1.0000 ;
+ Units     job 18 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 18 : Free energy of solvation in molar frame ; Solvent density = 679.089 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      3.86626787        0.00000000   3866.26786634       -3.80000918
+   2 ITS2                         4.4655E-12        1.42320017      1.0759E-09      -25.41670737
+
+ Property  job 19 : Henry law coefficients H ;
+ Settings  job 19 : T= 397.95 K ; x(1)= 1.0000 ;
+ Units     job 19 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 19 : Free energy of solvation in molar frame ; Solvent density = 677.411 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      4.10415403        0.00000000   4104.15403254       -3.77634213
+   2 ITS2                         5.7556E-12        1.40291319      1.4152E-09      -25.35973859
+
+ Property  job 20 : Henry law coefficients H ;
+ Settings  job 20 : T= 399.85 K ; x(1)= 1.0000 ;
+ Units     job 20 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 20 : Free energy of solvation in molar frame ; Solvent density = 675.968 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      4.31828284        0.00000000   4318.28284096       -3.75605117
+   2 ITS2                         7.1470E-12        1.38562120      1.7880E-09      -25.31085762
+
+ Property  job 21 : Henry law coefficients H ;
+ Settings  job 21 : T= 402.25 K ; x(1)= 1.0000 ;
+ Units     job 21 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 21 : Free energy of solvation in molar frame ; Solvent density = 674.153 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      4.60055564        0.00000000   4600.55563528       -3.73061582
+   2 ITS2                         9.3630E-12        1.36407798      2.3933E-09      -25.24953245
+
+ Property  job 22 : Henry law coefficients H ;
+ Settings  job 22 : T= 402.85 K ; x(1)= 1.0000 ;
+ Units     job 22 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 22 : Free energy of solvation in molar frame ; Solvent density = 673.700 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      4.67321933        0.00000000   4673.21933447       -3.72429082
+   2 ITS2                         1.0011E-11        1.35874390      2.5727E-09      -25.23427378
+
+ Property  job 23 : Henry law coefficients H ;
+ Settings  job 23 : T= 403.75 K ; x(1)= 1.0000 ;
+ Units     job 23 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 23 : Free energy of solvation in molar frame ; Solvent density = 673.023 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      4.78380931        0.00000000   4783.80930608       -3.71482857
+   2 ITS2                         1.1063E-11        1.35078131      2.8658E-09      -25.21143995
+
+ Property  job 24 : Henry law coefficients H ;
+ Settings  job 24 : T= 405.15 K ; x(1)= 1.0000 ;
+ Units     job 24 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 24 : Free energy of solvation in molar frame ; Solvent density = 671.971 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      4.95968140        0.00000000   4959.68140200       -3.70016946
+   2 ITS2                         1.2911E-11        1.33848642      3.3858E-09      -25.17604937
+
+ Property  job 25 : Henry law coefficients H ;
+ Settings  job 25 : T= 407.25 K ; x(1)= 1.0000 ;
+ Units     job 25 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 25 : Free energy of solvation in molar frame ; Solvent density = 670.399 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      5.23240097        0.00000000   5232.40097027       -3.67831684
+   2 ITS2                         1.6239E-11        1.32025095      4.3368E-09      -25.12325554
+
+ Property  job 26 : Henry law coefficients H ;
+ Settings  job 26 : T= 407.35 K ; x(1)= 1.0000 ;
+ Units     job 26 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 26 : Free energy of solvation in molar frame ; Solvent density = 670.325 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      5.24565774        0.00000000   5245.65773689       -3.67728029
+   2 ITS2                         1.6416E-11        1.31938874      4.3879E-09      -25.12075024
+
+ Property  job 27 : Henry law coefficients H ;
+ Settings  job 27 : T= 407.65 K ; x(1)= 1.0000 ;
+ Units     job 27 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 27 : Free energy of solvation in molar frame ; Solvent density = 670.101 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      5.28557665        0.00000000   5285.57665189       -3.67417284
+   2 ITS2                         1.6958E-11        1.31680546      4.5446E-09      -25.11323909
+
+ Property  job 28 : Henry law coefficients H ;
+ Settings  job 28 : T= 410.95 K ; x(1)= 1.0000 ;
+ Units     job 28 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 28 : Free energy of solvation in molar frame ; Solvent density = 667.646 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      5.73958347        0.00000000   5739.58347017       -3.64020773
+   2 ITS2                         2.4160E-11        1.28871741      6.6590E-09      -25.03108234
+
+ Property  job 29 : Henry law coefficients H ;
+ Settings  job 29 : T= 411.05 K ; x(1)= 1.0000 ;
+ Units     job 29 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 29 : Free energy of solvation in molar frame ; Solvent density = 667.572 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      5.75377294        0.00000000   5753.77294303       -3.63918466
+   2 ITS2                         2.4418E-11        1.28787557      6.7358E-09      -25.02860601
+
+ Property  job 30 : Henry law coefficients H ;
+ Settings  job 30 : T= 412.55 K ; x(1)= 1.0000 ;
+ Units     job 30 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 30 : Free energy of solvation in molar frame ; Solvent density = 666.461 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      5.96971144        0.00000000   5969.71144303       -3.62388185
+   2 ITS2                         2.8614E-11        1.27531327      7.9931E-09      -24.99155412
+
+ Property  job 31 : Henry law coefficients H ;
+ Settings  job 31 : T= 412.75 K ; x(1)= 1.0000 ;
+ Units     job 31 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 31 : Free energy of solvation in molar frame ; Solvent density = 666.314 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      5.99894444        0.00000000   5998.94444297       -3.62184759
+   2 ITS2                         2.9222E-11        1.27364750      8.1766E-09      -24.98662702
+
+ Property  job 32 : Henry law coefficients H ;
+ Settings  job 32 : T= 412.95 K ; x(1)= 1.0000 ;
+ Units     job 32 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 32 : Free energy of solvation in molar frame ; Solvent density = 666.166 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      6.02828188        0.00000000   6028.28188435       -3.61981476
+   2 ITS2                         2.9843E-11        1.27198388      8.3642E-09      -24.98170301
+
+ Property  job 33 : Henry law coefficients H ;
+ Settings  job 33 : T= 413.05 K ; x(1)= 1.0000 ;
+ Units     job 33 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 33 : Free energy of solvation in molar frame ; Solvent density = 666.092 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      6.04298983        0.00000000   6042.98983255       -3.61879888
+   2 ITS2                         3.0158E-11        1.27115288      8.4595E-09      -24.97924216
+
+ Property  job 34 : Henry law coefficients H ;
+ Settings  job 34 : T= 413.15 K ; x(1)= 1.0000 ;
+ Units     job 34 : Energies in kcal/mol ; Pressure in mbar ; Henry constant in bar ; Concentrations x : mole fraction ;
+ General   job 34 : Free energy of solvation in molar frame ; Solvent density = 666.018 g/l ;
+ 
+  Nr Compound                              H         ln(gamma)              pv             Gsolv
+   1 ethanol                      6.05772397        0.00000000   6057.72396543       -3.61778337
+   2 ITS2                         3.0476E-11        1.27032242      8.5559E-09      -24.97678209

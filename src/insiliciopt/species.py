@@ -16,11 +16,15 @@ class Species:
     fchk_file_path: Path
     """Gaussian Fchk File Path"""
 
+    tab_file_path: Path | None
+    """Cosmotherm Tab File Path"""
+
     def __init__(
             self,
             name: str,
             mass: float | None,
             fchk_file_path: Path,
+            tab_file_path: Path | None = None,
             energy: float | None = None
     ):
         self._logger: logging.Logger = logging.getLogger(
@@ -30,7 +34,18 @@ class Species:
         self.name = name
         self.mass = mass
         self.energy = energy
+        self.tab_file_path = tab_file_path
         self.fchk_file_path = fchk_file_path
+
+        if not self.fchk_file_path.exists():
+            raise FileNotFoundError(
+                f"FCHK File not found: {self.fchk_file_path}"
+            )
+
+        if not self.tab_file_path.exists():
+            raise FileNotFoundError(
+                f"TAB File not found: {self.tab_file_path}"
+            )
 
     def __eq__(self, other):
         if not isinstance(other, Species):
@@ -40,6 +55,40 @@ class Species:
             self.mass == other.mass and
             self.fchk_file_path == other.fchk_file_path
         )
+
+    def __add__(self, other):
+        if isinstance(other, Species):
+            return Reaction(
+                stoichiometry={
+                    self: 1,
+                    other: 1
+                }
+            )
+        elif isinstance(other, ReactionTerm):
+            return ReactionTerm(species=self, coefficient=1) + other
+        elif isinstance(other, Reaction):
+            result = other.stoichiometry.copy()
+            result[self] = result.get(self, 0) + 1
+            return Reaction(stoichiometry=result)
+        else:
+            raise TypeError(f"Cannot add Species to {type(other)}")
+
+    def __sub__(self, other):
+        if isinstance(other, Species):
+            return Reaction(
+                stoichiometry={
+                    self: 1,
+                    other: -1
+                }
+            )
+        elif isinstance(other, ReactionTerm):
+            return ReactionTerm(species=self, coefficient=1) - other
+        elif isinstance(other, Reaction):
+            result = {k: -v for k, v in other.stoichiometry.items()}
+            result[self] = result.get(self, 0) + 1
+            return Reaction(stoichiometry=result)
+        else:
+            raise TypeError(f"Cannot subtract {type(other)} from Species")
 
     def __hash__(self):
         return hash((self.name, self.mass, str(self.fchk_file_path)))
@@ -63,11 +112,13 @@ class TransitionState(Species):
             self,
             name: str,
             fchk_file_path: Path,
+            tab_file_path: Path,
             energy: float | None = None,
     ) -> None:
         super().__init__(
             name=name,
             mass=None, # Transition States do not need mass
+            tab_file_path=tab_file_path,
             fchk_file_path=fchk_file_path,
             energy=energy,
         )
@@ -188,6 +239,11 @@ class Reaction:
                 result[species] = result.get(species, 0) + coef
             return Reaction(stoichiometry=result)
 
+        elif isinstance(other, Species):
+            result = self.stoichiometry.copy()
+            result[other] = result.get(other, 0) + 1
+            return Reaction(stoichiometry=result)
+
         else:
             raise TypeError(f"Cannot add Reaction to {type(other)}")
 
@@ -204,6 +260,11 @@ class Reaction:
             result = self.stoichiometry.copy()
             for species, coef in other.stoichiometry.items():
                 result[species] = result.get(species, 0) - coef
+            return Reaction(stoichiometry=result)
+
+        elif isinstance(other, Species):
+            result = self.stoichiometry.copy()
+            result[other] = result.get(other, 0) - 1
             return Reaction(stoichiometry=result)
 
         else:
