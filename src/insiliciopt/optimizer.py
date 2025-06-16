@@ -17,19 +17,16 @@ from insiliciopt.reactor import (
     Reactor,
     ReactorConditions,
 )
-from insiliciopt.species import (
-    Reactant,
-    Product,
-)
+from insiliciopt.species import Species
 
 
 @dataclass
 class OptimizationSpecies:
-    reactant_1: Reactant
+    reactant_1: Species
     """Reactant 1"""
-    reactant_2: Reactant
+    reactant_2: Species
     """Reactant 2"""
-    products: list[Product]
+    products: list[Species]
     """List of Products"""
 
 @dataclass
@@ -77,7 +74,7 @@ class Optimizer(ABC):
     results: pd.DataFrame
     """Dataframe holding the results"""
 
-    results_columns_names: list[str] = [
+    _results_columns_names: list[str] = [
         "Temperature [Celsius]",
         "Concentration [%]",
         "Concentration Ratio",
@@ -85,6 +82,9 @@ class Optimizer(ABC):
         "STY",
         "E",
     ]
+
+    _counter: int = 0
+    """Counter of iterations"""
 
     def __init__(
             self,
@@ -128,6 +128,12 @@ class Optimizer(ABC):
         )
         return rector_conditions
 
+    def _store_results(self) -> None:
+        self.results.to_csv(
+            self.output_directory / "results.csv",
+            index=False,
+        )
+
     def _add_to_result(
             self,
             E: float,
@@ -138,16 +144,16 @@ class Optimizer(ABC):
         results_columns_dataframe = pd.DataFrame(
             [
                 {
-                    self.results_columns_names[0]: conditions.temperature,
-                    self.results_columns_names[1]: (
+                    self._results_columns_names[0]: conditions.temperature,
+                    self._results_columns_names[1]: (
                         conditions.concentration_reactant_1
                     ),
-                    self.results_columns_names[2]: (
+                    self._results_columns_names[2]: (
                         conditions.concentration_ratio
                     ),
-                    self.results_columns_names[3]: conditions.time,
-                    self.results_columns_names[4]: STY,
-                    self.results_columns_names[5]: E,
+                    self._results_columns_names[3]: conditions.time,
+                    self._results_columns_names[4]: STY,
+                    self._results_columns_names[5]: E,
                 }
             ]
         )
@@ -155,10 +161,8 @@ class Optimizer(ABC):
             [self.results, results_columns_dataframe],
             ignore_index=True,
         )
-        self.results.to_csv(
-            self.output_directory / "results.csv",
-            index=False,
-        )
+
+        self._counter += 1
 
     def _simulate_reactor(
             self, conditions: _OptimizerConditions
@@ -187,45 +191,46 @@ class TSEmoOptimizer(Optimizer):
 
     def __init__(
             self,
+            species: OptimizationSpecies,
             boundaries: OptimizationBoundaries,
             reactor: Reactor,
             output_directory: Path,
             num_lhs_points: int = 20,
     ) -> None:
-        super().__init__(boundaries, reactor, output_directory)
+        super().__init__(species, boundaries, reactor, output_directory)
 
         self.num_lhs_points = num_lhs_points
 
     def _create_domain(self):
         domain = Domain()
         domain += ContinuousVariable(
-            self.results_columns_names[0],
+            self._results_columns_names[0],
             bounds=list(self.boundaries.temperature),
             description="Temperature Celsius",
         )
         domain += ContinuousVariable(
-            self.results_columns_names[1],
+            self._results_columns_names[1],
             bounds=list(self.boundaries.concentration_reactant_1),
             description="Concentration Reactant 1",
         )
         domain += ContinuousVariable(
-            self.results_columns_names[2],
+            self._results_columns_names[2],
             bounds=list(self.boundaries.concentration_ratio),
             description="Concentration Ratio",
         )
         domain += ContinuousVariable(
-            self.results_columns_names[3],
+            self._results_columns_names[3],
             bounds=list(self.boundaries.time),
             description="Time in Minutes",
         )
         domain += ContinuousVariable(
-            self.results_columns_names[4],
+            self._results_columns_names[4],
             is_objective=True,
             bounds=list(self.boundaries.STY),
             description="Space Time Yield Objective",
         )
         domain += ContinuousVariable(
-            self.results_columns_names[5],
+            self._results_columns_names[5],
             is_objective=True,
             bounds=list(self.boundaries.E_factor),
             description="Mass product waste factor objective",
