@@ -1,10 +1,14 @@
 import logging
 from dataclasses import dataclass
+
+from pyomo.core import BuildAction, TransformationFactory
 from pyomo.opt import SolverFactory
 from pyomo.environ import (
     ConcreteModel,
     Var,
     NonNegativeReals,
+    Constraint,
+    value,
 )
 from pyomo.dae.contset import ContinuousSet
 from pyomo.dae.diffvar import DerivativeVar
@@ -21,23 +25,26 @@ from insiliciopt.utils import ReactionInput
 class ReactorConditions:
     temperature: float
     """Temperature in Celsius"""
-    concentration_reactant_1: float
-    """Concentration in #TODO"""
-    reactant_1: Species
-    """Reactant 1"""
-    reactant_2: Species
-    """Reactant 2"""
-    ratio: float
-    """Ratio"""
+    concentrations: dict[Species, float]
+    """Dictionary of initial concentrations, all other species will be set 
+    to 0
+    """
+    products: list[Species]
+    """Products"""
     time: float
     """Time in Minutes"""
-    concentration_reactant_2: float | None = None
-    """Concentration Reactant 2 in # TODO"""
 
 
 class Reactor(ReactionInput):
 
+    conditions: ReactorConditions | None
+    """Reactor Conditions"""
+
     kinetics: Kinetics
+    """Kinetics"""
+
+    solvation: Solvation
+    """Solvation delta G"""
 
     def __init__(
             self,
@@ -51,34 +58,92 @@ class Reactor(ReactionInput):
 
         self.kinetics = kinetics
         self.solvation = solvation
+        self.conditions = None
 
-    @staticmethod
     def _convert_conditions(
+            self,
             conditions: ReactorConditions
     ) -> ReactorConditions:
         conditions_converted = ReactorConditions(
             temperature=conditions.temperature + 273.15,  # Kelvin
-            concentration_reactant_1=conditions.concentration_reactant_1,
-            reactant_1=conditions.reactant_1,
-            reactant_2=conditions.reactant_2,
-            ratio=conditions.ratio,
+            concentrations=conditions.concentrations,
+            products=conditions.products,
             time=conditions.time * 60, # Seconds
-            concentration_reactant_2=(
-                conditions.concentration_reactant_2 * conditions.ratio
-            ),
         )
+        self.conditions = conditions_converted
         return conditions_converted
 
-    def _setup_reactor(self, conditions: ReactorConditions) -> ConcreteModel:
+    def __rate_rule(
+            self,
+            model: ConcreteModel,
+            reaction: Reaction,
+            time: float
+    ) -> float:
+        rate = self.kinetics.k(reaction, self.conditions.temperature)
+        for reactant in reaction.reactants:
+            rate *= model.C[reactant, time]
+        return rate
+
+    def __mass_balance(
+            self,
+            model: ConcreteModel,
+            species: Species,
+            time: float,
+    ) -> bool:
+        return model.dCdt[species, time] == sum(
+            reaction.coefficient(species) * self.__rate_rule(
+                model, reaction, time
+            )
+            for reaction in self.reactions
+        )
+
+    def __init_conditions(self, model) -> None:
+        for species in self.species:
+            concentration = self.conditions.concentrations.get(species, 0.0)
+            model.C[species, 0].fix(concentration)
+
+    def _setup_reactor(self) -> ConcreteModel:
         """Setup the pyomo reactor"""
         model = ConcreteModel()
-        model.t = ContinuousSet(bounds=(0, conditions.time))
+        model.t = ContinuousSet(bounds=(0, self.conditions.time))
         model.C = Var(self.species, model.t, domain=NonNegativeReals)
         model.dCdt = DerivativeVar(model.C, wrt=model.t)
-
+        model.mass_balance = Constraint(
+            self.species, model.t, rule=self.__mass_balance
+        )
+        model.init = BuildAction(rule=self.__init_conditions)
         return model
+
+    def _extract_results(self, model: ConcreteModel) -> tuple[float, float]:
+        concentration = {
+            sp: value(model.C[sp, self.conditions.time])
+            for sp in self.species
+        }
+        mass_product = sum(
+            concentration[species] * species.mass
+            for species in self.conditions.products
+        )
+        mass_waste = sum(
+            concentration[species] * species.mass
+            for species in self.species
+            if species not in self.conditions.products
+        )
+
+        STY = 3600 * mass_product / self.conditions.time
+        E_factor = mass_waste / mass_product
+
+        return STY, E_factor
 
     def simulate(self, conditions: ReactorConditions) -> tuple[float, float]:
         """Returns E and STY for given starting conditions"""
-        conditions_converted = self._convert_conditions(conditions)
-        model = self._setup_reactor(conditions_converted)
+        self._convert_conditions(conditions)
+        model = self._setup_reactor()
+
+        TransformationFactory(
+            "dae.finite_difference"
+        ).apply_to(model, nfe=200, scheme="BACKWARD")
+        solver = SolverFactory("ipopt")
+        solver.solve(model, tee=False)
+
+        return self._extract_results(model)
+

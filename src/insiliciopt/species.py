@@ -171,6 +171,9 @@ class Reaction:
             if coeff > 0
         ]
 
+    def coefficient(self, species: Species) -> float:
+        return self.stoichiometry.get(species, 0)
+
     def __add__(self, other):
         if isinstance(other, ReactionTerm):
             result = self.stoichiometry.copy()
