@@ -60,10 +60,23 @@ class Reactor(ReactionInput):
         self.solvation = solvation
         self.conditions = None
 
+        self._logger.info(str(self))
+
+    def __repr__(self):
+        repr = "\n\nREACTOR:\n"
+        repr += f"  Num Reactions: {len(self.reactions)}\n"
+        repr += f"  Num Species: {len(self.species)}\n"
+        repr += f"  Num Transition States: {len(self.transition_states)}\n"
+        return repr
+
     def _convert_conditions(
             self,
             conditions: ReactorConditions
     ) -> ReactorConditions:
+        self._logger.debug(
+            f"Conditions: {conditions}"
+        )
+
         conditions_converted = ReactorConditions(
             temperature=conditions.temperature + 273.15,  # Kelvin
             concentrations=conditions.concentrations,
@@ -71,6 +84,10 @@ class Reactor(ReactionInput):
             time=conditions.time * 60, # Seconds
         )
         self.conditions = conditions_converted
+
+        self._logger.debug(
+            f"Converted conditions: {conditions_converted}"
+        )
         return conditions_converted
 
     def __rate_rule(
@@ -133,10 +150,14 @@ class Reactor(ReactionInput):
             if species not in self.conditions.products
         )
 
-        STY = 3600 * mass_product / self.conditions.time
-        E_factor = mass_waste / mass_product
+        sty = 3600 * mass_product / self.conditions.time
+        e_factor = mass_waste / mass_product
 
-        return STY, E_factor
+        self._logger.debug(
+            f"Result: E={e_factor} - STY={sty}"
+        )
+
+        return sty, e_factor
 
     def simulate(self, conditions: ReactorConditions) -> tuple[float, float]:
         """Returns E and STY for given starting conditions"""

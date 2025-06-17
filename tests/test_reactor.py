@@ -126,27 +126,27 @@ class TestSystem1Reactor:
 
             STY, E = reactor.simulate(reactor_conditions)
 
-            # assert np.isclose(
-            #     E, expected_E, rtol=0.15, atol=0.3
-            # ), (
-            #     f"(Conditions: '{row}') "
-            #     f"at {temperature}K: Calculated={E:.4e}, "
-            #     f"Excel={expected_E:.4e}"
-            # )
-            print("="*20)
-            print("STY:", STY)
-            print("Excel STY:", exptected_STY)
-            print("E:", E)
-            print("Excel E:", expected_E)
-            print("="*20)
+            assert np.isclose(
+                E, expected_E, rtol=0.15, atol=0.3
+            ), (
+                f"(Conditions: '{row}') "
+                f"at {temperature}K: Calculated={E:.4e}, "
+                f"Excel={expected_E:.4e}"
+            )
+            # print("="*20)
+            # print("STY:", STY)
+            # print("Excel STY:", exptected_STY)
+            # print("E:", E)
+            # print("Excel E:", expected_E)
+            # print("="*20)
 
-            # assert np.isclose(
-            #     STY, exptected_STY, rtol=0.10, atol=1250
-            # ), (
-            #     f"(Conditions: '{row}') "
-            #     f"at {temperature}K: Calculated={STY:.4e}, "
-            #     f"Excel={exptected_STY:.4e}"
-            # )
+            assert np.isclose(
+                STY, exptected_STY, rtol=0.10, atol=1250
+            ), (
+                f"(Conditions: '{row}') "
+                f"at {temperature}K: Calculated={STY:.4e}, "
+                f"Excel={exptected_STY:.4e}"
+            )
 
 
 

@@ -49,6 +49,17 @@ class Kinetics(ReactionInput):
         self._check_input()
         self._construct_kinetics_model()
 
+        self._logger.info(str(self))
+
+    def __repr__(self) -> str:
+        repr = "\n\nKINETICS:\n"
+        repr += f"  Num Reactions: {len(self.reactions)}\n"
+        repr += f"  Num Species: {len(self.species)}\n"
+        repr += f"  Num Transition States: {len(self.transition_states)}\n"
+        repr += f"  Tunneling correction: {self.tunneling_correction}\n"
+        repr += f"  Gradient threshold: {self.gradient_threshold}\n"
+        return repr
+
     def _construct_tunneling_correction(
             self,
             transition_state_partition_function: PartFun,
@@ -62,7 +73,7 @@ class Kinetics(ReactionInput):
             "wigner", "eckart", "miller", None,
         ]:
             raise ValueError(
-                "Tunneling correction must be one of 'wigner', 'eckart', "
+                "Tunneling correction must be one of 'wigner', 'eckart' or"
                 "miller."
             )
 
@@ -79,6 +90,9 @@ class Kinetics(ReactionInput):
         if self.tunneling_correction == "miller":
             tunneling = Miller(transition_state_partition_function)
 
+        self._logger.debug(
+            f"Tunneling Setup with {tunneling}."
+        )
         return tunneling
 
     def _construct_partition_function(self, species: Species) -> PartFun:
@@ -138,6 +152,9 @@ class Kinetics(ReactionInput):
             )
             self._kinetics_models[reaction] = kinetic_model
 
+            self._logger.debug(
+                f"Constructed Kinetics Model for {Reaction}."
+            )
 
     def k(self, reaction: Reaction, temperature: float) -> float:
         """Returns the rate constant for given species and temperature in SI
@@ -145,5 +162,5 @@ class Kinetics(ReactionInput):
         """
         kinetic_model = self._kinetics_models[reaction]
         k = kinetic_model.rate_constant(temperature)
-        k_SI = k / kinetic_model.unit
-        return k_SI
+        k_si = k / kinetic_model.unit
+        return k_si

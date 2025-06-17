@@ -250,82 +250,66 @@ def construct_system_1(test_data_system_1_gaussian, test_data_system_1_cosmo):
     ##############
     # Reactions
     ##############
-    # R1_fwd: Substrate + Nucleophilic -> ITS1
     reaction_1_fwd = its_1 - substrate - nucleophilic
     reaction_1_fwd.name = "R1_fwd"
     reaction_1_fwd.transition_state = ts_1_fwd
 
-    # R1_rev: ITS1 -> Substrate + Nucleophilic
     reaction_1_rev = substrate + nucleophilic - its_1
     reaction_1_rev.name = "R1_rev"
     reaction_1_rev.transition_state = ts_1_rev
 
-    # R2_fwd: Substrate + Nucleophilic -> ITS2
     reaction_2_fwd = its_2 - substrate - nucleophilic
     reaction_2_fwd.name = "R2_fwd"
     reaction_2_fwd.transition_state = ts_2_fwd
 
-    # R2_rev: ITS2 -> Substrate + Nucleophilic
     reaction_2_rev = substrate + nucleophilic - its_2
     reaction_2_rev.name = "R2_rev"
     reaction_2_rev.transition_state = ts_2_rev
 
-    # R3_fwd: Product2 + Nucleophilic -> ITS3
     reaction_3_fwd = its_3 - product_2 - nucleophilic
     reaction_3_fwd.name = "R3_fwd"
     reaction_3_fwd.transition_state = ts_3_fwd
 
-    # R3_rev: ITS3 -> Product2 + Nucleophilic
     reaction_3_rev = product_2 + nucleophilic - its_3
     reaction_3_rev.name = "R3_rev"
     reaction_3_rev.transition_state = ts_3_rev
 
-    # R4_fwd: Product1 + Nucleophilic -> ITS4
     reaction_4_fwd = its_4 - product_1 - nucleophilic
     reaction_4_fwd.name = "R4_fwd"
     reaction_4_fwd.transition_state = ts_4_fwd
 
-    # R4_rev: ITS4 -> Product1 + Nucleophilic
     reaction_4_rev = product_1 + nucleophilic - its_4
     reaction_4_rev.name = "R4_rev"
     reaction_4_rev.transition_state = ts_4_rev
 
-    # R5_fwd: ITS1 -> Product1 + LeavingGroup
     reaction_5_fwd = product_1 + leaving_group - its_1
     reaction_5_fwd.name = "R5_fwd"
     reaction_5_fwd.transition_state = ts_1_2_fwd
 
-    # R5_rev: Product1 + LeavingGroup -> ITS1
     reaction_5_rev = its_1 - product_1 - leaving_group
     reaction_5_rev.name = "R5_rev"
     reaction_5_rev.transition_state = ts_1_2_rev
 
-    # R6_fwd: ITS2 -> Product2 + LeavingGroup
     reaction_6_fwd = product_2 + leaving_group - its_2
     reaction_6_fwd.name = "R6_fwd"
     reaction_6_fwd.transition_state = ts_2_2_fwd
 
-    # R6_rev: Product2 + LeavingGroup -> ITS2
     reaction_6_rev = its_2 - product_2 - leaving_group
     reaction_6_rev.name = "R6_rev"
     reaction_6_rev.transition_state = ts_2_2_rev
 
-    # R7_fwd: ITS3 -> Product3 + LeavingGroup
     reaction_7_fwd = product_3 + leaving_group - its_3
     reaction_7_fwd.name = "R7_fwd"
     reaction_7_fwd.transition_state = ts_3_2_fwd
 
-    # R7_rev: Product3 + LeavingGroup -> ITS3
     reaction_7_rev = its_3 - product_3 - leaving_group
     reaction_7_rev.name = "R7_rev"
     reaction_7_rev.transition_state = ts_3_2_rev
 
-    # R8_fwd: ITS4 -> Product3 + LeavingGroup
     reaction_8_fwd = product_3 + leaving_group - its_4
     reaction_8_fwd.name = "R8_fwd"
     reaction_8_fwd.transition_state = ts_4_2_fwd
 
-    # R8_rev: Product3 + LeavingGroup -> ITS4
     reaction_8_rev = its_4 - product_3 - leaving_group
     reaction_8_rev.name = "R8_rev"
     reaction_8_rev.transition_state = ts_4_2_rev

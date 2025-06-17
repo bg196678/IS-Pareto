@@ -1,4 +1,3 @@
-import re
 import logging
 import numpy as np
 
@@ -26,9 +25,17 @@ class Solvation(ReactionInput):
 
         self._g_values = {}
         self._extract_g()
+        self._logger.info(str(self))
 
-    @staticmethod
-    def _parse_cosmo_therm_file(species: Species) -> dict[float, float]:
+    def __repr__(self) -> str:
+        repr = "\n\nSOLVATION:\n"
+        repr += f"  Num Reactions: {len(self.reactions)}\n"
+        repr += f"  Num Species: {len(self.species)}\n"
+        repr += f"  Num Transition States: {len(self.transition_states)}\n"
+        repr += f"  Gas Constant: {self.gas_constant}\n"
+        return repr
+
+    def _parse_cosmo_therm_file(self, species: Species) -> dict[float, float]:
         temperature_g_solve = {}
         content = species.tab_file_path.read_text()
         lines = content.split("\n")
@@ -54,6 +61,11 @@ class Solvation(ReactionInput):
                 temperature_g_solve[temperature] = gsolv
                 temperature = None
 
+        self._logger.debug(
+            f"Extracted {len(temperature_g_solve)} Temperature G Solvation "
+            f"values"
+        )
+
         return temperature_g_solve
 
     def _extract_g(self):
@@ -61,6 +73,10 @@ class Solvation(ReactionInput):
         all_species.update(self.transition_states)
         for species in all_species:
             self._g_values[species] = self._parse_cosmo_therm_file(species)
+
+        self._logger.debug(
+            f"Extracted G Solvation values for {len(self._g_values)} species"
+        )
 
     def _g(self, species: Species, temperature: float) -> float:
         """Obtain G for one species"""
