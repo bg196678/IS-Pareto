@@ -35,9 +35,7 @@ class Solvation(ReactionInput):
         )
         temperature_regex = re.compile(r"T=\s*([\d.]+)\s*K")
         third_compound_line_regex = re.compile(
-            r"^\s*3\s+(\S+)\s+[\d\.\-E+]+\s+[\d\.\-E+]"
-            r"+\s+[\d\.\-E+]+\s+(-?\d+\.\d+)",
-            re.MULTILINE
+            r"^\s*2\s+(\S+).*?(-?\d+\.\d+)\s*$", re.MULTILINE
         )
         temperature_g_solve = {}
         content = species.tab_file_path.read_text()
@@ -55,7 +53,9 @@ class Solvation(ReactionInput):
         return temperature_g_solve
 
     def _extract_g(self):
-        for species in self.species:
+        all_species = self.species.copy()
+        all_species.update(self.transition_states)
+        for species in all_species:
             self._g_values[species] = self._parse_cosmo_therm_file(species)
 
     def _g(self, species: Species, temperature: float) -> float:

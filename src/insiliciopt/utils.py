@@ -37,3 +37,10 @@ class ReactionInput:
         for reaction in self.reactions:
             species.update(reaction.species)
         return species
+
+    @property
+    def transition_states(self) -> set[Species]:
+        transition_states = set()
+        for reaction in self.reactions:
+            transition_states.add(reaction.transition_state)
+        return transition_states

@@ -63,30 +63,36 @@ class TestKinetics:
 
         for name in regular_species:
             fchk_path = test_data_system_1_path / f"{name}.fchk"
+            tab_path = test_data_system_1_path / f"{name}.tab"
             if name.startswith('ITS'):
                 species[name] = Product(
                     name=name,
                     mass=100.0,
-                    fchk_file_path=fchk_path
+                    fchk_file_path=fchk_path,
+                    tab_file_path=tab_path,
                 )
             elif name in ['Product1', 'Product2', 'Product3', 'Leaving_Group']:
                 species[name] = Product(
                     name=name,
                     mass=100.0,
-                    fchk_file_path=fchk_path
+                    fchk_file_path=fchk_path,
+                    tab_file_path=tab_path,
                 )
             else:
                 species[name] = Reactant(
                     name=name,
                     mass=100.0,
-                    fchk_file_path=fchk_path
+                    fchk_file_path=fchk_path,
+                    tab_file_path=tab_path,
                 )
 
         for ts_name in REACTION_TS_MAP.values():
             fchk_path = test_data_system_1_path / f"{ts_name}.fchk"
+            tab_path = test_data_system_1_path / f"{ts_name.split('_')[0]}.tab"
             species[ts_name] = TransitionState(
                 name=ts_name,
-                fchk_file_path=fchk_path
+                fchk_file_path=fchk_path,
+                tab_file_path=tab_path,
             )
 
         return species
@@ -255,12 +261,12 @@ class TestKinetics:
 
     def test_energy_correction(self, test_data_system_1_path, species_dict):
         """Test species with energy correction"""
-        # Create species with energy correction
         substrate_with_energy = Reactant(
             name='Substrate_corrected',
             mass=100.0,
             fchk_file_path=test_data_system_1_path / 'Substrate.fchk',
-            energy=-123.456  # Example energy correction
+            tab_file_path=test_data_system_1_path / 'Substrate.tab',
+            energy=-123.456
         )
 
         stoich = {

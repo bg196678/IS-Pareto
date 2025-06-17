@@ -1,5 +1,4 @@
 import pytest
-from pathlib import Path
 from unittest.mock import patch
 
 from insiliciopt.species import (
@@ -15,60 +14,71 @@ from insiliciopt.species import (
 class TestSpecies:
     """Tests for Species and its subclasses"""
 
-    def test_species_initialization(self):
+    def test_species_initialization(self, test_fchk_path, test_tab_path):
         """Test Species initialization"""
-        species = Species("H2O", 18.015, Path("/path/to/h2o.fchk"))
+        species = Species(
+            "H2O",
+            18.015,
+            test_fchk_path,
+            test_tab_path,
+        )
 
         assert species.name == "H2O"
         assert species.mass == 18.015
-        assert species.fchk_file_path == Path("/path/to/h2o.fchk")
+        assert species.fchk_file_path == test_fchk_path
+        assert species.tab_file_path == test_tab_path
         assert repr(species) == "Species('H2O')"
 
-    def test_species_logger_creation(self):
+    def test_species_logger_creation(self, test_fchk_path, test_tab_path):
         """Test that logger is created with correct name"""
         with patch('logging.getLogger') as mock_logger:
-            _ = Species("CO2", 44.01, Path("/path/to/co2.fchk"))
+            _ = Species("CO2", 44.01, test_fchk_path, test_tab_path)
             mock_logger.assert_called_with("Species('CO2')")
 
-    def test_reactant_inheritance(self):
+    def test_reactant_inheritance(self, test_fchk_path, test_tab_path):
         """Test Reactant class inherits from Species"""
-        reactant = Reactant("CH4", 16.04, Path("/path/to/ch4.fchk"))
+        reactant = Reactant("CH4", 16.04, test_fchk_path, test_tab_path)
 
         assert isinstance(reactant, Species)
         assert reactant.name == "CH4"
         assert reactant.mass == 16.04
 
-    def test_product_inheritance(self):
+    def test_product_inheritance(self, test_fchk_path, test_tab_path):
         """Test Product class inherits from Species"""
-        product = Product("CO2", 44.01, Path("/path/to/co2.fchk"))
+        product = Product("CO2", 44.01, test_fchk_path, test_tab_path)
 
         assert isinstance(product, Species)
         assert product.name == "CO2"
         assert product.mass == 44.01
 
-    def test_transition_state_inheritance(self):
+    def test_transition_state_inheritance(self, test_fchk_path, test_tab_path):
         """Test TransitionState class inherits from Species"""
-        ts = TransitionState("TS1", Path("/path/to/ts1.fchk"))
+        ts = TransitionState("TS1", test_fchk_path, test_tab_path)
 
         assert isinstance(ts, Species)
         assert ts.name == "TS1"
         assert ts.mass is None
 
-    def test_species_equality_and_hash(self):
+    def test_species_equality_and_hash(self, test_fchk_path, test_tab_path):
         """Test Species equality and hash for use as dict keys"""
-        species1 = Species("H2O", 18.015, Path("/path/to/h2o.fchk"))
-        species2 = Species("H2O", 18.015, Path("/path/to/h2o.fchk"))
-        species3 = Species("CO2", 44.01, Path("/path/to/co2.fchk"))
+        species1 = Species("H2O", 18.015, test_fchk_path, test_tab_path)
+        species2 = Species("H2O", 18.015, test_fchk_path, test_tab_path)
+        other_fchk_path = test_fchk_path.parent / "other.fchk"
+        other_tab_path = test_tab_path.parent / "other.tab"
+        other_fchk_path.touch(exist_ok=True)
+        other_tab_path.touch(exist_ok=True)
+
+        species3 = Species("CO2", 44.01, other_fchk_path, other_tab_path)
 
         assert species1 == species2
         assert species1 != species3
         assert hash(species1) == hash(species2)
         assert hash(species1) != hash(species3)
 
-    def test_species_addition(self):
+    def test_species_addition(self, test_fchk_path, test_tab_path):
         """Test Species + Species creates a Reaction"""
-        species1 = Species("H2O", 18.015, Path("/path/to/h2o.fchk"))
-        species2 = Species("CO2", 44.01, Path("/path/to/co2.fchk"))
+        species1 = Species("H2O", 18.015, test_fchk_path, test_tab_path)
+        species2 = Species("CO2", 44.01, test_fchk_path, test_tab_path)
 
         reaction = species1 + species2
 
@@ -76,10 +86,10 @@ class TestSpecies:
         assert reaction.stoichiometry[species1] == 1
         assert reaction.stoichiometry[species2] == 1
 
-    def test_species_subtraction(self):
+    def test_species_subtraction(self, test_fchk_path, test_tab_path):
         """Test Species - Species creates a Reaction"""
-        species1 = Species("H2O", 18.015, Path("/path/to/h2o.fchk"))
-        species2 = Species("CO2", 44.01, Path("/path/to/co2.fchk"))
+        species1 = Species("H2O", 18.015, test_fchk_path, test_tab_path)
+        species2 = Species("CO2", 44.01, test_fchk_path, test_tab_path)
 
         reaction = species1 - species2
 
@@ -87,9 +97,9 @@ class TestSpecies:
         assert reaction.stoichiometry[species1] == 1
         assert reaction.stoichiometry[species2] == -1
 
-    def test_species_invalid_operations(self):
+    def test_species_invalid_operations(self, test_fchk_path, test_tab_path):
         """Test Species with invalid types"""
-        species = Species("H2O", 18.015, Path("/path/to/h2o.fchk"))
+        species = Species("H2O", 18.015, test_fchk_path, test_tab_path)
 
         with pytest.raises(TypeError):
             species + "invalid"
@@ -101,11 +111,12 @@ class TestSpecies:
 class TestReactionTerm:
     """Tests for ReactionTerm class"""
 
-    def setup_method(self):
+    @pytest.fixture(autouse=True)
+    def setup_method(self, test_fchk_path, test_tab_path):
         """Set up test species"""
-        self.h2o = Species("H2O", 18.015, Path("/path/to/h2o.fchk"))
-        self.co2 = Species("CO2", 44.01, Path("/path/to/co2.fchk"))
-        self.ch4 = Species("CH4", 16.04, Path("/path/to/ch4.fchk"))
+        self.h2o = Species("H2O", 18.015, test_fchk_path, test_tab_path)
+        self.co2 = Species("CO2", 44.01, test_fchk_path, test_tab_path)
+        self.ch4 = Species("CH4", 16.04, test_fchk_path, test_tab_path)
 
     def test_reaction_term_initialization(self):
         """Test ReactionTerm initialization"""
@@ -159,10 +170,10 @@ class TestReactionTerm:
         with pytest.raises(TypeError):
             term - 42
 
-    def test_species_add_reaction_term(self):
+    def test_species_add_reaction_term(self, test_fchk_path, test_tab_path):
         """Test Species + ReactionTerm"""
-        species1 = Species("H2O", 18.015, Path("/path/to/h2o.fchk"))
-        species2 = Species("CO2", 44.01, Path("/path/to/co2.fchk"))
+        species1 = Species("H2O", 18.015, test_fchk_path, test_tab_path)
+        species2 = Species("CO2", 44.01, test_fchk_path, test_tab_path)
         term = ReactionTerm(species2, 2)
 
         reaction = species1 + term
@@ -171,10 +182,10 @@ class TestReactionTerm:
         assert reaction.stoichiometry[species1] == 1
         assert reaction.stoichiometry[species2] == 2
 
-    def test_species_sub_reaction_term(self):
+    def test_species_sub_reaction_term(self, test_fchk_path, test_tab_path):
         """Test Species - ReactionTerm"""
-        species1 = Species("H2O", 18.015, Path("/path/to/h2o.fchk"))
-        species2 = Species("CO2", 44.01, Path("/path/to/co2.fchk"))
+        species1 = Species("H2O", 18.015, test_fchk_path, test_tab_path)
+        species2 = Species("CO2", 44.01, test_fchk_path, test_tab_path)
         term = ReactionTerm(species2, 2)
 
         reaction = species1 - term
@@ -187,14 +198,15 @@ class TestReactionTerm:
 class TestReaction:
     """Tests for Reaction class"""
 
-    def setup_method(self):
+    @pytest.fixture(autouse=True)
+    def setup_method(self, test_fchk_path, test_tab_path):
         """Set up test species"""
-        self.h2o = Species("H2O", 18.015, Path("/path/to/h2o.fchk"))
-        self.co2 = Species("CO2", 44.01, Path("/path/to/co2.fchk"))
-        self.ch4 = Species("CH4", 16.04, Path("/path/to/ch4.fchk"))
-        self.o2 = Species("O2", 32.0, Path("/path/to/o2.fchk"))
+        self.h2o = Species("H2O", 18.015, test_fchk_path, test_tab_path)
+        self.co2 = Species("CO2", 44.01, test_fchk_path, test_tab_path)
+        self.ch4 = Species("CH4", 16.04, test_fchk_path, test_tab_path)
+        self.o2 = Species("O2", 32.0, test_fchk_path, test_tab_path)
 
-    def test_reaction_initialization_empty(self):
+    def test_reaction_initialization_empty(self, test_fchk_path, test_tab_path):
         """Test empty Reaction initialization"""
         reaction = Reaction()
 
@@ -204,14 +216,14 @@ class TestReaction:
         assert reaction.reactants == []
         assert reaction.products == []
 
-    def test_reaction_initialization_with_name(self):
+    def test_reaction_initialization_with_name(self, test_fchk_path, test_tab_path):
         """Test Reaction initialization with name"""
         reaction = Reaction(name="combustion")
 
         assert reaction.name == "combustion"
         assert reaction.stoichiometry == {}
 
-    def test_reaction_initialization_with_stoichiometry(self):
+    def test_reaction_initialization_with_stoichiometry(self, test_fchk_path, test_tab_path):
         """Test Reaction initialization with stoichiometry"""
         stoich = {self.ch4: -1, self.o2: -2, self.co2: 1, self.h2o: 2}
         reaction = Reaction(stoichiometry=stoich)
@@ -221,7 +233,7 @@ class TestReaction:
         assert self.ch4 in reaction.reactants
         assert self.co2 in reaction.products
 
-    def test_reaction_removes_zero_coefficients(self):
+    def test_reaction_removes_zero_coefficients(self, test_fchk_path, test_tab_path):
         """Test that zero coefficients are removed"""
         stoich = {self.ch4: -1, self.o2: 0, self.co2: 1}
         reaction = Reaction(stoichiometry=stoich)
@@ -229,7 +241,7 @@ class TestReaction:
         assert self.o2 not in reaction.stoichiometry
         assert len(reaction.stoichiometry) == 2
 
-    def test_reaction_properties(self):
+    def test_reaction_properties(self, test_fchk_path, test_tab_path):
         """Test reaction properties"""
         stoich = {self.ch4: -1, self.o2: -2, self.co2: 1, self.h2o: 2}
         reaction = Reaction(stoichiometry=stoich)
@@ -246,7 +258,7 @@ class TestReaction:
         assert self.co2 in products
         assert self.h2o in products
 
-    def test_reaction_addition_with_reaction_term(self):
+    def test_reaction_addition_with_reaction_term(self, test_fchk_path, test_tab_path):
         """Test Reaction + ReactionTerm"""
         stoich = {self.ch4: -1, self.co2: 1}
         reaction = Reaction(stoichiometry=stoich)
@@ -258,7 +270,7 @@ class TestReaction:
         assert new_reaction.stoichiometry[self.co2] == 1
         assert new_reaction.stoichiometry[self.h2o] == 2
 
-    def test_reaction_addition_with_reaction(self):
+    def test_reaction_addition_with_reaction(self, test_fchk_path, test_tab_path):
         """Test Reaction + Reaction"""
         stoich1 = {self.ch4: -1, self.co2: 1}
         reaction1 = Reaction(stoichiometry=stoich1)
@@ -273,7 +285,7 @@ class TestReaction:
         assert combined.stoichiometry[self.h2o] == -1
         assert combined.stoichiometry[self.o2] == 1
 
-    def test_reaction_subtraction_with_reaction_term(self):
+    def test_reaction_subtraction_with_reaction_term(self, test_fchk_path, test_tab_path):
         """Test Reaction - ReactionTerm"""
         stoich = {self.ch4: -1, self.co2: 1, self.h2o: 2}
         reaction = Reaction(stoichiometry=stoich)
@@ -285,7 +297,7 @@ class TestReaction:
         assert new_reaction.stoichiometry[self.co2] == 1
         assert new_reaction.stoichiometry[self.h2o] == 1  # 2 - 1 = 1
 
-    def test_reaction_subtraction_with_reaction(self):
+    def test_reaction_subtraction_with_reaction(self, test_fchk_path, test_tab_path):
         """Test Reaction - Reaction"""
         stoich1 = {self.ch4: -1, self.co2: 1, self.h2o: 2}
         reaction1 = Reaction(stoichiometry=stoich1)
@@ -300,7 +312,7 @@ class TestReaction:
         assert result.stoichiometry[self.h2o] == 1  # 2 - 1 = 1
         assert result.stoichiometry[self.o2] == 1  # 0 - (-1) = 1
 
-    def test_reaction_invalid_operations(self):
+    def test_reaction_invalid_operations(self, test_fchk_path, test_tab_path):
         """Test Reaction with invalid types"""
         reaction = Reaction()
 
@@ -310,7 +322,7 @@ class TestReaction:
         with pytest.raises(TypeError):
             reaction - 42
 
-    def test_reaction_repr(self):
+    def test_reaction_repr(self, test_fchk_path, test_tab_path):
         """Test Reaction string representation"""
         stoich = {self.ch4: -1, self.co2: 1}
         reaction = Reaction(stoichiometry=stoich)
@@ -319,11 +331,11 @@ class TestReaction:
         assert "Reaction(" in repr_str
         assert str(stoich) in repr_str
 
-    def test_species_add_reaction(self):
+    def test_species_add_reaction(self, test_fchk_path, test_tab_path):
         """Test Species + Reaction"""
-        species1 = Species("H2O", 18.015, Path("/path/to/h2o.fchk"))
-        species2 = Species("CO2", 44.01, Path("/path/to/co2.fchk"))
-        species3 = Species("CH4", 16.04, Path("/path/to/ch4.fchk"))
+        species1 = Species("H2O", 18.015, test_fchk_path, test_tab_path)
+        species2 = Species("CO2", 44.01, test_fchk_path, test_tab_path)
+        species3 = Species("CH4", 16.04, test_fchk_path, test_tab_path)
 
         reaction = Reaction(stoichiometry={species2: -1, species3: 1})
 
@@ -334,11 +346,11 @@ class TestReaction:
         assert result.stoichiometry[species2] == -1
         assert result.stoichiometry[species3] == 1
 
-    def test_species_sub_reaction(self):
+    def test_species_sub_reaction(self, test_fchk_path, test_tab_path):
         """Test Species - Reaction"""
-        species1 = Species("H2O", 18.015, Path("/path/to/h2o.fchk"))
-        species2 = Species("CO2", 44.01, Path("/path/to/co2.fchk"))
-        species3 = Species("CH4", 16.04, Path("/path/to/ch4.fchk"))
+        species1 = Species("H2O", 18.015, test_fchk_path, test_tab_path)
+        species2 = Species("CO2", 44.01, test_fchk_path, test_tab_path)
+        species3 = Species("CH4", 16.04, test_fchk_path, test_tab_path)
 
         reaction = Reaction(stoichiometry={species2: -1, species3: 1})
 
@@ -353,7 +365,8 @@ class TestReaction:
 class TestComplexStoichiometryReconstruction:
     """Test reconstruction of the complex stoichiometry system"""
 
-    def setup_method(self):
+    @pytest.fixture(autouse=True)
+    def setup_method(self, test_fchk_path, test_tab_path):
         """Set up all species needed for the complex stoichiometry"""
         self.species = {}
         species_names = [
@@ -364,10 +377,11 @@ class TestComplexStoichiometryReconstruction:
         for name in species_names:
             self.species[name] = Species(
                 name, 100.0,
-                Path(f"/path/to/{name.lower()}.fchk")
+                test_fchk_path,
+                test_tab_path,
             )
 
-    def test_reconstruct_target_stoichiometry(self):
+    def test_reconstruct_target_stoichiometry(self, test_fchk_path, test_tab_path):
         """Reconstruct the target stoichiometry using ReactionTerms"""
         target_stoich = {
             'R1_fwd': {'Substrate': -1, 'Nucleophilic': -1, 'ITS1': 1},
@@ -385,7 +399,7 @@ class TestComplexStoichiometryReconstruction:
             'R7_fwd': {'ITS3': -1, 'Product3': 1, 'LeavingGroup': 1},
             'R7_rev': {'Product3': -1, 'LeavingGroup': -1, 'ITS3': 1},
             'R8_fwd': {'ITS4': -1, 'Product3': 1, 'LeavingGroup': 1},
-            'R8_rev': {'Product3': -1, 'LeavingGroup': -1, 'ITS1': 1},
+            'R8_rev': {'Product3': -1, 'LeavingGroup': -1, 'ITS1': 1}, # Note: R8_rev uses ITS1 as per original
         }
 
         reconstructed_reactions = {}
@@ -396,9 +410,15 @@ class TestComplexStoichiometryReconstruction:
                 species = self.species[species_name]
                 terms.append(ReactionTerm(species, coeff))
 
-            reaction = terms[0]
-            for term in terms[1:]:
-                reaction = reaction + term
+            # Handle case where there might be only one term if a reaction is e.g. A ->
+            # Though in this specific target_stoich, all reactions have multiple species.
+            if not terms:
+                reaction = Reaction() # Or handle as an error/empty reaction
+            else:
+                reaction = ReactionTerm(terms[0].species, 0) # Start with a neutral reaction
+                for term in terms:
+                    reaction = reaction + term
+
 
             reaction.name = reaction_name
             reconstructed_reactions[reaction_name] = reaction
@@ -413,9 +433,9 @@ class TestComplexStoichiometryReconstruction:
                 assert species in reconstructed.stoichiometry
                 assert reconstructed.stoichiometry[species] == target_coeff
 
-            print(f"✓ {reaction_name}: {target_dict}")
+            # print(f"✓ {reaction_name}: {target_dict}") # Optional: for verbose output
 
-    def test_alternative_reaction_construction(self):
+    def test_alternative_reaction_construction(self, test_fchk_path, test_tab_path):
         """Test alternative ways to construct reactions"""
         substrate = self.species['Substrate']
         nucleophilic = self.species['Nucleophilic']
@@ -435,7 +455,7 @@ class TestComplexStoichiometryReconstruction:
 
         assert reaction1.stoichiometry == reaction2.stoichiometry
 
-    def test_reaction_balancing(self):
+    def test_reaction_balancing(self, test_fchk_path, test_tab_path):
         """Test that reactions are properly balanced"""
         substrate = self.species['Substrate']
         nucleophilic = self.species['Nucleophilic']
