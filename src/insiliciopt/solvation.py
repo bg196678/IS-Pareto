@@ -76,7 +76,6 @@ class Solvation(ReactionInput):
             self, reaction: Reaction, temperature: float
     ) -> float:
         """Obtain the delt G for one reaction in SI units"""
-
         reactants = reaction.reactants
         transition_state = reaction.transition_state
 
