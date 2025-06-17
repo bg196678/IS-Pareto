@@ -349,11 +349,7 @@ reactor = Reactor(
 optimization_species = OptimizationSpecies(
     reactant_1=substrate,
     reactant_2=nucleophilic,
-    products=[
-        product_1,
-        product_2,
-        product_3,
-    ]
+    products=[product_1,]
 )
 optimization_boundaries = OptimizationBoundaries(
     temperature=(60, 140),

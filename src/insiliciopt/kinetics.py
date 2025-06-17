@@ -1,4 +1,6 @@
 import logging
+from pathlib import Path
+
 from tamkin import (
     PartFun,
     NMA,
@@ -16,10 +18,13 @@ from insiliciopt.species import (
     Reaction,
     Species,
 )
-from insiliciopt.utils import ReactionInput
+from insiliciopt.utils import (
+    ReactionInput,
+    DataOutput,
+)
 
 
-class Kinetics(ReactionInput):
+class Kinetics(ReactionInput, DataOutput):
 
     tunneling_correction: str | None
     """Includes Tunneling into the Kinetics calculation, types are:
@@ -49,16 +54,14 @@ class Kinetics(ReactionInput):
         self._check_input()
         self._construct_kinetics_model()
 
-        self._logger.info(str(self))
-
     def __repr__(self) -> str:
-        repr = "\n\nKINETICS:\n"
-        repr += f"  Num Reactions: {len(self.reactions)}\n"
-        repr += f"  Num Species: {len(self.species)}\n"
-        repr += f"  Num Transition States: {len(self.transition_states)}\n"
-        repr += f"  Tunneling correction: {self.tunneling_correction}\n"
-        repr += f"  Gradient threshold: {self.gradient_threshold}\n"
-        return repr
+        string = "\n\nKINETICS:\n"
+        string += f"  Num Reactions: {len(self.reactions)}\n"
+        string += f"  Num Species: {len(self.species)}\n"
+        string += f"  Num Transition States: {len(self.transition_states)}\n"
+        string += f"  Tunneling correction: {self.tunneling_correction}\n"
+        string += f"  Gradient threshold: {self.gradient_threshold}\n"
+        return string
 
     def _construct_tunneling_correction(
             self,
@@ -164,3 +167,6 @@ class Kinetics(ReactionInput):
         k = kinetic_model.rate_constant(temperature)
         k_si = k / kinetic_model.unit
         return k_si
+
+    def dump(self, path: Path) -> None:
+        """Dumps the kinetics"""

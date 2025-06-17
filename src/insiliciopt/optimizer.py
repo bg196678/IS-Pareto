@@ -86,12 +86,15 @@ class Optimizer(ABC):
     _counter: int = 0
     """Counter of iterations"""
 
+    _log_level: int = logging.INFO
+
     def __init__(
             self,
             species: OptimizationSpecies,
             boundaries: OptimizationBoundaries,
             reactor: Reactor,
             output_directory: Path,
+            log_level: int = logging.INFO,
     ) -> None:
         self._logger: logging.Logger = logging.getLogger(__class__.__name__)
 
@@ -99,6 +102,7 @@ class Optimizer(ABC):
         self.boundaries = boundaries
         self.reactor = reactor
         self.output_directory = output_directory
+        self._log_level = log_level
 
         self.results = pd.DataFrame(
             columns=[
@@ -108,6 +112,43 @@ class Optimizer(ABC):
                 "Time",
             ]
         )
+
+        self._setup_logger()
+        self._log_start()
+
+    def _setup_logger(self) -> None:
+        """Adds a console and file handler"""
+        self._logger.handlers = []
+
+        formatter = logging.Formatter(
+            '%(asctime)s - %(name)s - %(levelname)s\n'
+            '%(message)s'
+        )
+
+        console_handler = logging.StreamHandler()
+        console_handler.setLevel(self._log_level)
+        console_handler.setFormatter(formatter)
+        self._logger.addHandler(console_handler)
+
+        log_file = self.output_directory / "insiliciopt.log"
+        if log_file.exists():
+            log_file.unlink()
+
+        file_handler = logging.FileHandler(log_file)
+        file_handler.setLevel(self._log_level)
+        file_handler.setFormatter(formatter)
+        self._logger.addHandler(file_handler)
+
+    def _log_start(self) -> None:
+        """Log initial message"""
+
+    def _log_iteration(
+            self,
+            E: float,
+            STY: float,
+            conditions: _OptimizerConditions,
+    ) -> None:
+        """Log iteration"""
 
     def _convert_optimizer_to_reactor_conditions(
             self, conditions: _OptimizerConditions,
@@ -284,6 +325,7 @@ class TSEmoOptimizer(Optimizer):
             conditions = self._construct_optimization_conditions(suggestion)
             STY, E = self._simulate_reactor(conditions)
             self._add_to_result(E, STY, conditions)
+            self._log_iteration(E, STY, conditions)
 
     def _run_tsemo(self, num_iterations: int) -> None:
         """Optimized TSEMO sampling"""
@@ -298,6 +340,7 @@ class TSEmoOptimizer(Optimizer):
             conditions = self._construct_optimization_conditions(suggestion)
             STY, E = self._simulate_reactor(conditions)
             self._add_to_result(E, STY, conditions)
+            self._log_iteration(E, STY, conditions)
 
     def run(self, num_iterations: int) -> None:
         """Runs the TSEMO optimizer"""

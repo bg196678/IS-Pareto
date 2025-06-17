@@ -60,14 +60,12 @@ class Reactor(ReactionInput):
         self.solvation = solvation
         self.conditions = None
 
-        self._logger.info(str(self))
-
     def __repr__(self):
-        repr = "\n\nREACTOR:\n"
-        repr += f"  Num Reactions: {len(self.reactions)}\n"
-        repr += f"  Num Species: {len(self.species)}\n"
-        repr += f"  Num Transition States: {len(self.transition_states)}\n"
-        return repr
+        string = "\n\nREACTOR:\n"
+        string += f"  Num Reactions: {len(self.reactions)}\n"
+        string += f"  Num Species: {len(self.species)}\n"
+        string += f"  Num Transition States: {len(self.transition_states)}\n"
+        return string
 
     def _convert_conditions(
             self,

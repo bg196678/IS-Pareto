@@ -1,14 +1,19 @@
 import logging
+from pathlib import Path
+
 import numpy as np
 
 from insiliciopt.species import (
     Reaction,
     Species,
 )
-from insiliciopt.utils import ReactionInput
+from insiliciopt.utils import (
+    ReactionInput,
+    DataOutput,
+)
 
 
-class Solvation(ReactionInput):
+class Solvation(ReactionInput, DataOutput):
 
     gas_constant = 8.3145  # J/mol/K
     """Gas Constant"""
@@ -25,15 +30,14 @@ class Solvation(ReactionInput):
 
         self._g_values = {}
         self._extract_g()
-        self._logger.info(str(self))
 
     def __repr__(self) -> str:
-        repr = "\n\nSOLVATION:\n"
-        repr += f"  Num Reactions: {len(self.reactions)}\n"
-        repr += f"  Num Species: {len(self.species)}\n"
-        repr += f"  Num Transition States: {len(self.transition_states)}\n"
-        repr += f"  Gas Constant: {self.gas_constant}\n"
-        return repr
+        string = "\n\nSOLVATION:\n"
+        string += f"  Num Reactions: {len(self.reactions)}\n"
+        string += f"  Num Species: {len(self.species)}\n"
+        string += f"  Num Transition States: {len(self.transition_states)}\n"
+        string += f"  Gas Constant: {self.gas_constant}\n"
+        return string
 
     def _parse_cosmo_therm_file(self, species: Species) -> dict[float, float]:
         temperature_g_solve = {}
@@ -104,3 +108,6 @@ class Solvation(ReactionInput):
         delta_g_si_units = delta_g * 4184
 
         return np.exp(-delta_g_si_units / (self.gas_constant * temperature))
+
+    def dump(self, path: Path) -> None:
+        """Dumps the Gsolv values and correction factors"""

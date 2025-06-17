@@ -1,7 +1,17 @@
+from abc import abstractmethod
+from pathlib import Path
+
 from insiliciopt.species import (
     Reaction,
     Species,
 )
+
+
+class DataOutput:
+
+    @abstractmethod
+    def dump(self, path: Path) -> None:
+        """Dumps the data which the class holds."""
 
 
 class ReactionInput:
