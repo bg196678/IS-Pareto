@@ -87,7 +87,7 @@ class Kinetics(ReactionInput):
             NMA(
                 load_molecule_g03fchk(
                     species.fchk_file_path,
-                    energy=species.energy
+                    #energy=species.energy
                 ),
                 ConstrainExt(
                     gradient_threshold=self.gradient_threshold

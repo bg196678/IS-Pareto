@@ -1,5 +1,6 @@
 import pytest
 import numpy as np
+import pandas as pd
 
 from insiliciopt.species import (
     Reactant,
@@ -52,7 +53,9 @@ class TestKinetics:
     """Test suite for the Kinetics class"""
 
     @pytest.fixture
-    def species_dict(self, test_data_system_1_path):
+    def species_dict(
+            self, test_data_system_1_gaussian, test_data_system_1_cosmo
+    ):
         """Create dictionary of all species from test data"""
         species = {}
 
@@ -62,8 +65,8 @@ class TestKinetics:
         ]
 
         for name in regular_species:
-            fchk_path = test_data_system_1_path / f"{name}.fchk"
-            tab_path = test_data_system_1_path / f"{name}.tab"
+            fchk_path = test_data_system_1_gaussian / f"{name}.fchk"
+            tab_path = test_data_system_1_cosmo / f"{name}.tab"
             if name.startswith('ITS'):
                 species[name] = Product(
                     name=name,
@@ -87,8 +90,8 @@ class TestKinetics:
                 )
 
         for ts_name in REACTION_TS_MAP.values():
-            fchk_path = test_data_system_1_path / f"{ts_name}.fchk"
-            tab_path = test_data_system_1_path / f"{ts_name.split('_')[0]}.tab"
+            fchk_path = test_data_system_1_gaussian / f"{ts_name}.fchk"
+            tab_path = test_data_system_1_cosmo / f"{ts_name.split('_')[0]}.tab"
             species[ts_name] = TransitionState(
                 name=ts_name,
                 fchk_file_path=fchk_path,
@@ -259,13 +262,16 @@ class TestKinetics:
 
         assert kinetics.gradient_threshold == custom_threshold
 
-    def test_energy_correction(self, test_data_system_1_path, species_dict):
+    def test_energy_correction(
+            self, test_data_system_1_gaussian, test_data_system_1_cosmo,
+            species_dict
+    ):
         """Test species with energy correction"""
         substrate_with_energy = Reactant(
             name='Substrate_corrected',
             mass=100.0,
-            fchk_file_path=test_data_system_1_path / 'Substrate.fchk',
-            tab_file_path=test_data_system_1_path / 'Substrate.tab',
+            fchk_file_path=test_data_system_1_gaussian / 'Substrate.fchk',
+            tab_file_path=test_data_system_1_cosmo / 'Substrate.tab',
             energy=-123.456
         )
 
@@ -308,3 +314,35 @@ class TestKinetics:
 
         k_hot = kinetics.k(reaction, 373.15)
         assert k_hot > k
+
+
+class TestSystem1Kinetics:
+
+    def test_compare_kinetics_with_excel(
+            self,
+            construct_system_1,
+            test_data_system_1_kinetics,
+    ):
+        """Compares calculated rate constants with values from the
+        kinetics.xlsx sheet.
+        """
+        kinetics_excel_data = pd.read_excel(test_data_system_1_kinetics)
+
+        for reaction in construct_system_1:
+            ts_name = reaction.transition_state.name
+            kinetics_calculator = Kinetics(reactions=[reaction])
+
+            for _, row in kinetics_excel_data.iterrows():
+                temperature = row['Temperature']
+                if np.isnan(temperature):
+                    continue
+                expected_k = row[ts_name]
+                calculated_k = kinetics_calculator.k(reaction, temperature)
+                assert np.isclose(
+                    calculated_k, expected_k, rtol=0.01,atol=1e-9
+                ),(
+                    f"Rate constant mismatch for reaction '{reaction.name}' "
+                    f"(TS: '{ts_name}') "
+                    f"at {temperature}K: Calculated={calculated_k:.4e}, "
+                    f"Excel={expected_k:.4e}"
+                )

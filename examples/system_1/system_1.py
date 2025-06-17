@@ -181,14 +181,14 @@ ts_1_2_rev = TransitionState(
 ts_2_2_fwd = TransitionState(
     name="TS22_fwd",
     fchk_file_path=gaussian_dir / "TS22_fwd.fchk",
-    tab_file_path=cosmo_therm_dir / "TS12.tab",
+    tab_file_path=cosmo_therm_dir / "TS22.tab",
     energy=-847.729373816,
 )
 
 ts_2_2_rev = TransitionState(
     name="TS22_rev",
     fchk_file_path=gaussian_dir / "TS22_rev.fchk",
-    tab_file_path=cosmo_therm_dir / "TS12.tab",
+    tab_file_path=cosmo_therm_dir / "TS22.tab",
     energy=-847.729373816,
 )
 
@@ -200,7 +200,7 @@ ts_3_2_fwd = TransitionState(
 )
 
 ts_3_2_rev = TransitionState(
-    name="TS32_2rev",
+    name="TS32_rev",
     fchk_file_path=gaussian_dir / "TS32_rev.fchk",
     tab_file_path=cosmo_therm_dir / "TS32.tab",
     energy=-959.900414613,

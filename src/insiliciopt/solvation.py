@@ -29,26 +29,30 @@ class Solvation(ReactionInput):
 
     @staticmethod
     def _parse_cosmo_therm_file(species: Species) -> dict[float, float]:
-        job_block_regex = re.compile(
-            r"Property\s+job\s+\d+\s*:.*?\n(.*?)(?=Property\s+job|\Z)",
-            re.DOTALL
-        )
-        temperature_regex = re.compile(r"T=\s*([\d.]+)\s*K")
-        third_compound_line_regex = re.compile(
-            r"^\s*2\s+(\S+).*?(-?\d+\.\d+)\s*$", re.MULTILINE
-        )
         temperature_g_solve = {}
         content = species.tab_file_path.read_text()
-        job_blocks = job_block_regex.findall(content)
+        lines = content.split("\n")
 
-        for block in job_blocks:
-            temperature_match = temperature_regex.search(block)
-            compound_match = third_compound_line_regex.search(block)
+        temperature = None
 
-            if temperature_match and compound_match:
-                temperature = float(temperature_match.group(1))
-                g_solv = float(compound_match.group(2))
-                temperature_g_solve[temperature] = g_solv
+        for i, line in enumerate(lines):
+            line = line.strip()
+            if not line:
+                continue
+
+            if "Settings " in line:
+                parts = line.split(";")[0]
+                parts = parts.split("=")[1]
+                parts = parts.strip()
+                parts = parts.replace("K", "")
+                temperature = float(parts)
+
+            if "Compound" in line:
+                parts = lines[i+2].split()
+                parts = parts[5]
+                gsolv = float(parts)
+                temperature_g_solve[temperature] = gsolv
+                temperature = None
 
         return temperature_g_solve
 
