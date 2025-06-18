@@ -369,6 +369,6 @@ optimizer = TSEmoOptimizer(
     boundaries=optimization_boundaries,
     reactor=reactor,
     output_directory=output_dir,
-    num_lhs_points=4,
+    num_initial_points=4,
 )
 optimizer.run(num_iterations=2)

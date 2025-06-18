@@ -132,7 +132,7 @@ class Solvation(ReactionInput, DataOutput):
 
         df = pd.DataFrame.from_dict(correction_values, orient="index")
         df.to_csv(path / "corrections.csv")
-        self._logger.debug(f"Dumped correction factors to csv.")
+        self._logger.debug("Dumped correction factors to csv.")
 
     def dump(self, path: Path) -> None:
         """Dumps the Gsolv values and correction factors"""

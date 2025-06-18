@@ -11,6 +11,8 @@ from summit.domain import (
 from summit.strategies import (
     TSEMO,
     LHS,
+    SOBO,
+    ENTMOOT,
 )
 from summit.utils.dataset import DataSet
 
@@ -192,7 +194,7 @@ class Optimizer(ABC):
         string += f"{self.reactor.kinetics}"
         string += f"{self.reactor.solvation}"
 
-        string += f"\n\nOUTPUT DIRECTORY:\n"
+        string += "\n\nOUTPUT DIRECTORY:\n"
         string += f"    {self.output_directory}\n"
 
         string += f"{self}\n\n"
@@ -425,12 +427,12 @@ class Optimizer(ABC):
         self._log_summary()
 
 
-class TSEmoOptimizer(Optimizer):
+class SummitOptimizer(Optimizer):
 
     domain: Domain
     """Optimization Domain"""
 
-    num_lhs_points: int
+    num_initial_points: int
     """Number of initial LHS points"""
 
     _columns: list[str]
@@ -442,11 +444,11 @@ class TSEmoOptimizer(Optimizer):
             boundaries: OptimizationBoundaries,
             reactor: Reactor,
             output_directory: Path,
-            num_lhs_points: int = 20,
+            num_initial_points: int = 20,
     ) -> None:
-        self.num_lhs_points = num_lhs_points
+        self.num_initial_points = num_initial_points
 
-        if self.num_lhs_points < 4:
+        if self.num_initial_points < 4:
             raise ValueError(
                 "The number of LHS points must be at least 3."
             )
@@ -456,13 +458,15 @@ class TSEmoOptimizer(Optimizer):
             boundaries,
             reactor,
             output_directory,
-            num_initial_points=num_lhs_points,
+            num_initial_points=num_initial_points,
         )
+
+        self._create_domain()
 
     def __repr__(self) -> str:
         string = "\n\nOPTIMIZER:\n"
-        string += f"  Type: TSEMO\n"
-        string += f"  Num LHS points: {self.num_lhs_points}\n"
+        string += "  Type: TSEMO\n"
+        string += f"  Num LHS points: {self.num_initial_points}\n"
         return string
 
     def _create_domain(self):
@@ -540,34 +544,118 @@ class TSEmoOptimizer(Optimizer):
         """Initial LHS sampling"""
         lhs_sampler = LHS(self.domain)
         initial_suggestions = lhs_sampler.suggest_experiments(
-            self.num_lhs_points,
+            self.num_initial_points,
         )
 
-        for i in range(self.num_lhs_points):
+        for i in range(self.num_initial_points):
             suggestion = initial_suggestions.iloc[[i]]
             conditions = self._construct_optimization_conditions(suggestion)
             STY, E = self._simulate_reactor(conditions)
             self._add_to_result(E, STY, conditions)
             self._log_iteration(E, STY, conditions, iteration_type="LHS")
 
-    def _run_tsemo(self, num_iterations: int) -> None:
-        """Optimized TSEMO sampling"""
-        tsemo_sampler = TSEMO(self.domain)
-
+    def _run_optimizer(self, num_iterations: int) -> None:
+        """Optimized Summit sampling"""
         for i in range(num_iterations):
-
             dataset = DataSet.from_df(self.results)
-            suggestion = tsemo_sampler.suggest_experiments(
-                1, prev_res=dataset,
-            )
+            suggestion = self._summit_optimizer_suggest(dataset)
             conditions = self._construct_optimization_conditions(suggestion)
             STY, E = self._simulate_reactor(conditions)
             self._add_to_result(E, STY, conditions)
             self._log_iteration(E, STY, conditions, iteration_type="TSEMO")
 
+    @abstractmethod
+    def _summit_optimizer_suggest(self, dataset: DataSet) -> DataSet:
+        """Summit Optimizer Suggest"""
+
     def run(self, num_iterations: int) -> None:
-        """Runs the TSEMO optimizer"""
-        self._create_domain()
+        """Runs the Summit optimizer"""
         self._run_lhs()
-        self._run_tsemo(num_iterations=num_iterations)
+        self._run_optimizer(num_iterations=num_iterations)
         self._end()
+
+class TSEmoOptimizer(SummitOptimizer):
+
+    _ts_emo_strategy: TSEMO
+    """TSEmo Optimizer Strategy"""
+
+    def __init__(
+            self,
+            species: OptimizationSpecies,
+            boundaries: OptimizationBoundaries,
+            reactor: Reactor,
+            output_directory: Path,
+            num_initial_points: int = 20,
+    ) -> None:
+
+        super().__init__(
+            species,
+            boundaries,
+            reactor,
+            output_directory,
+            num_initial_points,
+        )
+
+        self._ts_emo_strategy = TSEMO(self.domain)
+
+    def _summit_optimizer_suggest(self, dataset: DataSet) -> DataSet:
+        return self._ts_emo_strategy.suggest_experiments(
+                1, prev_res=dataset,
+            )
+
+class SoBoOptimizer(SummitOptimizer):
+
+    _so_bo_optimizer: SOBO
+    """SoBo Optimizer Strategy"""
+
+    def __init__(
+            self,
+            species: OptimizationSpecies,
+            boundaries: OptimizationBoundaries,
+            reactor: Reactor,
+            output_directory: Path,
+            num_initial_points: int = 20,
+    ) -> None:
+
+        super().__init__(
+            species,
+            boundaries,
+            reactor,
+            output_directory,
+            num_initial_points,
+        )
+
+        self._so_bo_optimizer = SOBO(self.domain)
+
+    def _summit_optimizer_suggest(self, dataset: DataSet) -> DataSet:
+        return self._so_bo_optimizer.suggest_experiments(
+                1, prev_res=dataset,
+            )
+
+class EntMootOptimizer(SummitOptimizer):
+
+    _ent_moot_optimizer: ENTMOOT
+    """EntMoot Optimizer Strategy"""
+
+    def __init__(
+            self,
+            species: OptimizationSpecies,
+            boundaries: OptimizationBoundaries,
+            reactor: Reactor,
+            output_directory: Path,
+            num_initial_points: int = 20,
+    ) -> None:
+        super().__init__(
+            species,
+            boundaries,
+            reactor,
+            output_directory,
+            num_initial_points,
+        )
+
+        self._ent_moot_optimizer = ENTMOOT(self.domain)
+
+    def _summit_optimizer_suggest(self, dataset: DataSet) -> DataSet:
+        return self._ent_moot_optimizer.suggest_experiments(
+            1, prev_res=dataset,
+        )

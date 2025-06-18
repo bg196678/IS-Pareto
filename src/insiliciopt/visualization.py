@@ -18,7 +18,7 @@ plot_style = r"""
 # see: https://github.com/garrettj403/SciencePlots
 
 # Set color cycle: blue, green, yellow, red, violet, gray
-axes.prop_cycle : cycler('color', ['0C5DA5', '00B945', 'FF9500', 'FF2C00', '845B97', '474747', '9e9e9e'])
+axes.prop_cycle : cycler("color", ["0C5DA5", "00B945", "FF9500", "FF2C00", "845B97", "474747", "9e9e9e"])
 
 # Set default figure size
 figure.figsize : 3.5, 2.625
@@ -49,7 +49,7 @@ lines.linewidth : 1.
 # Remove legend frame
 legend.frameon : False
 
-# Always save as 'tight'
+# Always save as "tight"
 savefig.bbox : tight
 savefig.pad_inches : 0.05
 
@@ -64,7 +64,7 @@ mathtext.fontset : dejavuserif
 """
 
 style_file = tempfile.NamedTemporaryFile(
-    mode='w', suffix='.mplstyle', delete=False
+    mode="w", suffix=".mplstyle", delete=False
 )
 style_file.write(plot_style)
 style_file.close()
@@ -125,40 +125,40 @@ class Visualization:
         if self.num_initial_points:
             plt.scatter(
                 sty[:self.num_initial_points], e[:self.num_initial_points],
-                marker='s', color='black', label=f'Initial Points',
+                marker="s", color="black", label="Initial Points",
                 s=64, zorder=4
             )
 
         plt.scatter(
             sty[self.num_initial_points:], e[self.num_initial_points:],
-            marker='x', color='blue', label=f'Optimized Points',
+            marker="x", color="blue", label="Optimized Points",
             alpha=0.7, zorder=3
         )
 
         plt.scatter(
             sty_pareto, e_pareto,
-            facecolors='orange', edgecolors='red', s=100, linewidths=1.5,
-            label='Pareto Front', zorder=5, marker='o'
+            facecolors="orange", edgecolors="red", s=100, linewidths=1.5,
+            label="Pareto Front", zorder=5, marker="o"
         )
 
         plt.plot(
             sty_pareto, e_pareto,
-            color='red', linewidth=2, linestyle='--', zorder=2,
-            label='Pareto Curve'
+            color="red", linewidth=2, linestyle="--", zorder=2,
+            label="Pareto Curve"
         )
 
         plt.xlim(*sty_bounds)
         plt.ylim(*e_factor_bounds)
-        plt.xlabel('STY [kg/m³/h]', fontsize=18)
-        plt.ylabel('E-Factor', fontsize=18)
+        plt.xlabel("STY [kg/m³/h]", fontsize=18)
+        plt.ylabel("E-Factor", fontsize=18)
         plt.title(
-            f'In-silicio closed loop multi-objective optimization - '
-            f'Iteration {iteration}',
+            f"In-silicio closed loop multi-objective optimization - "
+            f"Iteration {iteration}",
             fontsize=16
         )
-        plt.tick_params(axis='both', which='major', labelsize=15)
+        plt.tick_params(axis="both", which="major", labelsize=15)
         plt.legend(fontsize=15)
-        plt.grid(True, linestyle='--', alpha=0.5)
+        plt.grid(True, linestyle="--", alpha=0.5)
         plt.tight_layout()
 
         file_path = self.plot_directory / f"pareto_front_iteration_{iteration}.png"
@@ -169,7 +169,7 @@ class Visualization:
         frame_paths = []
 
         for file in self.plot_directory.iterdir():
-            if not ".png" in file.name:
+            if ".png" not in file.name:
                 continue
 
             frame_paths.append(file)
@@ -178,7 +178,7 @@ class Visualization:
 
         with imageio.get_writer(
                 str(output_path),
-                mode='I',
+                mode="I",
                 duration=0.4,
                 loop=0
         ) as writer:
