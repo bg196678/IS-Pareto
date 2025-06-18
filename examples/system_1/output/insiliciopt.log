@@ -1,0 +1,227 @@
+2025-06-18 20:40:15,468 - Optimizer - INFO
+
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                                                                               ║
+║  ██╗███╗   ██╗███████╗██╗██╗     ██╗ ██████╗██╗ ██████╗ ██████╗ ████████╗     ║
+║  ██║████╗  ██║██╔════╝██║██║     ██║██╔════╝██║██╔═══██╗██╔══██╗╚══██╔══╝     ║
+║  ██║██╔██╗ ██║███████╗██║██║     ██║██║     ██║██║   ██║██████╔╝   ██║        ║
+║  ██║██║╚██╗██║╚════██║██║██║     ██║██║     ██║██║   ██║██╔═══╝    ██║        ║
+║  ██║██║ ╚████║███████║██║███████╗██║╚██████╗██║╚██████╔╝██║        ██║        ║
+║  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝╚══════╝╚═╝ ╚═════╝╚═╝ ╚═════╝ ╚═╝        ╚═╝        ║
+║                                                                               ║
+║                       In Silico Optimization Framework                        ║
+║                                 Version 1.0                                   ║
+║                                                                               ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+
+OPTIMIZATION SPECIES:
+    Reactant 1: Substrate
+    Reactant 2: Nucleophilic
+    Products: Product1
+
+
+OPTIMIZATION BOUNDARIES:
+    Temperature: (60, 140) °C
+    Concentration Reactant 1: (100, 500) %
+    Concentration Ratio: (10, 5.0)
+    Time: (0.5, 2.0) minutes
+    STY: (0, 100000000.0)
+    E_factor: (0, 50)
+
+
+REACTOR:
+  Num Reactions: 16
+  Num Species: 10
+  Num Transition States: 16
+
+
+KINETICS:
+  Num Reactions: 16
+  Num Species: 10
+  Num Transition States: 16
+  Tunneling correction: wigner
+  Gradient threshold: 0.004
+
+
+SOLVATION:
+  Num Reactions: 16
+  Num Species: 10
+  Num Transition States: 16
+  Gas Constant: 8.3145
+
+
+OUTPUT DIRECTORY:
+    /home/lennart/PycharmProjects/insiliciopt/examples/system_1/output
+
+
+OPTIMIZER:
+  Type: TSEMO
+  Num LHS points: 4
+
+
+REACTIONS:
+   R1_fwd: Substrate + Nucleophilic → ITS1 (TS: TS1_fwd)
+   R1_rev: ITS1 → Substrate + Nucleophilic (TS: TS1_rev)
+   R2_fwd: Substrate + Nucleophilic → ITS2 (TS: TS2_fwd)
+   R2_rev: ITS2 → Substrate + Nucleophilic (TS: TS2_rev)
+   R3_fwd: Product2 + Nucleophilic → ITS3 (TS: TS3_fwd)
+   R3_rev: ITS3 → Product2 + Nucleophilic (TS: TS3_rev)
+   R4_fwd: Product1 + Nucleophilic → ITS4 (TS: TS4_fwd)
+   R4_rev: ITS4 → Product1 + Nucleophilic (TS: TS4_rev)
+   R5_fwd: ITS1 → Product1 + LeavingGroup (TS: TS12_fwd)
+   R5_rev: Product1 + LeavingGroup → ITS1 (TS: TS12_rev)
+   R6_fwd: ITS2 → Product2 + LeavingGroup (TS: TS22_fwd)
+   R6_rev: Product2 + LeavingGroup → ITS2 (TS: TS22_rev)
+   R7_fwd: ITS3 → Product3 + LeavingGroup (TS: TS32_fwd)
+   R7_rev: Product3 + LeavingGroup → ITS3 (TS: TS32_rev)
+   R8_fwd: ITS4 → Product3 + LeavingGroup (TS: TS42_fwd)
+   R8_rev: Product3 + LeavingGroup → ITS4 (TS: TS42_rev)
+
+
+SPECIES:
+   Species('ITS1', mass=0.22999999999999998, energy=-847.760037351, fchk='ITS1.fchk', tab='ITS1.tab')
+   Species('Nucleophilic', mass=0.071, energy=-212.576801654, fchk='Nucleophilic.fchk', tab='Nucleophilic.tab')
+   Species('Product1', mass=0.21008046, energy=-747.339396317, fchk='Product1.fchk', tab='Product1.tab')
+   Species('ITS3', mass=0.301, energy=-959.9276068, fchk='ITS3.fchk', tab='ITS3.tab')
+   Species('Product2', mass=0.21008046, energy=-747.339639927, fchk='Product2.fchk', tab='Product2.tab')
+   Species('LeavingGroup', mass=0.02, energy=-100.453158015, fchk='Leaving_Group.fchk', tab='Leaving_Group.tab')
+   Species('ITS4', mass=0.301, energy=-959.881772303, fchk='ITS4.fchk', tab='ITS4.tab')
+   Species('ITS2', mass=0.22999999999999998, energy=-847.734323929, fchk='ITS2.fchk', tab='ITS2.tab')
+   Species('Substrate', mass=0.159, energy=-635.185999076, fchk='Substrate.fchk', tab='Substrate.tab')
+   Species('Product3', mass=0.26114773, energy=-859.487278239, fchk='Product3.fchk', tab='Product3.tab')
+
+
+TRANSITION STATES:
+   TransitionState('TS42_rev', mass=None, energy=-959.874575137, fchk='TS42_rev.fchk', tab='TS42.tab')
+   TransitionState('TS12_fwd', mass=None, energy=-847.749041202, fchk='TS12_fwd.fchk', tab='TS12.tab')
+   TransitionState('TS3_rev', mass=None, energy=-959.907069926, fchk='TS3_rev.fchk', tab='TS3.tab')
+   TransitionState('TS1_fwd', mass=None, energy=-847.759104357, fchk='TS1_fwd.fchk', tab='TS1.tab')
+   TransitionState('TS1_rev', mass=None, energy=-847.759104357, fchk='TS1_rev.fchk', tab='TS1.tab')
+   TransitionState('TS32_rev', mass=None, energy=-959.900414613, fchk='TS32_rev.fchk', tab='TS32.tab')
+   TransitionState('TS22_fwd', mass=None, energy=-847.729373816, fchk='TS22_fwd.fchk', tab='TS22.tab')
+   TransitionState('TS42_fwd', mass=None, energy=-959.874575137, fchk='TS42_fwd.fchk', tab='TS42.tab')
+   TransitionState('TS2_fwd', mass=None, energy=-847.748732583, fchk='TS2_fwd.fchk', tab='TS2.tab')
+   TransitionState('TS22_rev', mass=None, energy=-847.729373816, fchk='TS22_rev.fchk', tab='TS22.tab')
+   TransitionState('TS4_rev', mass=None, energy=-959.894825835, fchk='TS4_rev.fchk', tab='TS4.tab')
+   TransitionState('TS4_fwd', mass=None, energy=-959.894825835, fchk='TS4_fwd.fchk', tab='TS4.tab')
+   TransitionState('TS2_rev', mass=None, energy=-847.748732583, fchk='TS2_rev.fchk', tab='TS2.tab')
+   TransitionState('TS12_rev', mass=None, energy=-847.749041202, fchk='TS12_rev.fchk', tab='TS12.tab')
+   TransitionState('TS32_fwd', mass=None, energy=-959.900414613, fchk='TS32_fwd.fchk', tab='TS32.tab')
+   TransitionState('TS3_fwd', mass=None, energy=-959.907069926, fchk='TS3_fwd.fchk', tab='TS3.tab')
+
+
+===== STARTING OPTIMIZATION =====
+
+
+2025-06-18 20:40:27,498 - Optimizer - INFO
+===================================
+ITERATION 1
+    Type: LHS
+    Conditions:
+        Temperature: 130.0 °C
+        Concentration Reactant 1: 350.0
+        Concentration Ratio: 8.12
+        Time: 1.06 minutes
+    Results:
+        STY: 9.5428e+00
+        E-factor: 8.6207
+
+2025-06-18 20:40:37,999 - Optimizer - INFO
+===================================
+ITERATION 2
+    Type: LHS
+    Conditions:
+        Temperature: 110.0 °C
+        Concentration Reactant 1: 150.0
+        Concentration Ratio: 5.62
+        Time: 1.44 minutes
+    Results:
+        STY: 7.7788e+00
+        E-factor: 11.5426
+
+2025-06-18 20:40:46,302 - Optimizer - INFO
+===================================
+ITERATION 3
+    Type: LHS
+    Conditions:
+        Temperature: 70.0 °C
+        Concentration Reactant 1: 250.0
+        Concentration Ratio: 6.88
+        Time: 1.81 minutes
+    Results:
+        STY: 1.3139e-05
+        E-factor: 407726755.2767
+
+2025-06-18 20:40:54,437 - Optimizer - INFO
+===================================
+ITERATION 4
+    Type: LHS
+    Conditions:
+        Temperature: 90.0 °C
+        Concentration Reactant 1: 450.0
+        Concentration Ratio: 9.38
+        Time: 0.69 minutes
+    Results:
+        STY: 1.3474e-09
+        E-factor: 24041573408091.1016
+
+2025-06-18 20:41:20,910 - Optimizer - INFO
+===================================
+ITERATION 5
+    Type: TSEMO
+    Conditions:
+        Temperature: 111.95853845758046 °C
+        Concentration Reactant 1: 255.14088244068512
+        Concentration Ratio: 9.22
+        Time: 1.23 minutes
+    Results:
+        STY: 1.0957e+01
+        E-factor: 10.6116
+
+2025-06-18 20:41:38,272 - Optimizer - INFO
+===================================
+ITERATION 6
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.89386402614926 °C
+        Concentration Reactant 1: 265.9062161388416
+        Concentration Ratio: 5.94
+        Time: 0.70 minutes
+    Results:
+        STY: 1.7204e+01
+        E-factor: 7.7014
+
+2025-06-18 20:41:39,922 - Optimizer - INFO
+
+
+===== OPTIMIZATION SUMMARY =====
+
+Total iterations: 6
+
+BEST SPACE TIME YIELD (STY) SOLUTION:
+    STY: 17.20389665329568
+    E-factor: 7.701449237761128
+    Temperature: 139.89386402614926 °C
+    Concentration Reactant 1: 265.9062161388416
+    Concentration Ratio: 5.941927337285372
+    Time: 0.70 minutes
+
+BEST E-FACTOR SOLUTION:
+    E-factor: 7.7014
+    STY: 1.7204e+01
+    Temperature: 139.89 °C
+    Concentration Reactant 1: 265.9062
+    Concentration Ratio: 5.9419
+    Time: 0.70 minutes
+
+STATISTICS:
+    STY Range: [1.3474e-09, 1.7204e+01]
+    E-factor Range: [7.7014, 24041573408091.1016]
+    Temperature Range: [70.00, 139.89] °C
+    Final results stored at: /home/lennart/PycharmProjects/insiliciopt/examples/system_1/output/data/insiliciopt.csv
+
+
+============= TERMINATED NORMALLY =============
+
+
