@@ -18,11 +18,18 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 requires-python = "==3.10"
+# TODO: include other Optimizers and make the dependencies optional for summit TSEMO
 dependencies = [
-    "summit",
-    "pyomo",
+    "summit==0.8.8",
+    "pyomo==6.6",
     "openpyxl",
-    "scikit-learn==1.0.2"
+    "scikit-learn==1.0.2",
+    "pymoo==0.4.2.2",
+    "tamkin",
+    "numpy",
+    "matplotlib",
+    "pandas",
+    "imageio",
 ]
 
 [project.optional-dependencies]

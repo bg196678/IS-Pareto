@@ -17,7 +17,8 @@ class PatchedKinetics(Kinetics):
         super().__init__(reactions)
         self.kinetics = self._load_kinetics(excel_path)
 
-    def _load_kinetics(self, excel_path: Path) -> pd.DataFrame:
+    @staticmethod
+    def _load_kinetics(excel_path: Path) -> pd.DataFrame:
         kinetics = pd.read_excel(excel_path)
         return kinetics
 

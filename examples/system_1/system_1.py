@@ -12,6 +12,7 @@ from insiliciopt.optimizer import (
     OptimizationSpecies,
     OptimizationBoundaries,
 )
+import insiliciopt.visualization as visualization
 
 ##############
 # Paths
@@ -20,6 +21,12 @@ current_dir = Path(__file__).parent
 gaussian_dir = current_dir / "data" / "gaussian"
 cosmo_therm_dir = current_dir / "data" / "cosmotherm"
 output_dir = current_dir / "output"
+
+##############
+# Visualization
+##############
+visualization.e_factor_bounds = (0.0, 3.0)
+visualization.sty_bounds = (0.0, 13000)
 
 ##############
 # Species
@@ -362,6 +369,6 @@ optimizer = TSEmoOptimizer(
     boundaries=optimization_boundaries,
     reactor=reactor,
     output_directory=output_dir,
-    num_lhs_points=20,
+    num_lhs_points=4,
 )
-optimizer.run(num_iterations=100)
+optimizer.run(num_iterations=2)

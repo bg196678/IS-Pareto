@@ -47,6 +47,17 @@ class Species:
                 f"TAB File not found: {self.tab_file_path}"
             )
 
+    def __repr__(self) -> str:
+        """Return string representation of the Species"""
+        parts = [f"Species('{self.name}'"]
+        parts.append(f"mass={self.mass}")
+        parts.append(f"energy={self.energy}")
+        fchk_path = f"fchk='{self.fchk_file_path.name}'"
+        tab_path = f"tab='{self.tab_file_path.name}'"
+        parts.append(fchk_path)
+        parts.append(tab_path)
+        return ", ".join(parts) + ")"
+
     def __eq__(self, other):
         if not isinstance(other, Species):
             return False
@@ -93,9 +104,6 @@ class Species:
     def __hash__(self):
         return hash((self.name, self.mass, str(self.fchk_file_path)))
 
-    def __repr__(self) -> str:
-        return f"Species('{self.name}')"
-
 
 class Reactant(Species):
     """Reactants"""
@@ -122,6 +130,12 @@ class TransitionState(Species):
             fchk_file_path=fchk_file_path,
             energy=energy,
         )
+
+    def __repr__(self) -> str:
+        """Return string representation of the Species"""
+        string = super().__repr__()
+        string = string.replace("Species", "TransitionState")
+        return string
 
 
 class ReactionTerm:
@@ -202,6 +216,30 @@ class Reaction:
             k: v for k, v in self.stoichiometry.items() if v != 0
         } # no need for 0 coefficients
 
+    def __repr__(self) -> str:
+        """Return string representation of the Reaction"""
+        reactant_parts = []
+        for reactant in self.reactants:
+            term = f"{reactant.name}"
+            reactant_parts.append(term)
+
+        product_parts = []
+        for product in self.products:
+            term = f"{product.name}"
+            product_parts.append(term)
+
+        reaction_str = " + ".join(
+            reactant_parts
+        ) + " → " + " + ".join(product_parts)
+
+        if self.name:
+            reaction_str = f"{self.name}: {reaction_str}"
+
+        if self.transition_state:
+            reaction_str += f" (TS: {self.transition_state.name})"
+
+        return reaction_str
+
     @property
     def species(self) -> list[Species]:
         return [
@@ -269,6 +307,4 @@ class Reaction:
 
         else:
             raise TypeError(f"Cannot subtract {type(other)} from Reaction")
-
-    def __repr__(self):
-        return f"Reaction({self.stoichiometry})"
+        

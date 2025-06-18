@@ -1,7 +1,7 @@
 import logging
-from pathlib import Path
-
 import numpy as np
+import pandas as pd
+from pathlib import Path
 
 from insiliciopt.species import (
     Reaction,
@@ -109,5 +109,33 @@ class Solvation(ReactionInput, DataOutput):
 
         return np.exp(-delta_g_si_units / (self.gas_constant * temperature))
 
+    def _dump_gsolv(self, path: Path) -> None:
+        g_values = {
+            key.name: value for key, value in self._g_values.items()
+        }
+        df = pd.DataFrame.from_dict(g_values, orient="index")
+        df.to_csv(path / "gsolv.csv")
+        self._logger.debug("Dumped Gsolv to csv file.")
+
+    def _dump_correction(self, path: Path) -> None:
+        """Dumps the correction factors for each reaction at various
+        temperatures to a CSV file.
+        """
+        all_temps = list(self._g_values.values())[0].keys()
+
+        correction_values = {}
+        for reaction in self.reactions:
+            correction_values[reaction.name] = {}
+            for temp in all_temps:
+                correction = self.correction_factor(reaction, temp)
+                correction_values[reaction.name][temp] = correction
+
+        df = pd.DataFrame.from_dict(correction_values, orient="index")
+        df.to_csv(path / "corrections.csv")
+        self._logger.debug(f"Dumped correction factors to csv.")
+
     def dump(self, path: Path) -> None:
         """Dumps the Gsolv values and correction factors"""
+        self._dump_gsolv(path)
+        self._dump_correction(path)
+

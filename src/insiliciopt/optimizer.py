@@ -1,4 +1,5 @@
 import logging
+import numpy as np
 import pandas as pd
 from pathlib import Path
 from dataclasses import dataclass
@@ -18,6 +19,8 @@ from insiliciopt.reactor import (
     ReactorConditions,
 )
 from insiliciopt.species import Species
+from insiliciopt.utils import _logo
+from insiliciopt.visualization import Visualization
 
 
 @dataclass
@@ -87,6 +90,13 @@ class Optimizer(ABC):
     """Counter of iterations"""
 
     _log_level: int = logging.INFO
+    """Logging level"""
+
+    _output_data_directory: Path
+    """Output Data Storage"""
+
+    _visualization: Visualization
+    """Visualization of the Pareto Front"""
 
     def __init__(
             self,
@@ -95,6 +105,7 @@ class Optimizer(ABC):
             reactor: Reactor,
             output_directory: Path,
             log_level: int = logging.INFO,
+            num_initial_points: int | None = None,
     ) -> None:
         self._logger: logging.Logger = logging.getLogger(__class__.__name__)
 
@@ -105,16 +116,28 @@ class Optimizer(ABC):
         self._log_level = log_level
 
         self.results = pd.DataFrame(
-            columns=[
-                "Temperature",
-                "Concentration Reactant 1",
-                "Concentration Ratio",
-                "Time",
-            ]
+            columns=self._results_columns_names
         )
-
         self._setup_logger()
         self._log_start()
+
+        # Data
+        self._output_data_directory = self.output_directory / "data"
+        self._output_data_directory.mkdir(parents=True, exist_ok=True)
+        self.reactor.kinetics.dump(self._output_data_directory)
+        self.reactor.solvation.dump(self._output_data_directory)
+
+        # Visualization
+        self._output_plot_directory = self.output_directory / "plots"
+        self._output_plot_directory.mkdir(parents=True, exist_ok=True)
+        self._visualization = Visualization(
+            self._output_plot_directory,
+            num_initial_points=num_initial_points,
+        )
+
+    @abstractmethod
+    def __repr__(self) -> str:
+        """Optimizer"""
 
     def _setup_logger(self) -> None:
         """Adds a console and file handler"""
@@ -124,6 +147,7 @@ class Optimizer(ABC):
             '%(asctime)s - %(name)s - %(levelname)s\n'
             '%(message)s'
         )
+        self._logger.setLevel(self._log_level)
 
         console_handler = logging.StreamHandler()
         console_handler.setLevel(self._log_level)
@@ -140,15 +164,187 @@ class Optimizer(ABC):
         self._logger.addHandler(file_handler)
 
     def _log_start(self) -> None:
-        """Log initial message"""
+        """Log initial message with detailed optimization information"""
+        string = _logo
+
+        # Species to Optimize
+        string += "\nOPTIMIZATION SPECIES:\n"
+        string += f"    Reactant 1: {self.species.reactant_1.name}\n"
+        string += f"    Reactant 2: {self.species.reactant_2.name}\n"
+        string += (
+            f"    Products: "
+            f"{', '.join([product.name for product in self.species.products])}\n\n"
+        )
+
+        # Optimization Boundaries
+        string += "\nOPTIMIZATION BOUNDARIES:\n"
+        string += f"    Temperature: {self.boundaries.temperature} °C\n"
+        string += (
+            f"    Concentration Reactant 1: "
+                   f"{self.boundaries.concentration_reactant_1} %\n"
+        )
+        string += f"    Concentration Ratio: {self.boundaries.concentration_ratio}\n"
+        string += f"    Time: {self.boundaries.time} minutes\n"
+        string += f"    STY: {self.boundaries.STY}\n"
+        string += f"    E_factor: {self.boundaries.E_factor}"
+
+        string += f"\n{self.reactor}"
+        string += f"{self.reactor.kinetics}"
+        string += f"{self.reactor.solvation}"
+
+        string += f"\n\nOUTPUT DIRECTORY:\n"
+        string += f"    {self.output_directory}\n"
+
+        string += f"{self}\n\n"
+
+        string += "REACTIONS:\n"
+        for reaction in self.reactor.reactions:
+            string += f"   {reaction}\n"
+
+        string += "\n\nSPECIES:\n"
+        for species in self.reactor.species:
+            string += f"   {species}\n"
+
+        string += "\n\nTRANSITION STATES:\n"
+        for transition_state in self.reactor.transition_states:
+            string += f"   {transition_state}\n"
+
+        string += "\n\n===== STARTING OPTIMIZATION =====\n\n"
+
+        self._logger.info(string)
 
     def _log_iteration(
             self,
             E: float,
             STY: float,
             conditions: _OptimizerConditions,
+            iteration_type: str | None = None,
     ) -> None:
         """Log iteration"""
+        iteration_str = "=" * 35
+        iteration_str += f"\nITERATION {self._counter}\n"
+
+        if iteration_type:
+            iteration_str += f"    Type: {iteration_type}\n"
+
+        iteration_str += "    Conditions:\n"
+        iteration_str += (
+            f"        "
+            f"Temperature: {conditions.temperature} °C\n"
+        )
+        iteration_str += (
+            f"        Concentration Reactant 1: "
+            f"{conditions.concentration_reactant_1}\n"
+        )
+        iteration_str += (
+            f"        "
+            f"Concentration Ratio: {conditions.concentration_ratio:.2f}\n"
+        )
+        iteration_str += f"        Time: {conditions.time:.2f} minutes\n"
+
+        iteration_str += "    Results:\n"
+        iteration_str += f"        STY: {STY:.4e}\n"
+        iteration_str += f"        E-factor: {E:.4f}\n"
+
+        self._logger.info(iteration_str)
+
+    def _log_summary(self) -> None:
+        """Logs a summary of the optimization"""
+        summary = "\n\n===== OPTIMIZATION SUMMARY =====\n\n"
+        summary += f"Total iterations: {self._counter}\n\n"
+
+        best_sty_idx = self.results[self._results_columns_names[4]].idxmax()
+        best_sty_row = self.results.iloc[best_sty_idx]
+
+        summary += "BEST SPACE TIME YIELD (STY) SOLUTION:\n"
+        summary += (
+            f"    STY: "
+            f"{best_sty_row[self._results_columns_names[4]]}\n"
+        )
+        summary += (
+            f"    "
+            f"E-factor: {best_sty_row[self._results_columns_names[5]]}\n"
+        )
+        summary += (
+            f"    "
+            f"Temperature: {best_sty_row[self._results_columns_names[0]]} °C\n"
+        )
+        summary += (
+            f"    "
+            f"Concentration Reactant 1: "
+            f"{best_sty_row[self._results_columns_names[1]]}\n"
+        )
+        summary += (
+            f"    "
+            f"Concentration Ratio: "
+            f"{best_sty_row[self._results_columns_names[2]]}\n"
+        )
+        summary += (
+            f"    "
+            f"Time: "
+            f"{best_sty_row[self._results_columns_names[3]]:.2f} minutes\n\n"
+        )
+
+        best_e_idx = self.results[self._results_columns_names[5]].idxmin()
+        best_e_row = self.results.iloc[best_e_idx]
+
+        summary += "BEST E-FACTOR SOLUTION:\n"
+        summary += (
+            f"    "
+            f"E-factor: {best_e_row[self._results_columns_names[5]]:.4f}\n"
+        )
+        summary += (
+            f"    "
+            f"STY: {best_e_row[self._results_columns_names[4]]:.4e}\n"
+        )
+        summary += (
+            f"    "
+            f"Temperature: {best_e_row[self._results_columns_names[0]]:.2f} °C\n"
+        )
+        summary += (
+            f"    "
+            f"Concentration Reactant 1: "
+            f"{best_e_row[self._results_columns_names[1]]:.4f}\n"
+        )
+        summary += (
+            f"    "
+            f"Concentration Ratio: "
+            f"{best_e_row[self._results_columns_names[2]]:.4f}\n"
+        )
+        summary += (
+            f"    "
+            f"Time: "
+            f"{best_e_row[self._results_columns_names[3]]:.2f} minutes\n\n"
+        )
+
+        summary += "STATISTICS:\n"
+        summary += (
+            f"    "
+            f"STY Range: "
+            f"[{self.results[self._results_columns_names[4]].min():.4e}, "
+            f"{self.results[self._results_columns_names[4]].max():.4e}]\n"
+        )
+        summary += (
+            f"    "
+            f"E-factor Range: "
+            f"[{self.results[self._results_columns_names[5]].min():.4f}, "
+            f"{self.results[self._results_columns_names[5]].max():.4f}]\n"
+        )
+        summary += (
+            f"    "
+            f"Temperature Range: "
+            f"[{self.results[self._results_columns_names[0]].min():.2f}, "
+            f"{self.results[self._results_columns_names[0]].max():.2f}] °C\n"
+        )
+        summary += (
+            f"    "
+            f"Final results stored at: "
+            f"{self._output_data_directory / 'insiliciopt.csv'}\n"
+        )
+
+        summary += "\n\n============= TERMINATED NORMALLY =============\n\n"
+
+        self._logger.info(summary)
 
     def _convert_optimizer_to_reactor_conditions(
             self, conditions: _OptimizerConditions,
@@ -171,7 +367,7 @@ class Optimizer(ABC):
 
     def _store_results(self) -> None:
         self.results.to_csv(
-            self.output_directory / "results.csv",
+            self._output_data_directory / "insiliciopt.csv",
             index=False,
         )
 
@@ -204,6 +400,12 @@ class Optimizer(ABC):
         )
 
         self._counter += 1
+        self._store_results()
+        self._visualization.plot(
+            e=np.array(self.results[self._results_columns_names[-1]].values),
+            sty=np.array(self.results[self._results_columns_names[-2]].values),
+            iteration=self._counter,
+        )
 
     def _simulate_reactor(
             self, conditions: _OptimizerConditions
@@ -217,6 +419,10 @@ class Optimizer(ABC):
     @abstractmethod
     def run(self, num_iterations: int) -> None:
         """Runs the optimizer"""
+
+    def _end(self) -> None:
+        self._visualization.animate()
+        self._log_summary()
 
 
 class TSEmoOptimizer(Optimizer):
@@ -238,9 +444,26 @@ class TSEmoOptimizer(Optimizer):
             output_directory: Path,
             num_lhs_points: int = 20,
     ) -> None:
-        super().__init__(species, boundaries, reactor, output_directory)
-
         self.num_lhs_points = num_lhs_points
+
+        if self.num_lhs_points < 4:
+            raise ValueError(
+                "The number of LHS points must be at least 3."
+            )
+
+        super().__init__(
+            species,
+            boundaries,
+            reactor,
+            output_directory,
+            num_initial_points=num_lhs_points,
+        )
+
+    def __repr__(self) -> str:
+        string = "\n\nOPTIMIZER:\n"
+        string += f"  Type: TSEMO\n"
+        string += f"  Num LHS points: {self.num_lhs_points}\n"
+        return string
 
     def _create_domain(self):
         domain = Domain()
@@ -325,7 +548,7 @@ class TSEmoOptimizer(Optimizer):
             conditions = self._construct_optimization_conditions(suggestion)
             STY, E = self._simulate_reactor(conditions)
             self._add_to_result(E, STY, conditions)
-            self._log_iteration(E, STY, conditions)
+            self._log_iteration(E, STY, conditions, iteration_type="LHS")
 
     def _run_tsemo(self, num_iterations: int) -> None:
         """Optimized TSEMO sampling"""
@@ -333,17 +556,18 @@ class TSEmoOptimizer(Optimizer):
 
         for i in range(num_iterations):
 
-            dataset = DataSet.from_dataframe(self.results)
+            dataset = DataSet.from_df(self.results)
             suggestion = tsemo_sampler.suggest_experiments(
                 1, prev_res=dataset,
             )
             conditions = self._construct_optimization_conditions(suggestion)
             STY, E = self._simulate_reactor(conditions)
             self._add_to_result(E, STY, conditions)
-            self._log_iteration(E, STY, conditions)
+            self._log_iteration(E, STY, conditions, iteration_type="TSEMO")
 
     def run(self, num_iterations: int) -> None:
         """Runs the TSEMO optimizer"""
         self._create_domain()
         self._run_lhs()
         self._run_tsemo(num_iterations=num_iterations)
+        self._end()

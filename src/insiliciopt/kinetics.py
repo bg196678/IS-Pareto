@@ -1,4 +1,6 @@
 import logging
+import numpy as np
+import pandas as pd
 from pathlib import Path
 
 from tamkin import (
@@ -170,3 +172,32 @@ class Kinetics(ReactionInput, DataOutput):
 
     def dump(self, path: Path) -> None:
         """Dumps the kinetics"""
+        temperature_range = np.linspace(50, 2500, 2450)
+        kinetics = {}
+        for reaction in self.reactions:
+            rates = []
+            for temp in temperature_range:
+                k = self.k(reaction, temp)
+                rates.append(k)
+            kinetics[reaction.name] = {
+                'temperature': temperature_range.tolist(),
+                'rate_constants': rates
+            }
+        df_list = []
+        for reaction_name, data in kinetics.items():
+            temp_df = pd.DataFrame({
+                'temperature': data['temperature'],
+                f'rate_{reaction_name}': data['rate_constants']
+            })
+            df_list.append(temp_df)
+
+        result_df = df_list[0]
+        for df in df_list[1:]:
+            result_df = pd.merge(
+                result_df, df, on='temperature', how='outer'
+            )
+
+        result_df.to_csv(path / "kinetics.csv", index=False)
+        self._logger.debug(f"Kinetics data dumped to {path}")
+
+
