@@ -17,8 +17,7 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-requires-python = "==3.10"
-# TODO: include other Optimizers and make the dependencies optional for summit TSEMO
+requires-python = ">=3.10,<3.11"
 dependencies = [
     "summit==0.8.8",
     "pyomo==6.6",
