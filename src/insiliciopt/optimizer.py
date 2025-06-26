@@ -359,13 +359,13 @@ class Optimizer(ABC):
                 conditions.concentration_reactant_1
             ),
         }
-        rector_conditions = ReactorConditions(
+        reactor_conditions = ReactorConditions(
             temperature=conditions.temperature,
             concentrations=concentrations,
             products=self.species.products,
             time=conditions.time,
         )
-        return rector_conditions
+        return reactor_conditions
 
     def _store_results(self) -> None:
         self.results.to_csv(
@@ -462,12 +462,6 @@ class SummitOptimizer(Optimizer):
         )
 
         self._create_domain()
-
-    def __repr__(self) -> str:
-        string = "\n\nOPTIMIZER:\n"
-        string += "  Type: TSEMO\n"
-        string += f"  Num LHS points: {self.num_initial_points}\n"
-        return string
 
     def _create_domain(self):
         domain = Domain()
@@ -600,6 +594,12 @@ class TSEmoOptimizer(SummitOptimizer):
 
         self._ts_emo_strategy = TSEMO(self.domain)
 
+    def __repr__(self) -> str:
+        string = "\n\nOPTIMIZER:\n"
+        string += "  Type: TSEMO\n"
+        string += f"  Num LHS points: {self.num_initial_points}\n"
+        return string
+
     def _summit_optimizer_suggest(self, dataset: DataSet) -> DataSet:
         return self._ts_emo_strategy.suggest_experiments(
                 1, prev_res=dataset,
@@ -629,6 +629,12 @@ class SoBoOptimizer(SummitOptimizer):
 
         self._so_bo_optimizer = SOBO(self.domain)
 
+    def __repr__(self) -> str:
+        string = "\n\nOPTIMIZER:\n"
+        string += "  Type: SOBO\n"
+        string += f"  Num LHS points: {self.num_initial_points}\n"
+        return string
+
     def _summit_optimizer_suggest(self, dataset: DataSet) -> DataSet:
         return self._so_bo_optimizer.suggest_experiments(
                 1, prev_res=dataset,
@@ -656,6 +662,12 @@ class EntMootOptimizer(SummitOptimizer):
         )
 
         self._ent_moot_optimizer = ENTMOOT(self.domain)
+
+    def __repr__(self) -> str:
+        string = "\n\nOPTIMIZER:\n"
+        string += "  Type: ENTMOOT\n"
+        string += f"  Num LHS points: {self.num_initial_points}\n"
+        return string
 
     def _summit_optimizer_suggest(self, dataset: DataSet) -> DataSet:
         return self._ent_moot_optimizer.suggest_experiments(
