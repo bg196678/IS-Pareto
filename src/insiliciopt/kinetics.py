@@ -106,7 +106,7 @@ class Kinetics(ReactionInput, DataOutput):
             NMA(
                 load_molecule_g03fchk(
                     species.fchk_file_path,
-                    #energy=species.energy
+                    energy=species.energy
                 ),
                 ConstrainExt(
                     gradient_threshold=self.gradient_threshold
@@ -147,8 +147,8 @@ class Kinetics(ReactionInput, DataOutput):
             )
 
             kinetic_model = KineticModel(
-                pfs_react=reactants_pfs,
-                pf_trans=transition_state_pf,
+                reactants_pfs,
+                transition_state_pf,
                 tunneling=self._construct_tunneling_correction(
                     transition_state_pf,
                     reactants_pfs,

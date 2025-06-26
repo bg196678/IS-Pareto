@@ -37,7 +37,7 @@ def test_data_system_1_cosmo(test_data_system_1_path):
 
 @pytest.fixture(scope="session")
 def test_data_system_1_kinetics(test_data_system_1_path):
-    return test_data_system_1_path / "kinetics" / "combined_kinetics.xlsx"
+    return test_data_system_1_path / "kinetics" / "kinetics.xlsx"
 
 @pytest.fixture(scope="session")
 def test_data_system_1_gsolv(test_data_system_1_path):
@@ -57,7 +57,7 @@ def construct_system_1(test_data_system_1_gaussian, test_data_system_1_cosmo):
         mass=0.159,
         fchk_file_path=test_data_system_1_gaussian / "Substrate.fchk",
         tab_file_path=test_data_system_1_cosmo / "Substrate.tab",
-        energy=-635.185999076,
+        energy=-635.334856191927,
     )
 
     nucleophilic = Species(
@@ -65,7 +65,7 @@ def construct_system_1(test_data_system_1_gaussian, test_data_system_1_cosmo):
         mass=0.071,
         fchk_file_path=test_data_system_1_gaussian / "Nucleophilic.fchk",
         tab_file_path=test_data_system_1_cosmo / "Nucleophilic.tab",
-        energy=-212.576801654,
+        energy=-212.567127673868,
     )
 
     its_1 = Species(
@@ -73,7 +73,7 @@ def construct_system_1(test_data_system_1_gaussian, test_data_system_1_cosmo):
         mass=0.159 + 0.071,
         fchk_file_path=test_data_system_1_gaussian / "ITS1.fchk",
         tab_file_path=test_data_system_1_cosmo / "ITS1.tab",
-        energy=-847.760037351,
+        energy=-847.894967749602,
     )
 
     its_2 = Species(
@@ -81,7 +81,7 @@ def construct_system_1(test_data_system_1_gaussian, test_data_system_1_cosmo):
         mass=0.159 + 0.071,
         fchk_file_path=test_data_system_1_gaussian / "ITS2.fchk",
         tab_file_path=test_data_system_1_cosmo / "ITS2.tab",
-        energy=-847.734323929,
+        energy=-847.87075447606,
     )
 
     its_3 = Species(
@@ -89,7 +89,7 @@ def construct_system_1(test_data_system_1_gaussian, test_data_system_1_cosmo):
         mass=0.159 + 0.071 + 0.071,
         fchk_file_path=test_data_system_1_gaussian / "ITS3.fchk",
         tab_file_path=test_data_system_1_cosmo / "ITS3.tab",
-        energy=-959.9276068,
+        energy=-960.014334953842,
     )
 
     its_4 = Species(
@@ -97,7 +97,7 @@ def construct_system_1(test_data_system_1_gaussian, test_data_system_1_cosmo):
         mass=0.159 + 0.071 + 0.071,
         fchk_file_path=test_data_system_1_gaussian / "ITS4.fchk",
         tab_file_path=test_data_system_1_cosmo / "ITS4.tab",
-        energy=-959.881772303,
+        energy=-959.989508763147,
     )
 
     product_1 = Species(
@@ -105,7 +105,7 @@ def construct_system_1(test_data_system_1_gaussian, test_data_system_1_cosmo):
         mass=0.21008046,
         fchk_file_path=test_data_system_1_gaussian / "Product1.fchk",
         tab_file_path=test_data_system_1_cosmo / "Product1.tab",
-        energy=-747.339396317,
+        energy=-747.459040149113,
     )
 
     product_2 = Species(
@@ -113,7 +113,7 @@ def construct_system_1(test_data_system_1_gaussian, test_data_system_1_cosmo):
         mass=0.21008046,
         fchk_file_path=test_data_system_1_gaussian / "Product2.fchk",
         tab_file_path=test_data_system_1_cosmo / "Product2.tab",
-        energy=-747.339639927,
+        energy=-747.459616153585,
     )
 
     product_3 = Species(
@@ -121,15 +121,15 @@ def construct_system_1(test_data_system_1_gaussian, test_data_system_1_cosmo):
         mass=0.26114773,
         fchk_file_path=test_data_system_1_gaussian / "Product3.fchk",
         tab_file_path=test_data_system_1_cosmo / "Product3.tab",
-        energy=-859.487278239,
+        energy=-859.579422928392,
     )
 
     leaving_group = Species(
         name="LeavingGroup",
         mass=0.020,
-        fchk_file_path=test_data_system_1_gaussian / "Leaving_Group.fchk",
-        tab_file_path=test_data_system_1_cosmo / "Leaving_Group.tab",
-        energy=-100.453158015,
+        fchk_file_path=test_data_system_1_gaussian / "LeavingGroup.fchk",
+        tab_file_path=test_data_system_1_cosmo / "LeavingGroup.tab",
+        energy=-100.467619260434,
     )
 
     ##################
@@ -137,114 +137,114 @@ def construct_system_1(test_data_system_1_gaussian, test_data_system_1_cosmo):
     ##################
     ts_1_fwd = TransitionState(
         name="TS1_fwd",
-        fchk_file_path=test_data_system_1_gaussian / "TS1_fwd.fchk",
+        fchk_file_path=test_data_system_1_gaussian / "TS1.fchk",
         tab_file_path=test_data_system_1_cosmo / "TS1.tab",
-        energy=-847.759104357,
+        energy=-847.893645136721,
     )
 
     ts_1_rev = TransitionState(
         name="TS1_rev",
-        fchk_file_path=test_data_system_1_gaussian / "TS1_rev.fchk",
+        fchk_file_path=test_data_system_1_gaussian / "TS1.fchk",
         tab_file_path=test_data_system_1_cosmo / "TS1.tab",
-        energy=-847.759104357,
+        energy=-847.893645136721,
     )
 
     ts_2_fwd = TransitionState(
         name="TS2_fwd",
-        fchk_file_path=test_data_system_1_gaussian / "TS2_fwd.fchk",
+        fchk_file_path=test_data_system_1_gaussian / "TS2.fchk",
         tab_file_path=test_data_system_1_cosmo / "TS2.tab",
-        energy=-847.748732583,
+        energy=-847.88361098324,
     )
 
     ts_2_rev = TransitionState(
         name="TS2_rev",
-        fchk_file_path=test_data_system_1_gaussian / "TS2_rev.fchk",
+        fchk_file_path=test_data_system_1_gaussian / "TS2.fchk",
         tab_file_path=test_data_system_1_cosmo / "TS2.tab",
-        energy=-847.748732583,
+        energy=-847.88361098324,
     )
 
     ts_3_fwd = TransitionState(
         name="TS3_fwd",
-        fchk_file_path=test_data_system_1_gaussian / "TS3_fwd.fchk",
+        fchk_file_path=test_data_system_1_gaussian / "TS3.fchk",
         tab_file_path=test_data_system_1_cosmo / "TS3.tab",
-        energy=-959.907069926,
+        energy=-960.013678294337,
     )
 
     ts_3_rev = TransitionState(
         name="TS3_rev",
-        fchk_file_path=test_data_system_1_gaussian / "TS3_rev.fchk",
+        fchk_file_path=test_data_system_1_gaussian / "TS3.fchk",
         tab_file_path=test_data_system_1_cosmo / "TS3.tab",
-        energy=-959.907069926,
+        energy=-960.013678294337,
     )
 
     ts_4_fwd = TransitionState(
         name="TS4_fwd",
-        fchk_file_path=test_data_system_1_gaussian / "TS4_fwd.fchk",
+        fchk_file_path=test_data_system_1_gaussian / "TS4.fchk",
         tab_file_path=test_data_system_1_cosmo / "TS4.tab",
-        energy=-959.894825835,
+        energy=-960.001694263016,
     )
 
     ts_4_rev = TransitionState(
         name="TS4_rev",
-        fchk_file_path=test_data_system_1_gaussian / "TS4_rev.fchk",
+        fchk_file_path=test_data_system_1_gaussian / "TS4.fchk",
         tab_file_path=test_data_system_1_cosmo / "TS4.tab",
-        energy=-959.894825835,
+        energy=-960.001694263016,
     )
 
     ts_1_2_fwd = TransitionState(
         name="TS12_fwd",
-        fchk_file_path=test_data_system_1_gaussian / "TS12_fwd.fchk",
+        fchk_file_path=test_data_system_1_gaussian / "TS12.fchk",
         tab_file_path=test_data_system_1_cosmo / "TS12.tab",
-        energy=-847.749041202,
+        energy=-847.881008554995,
     )
 
     ts_1_2_rev = TransitionState(
         name="TS12_rev",
-        fchk_file_path=test_data_system_1_gaussian / "TS12_rev.fchk",
+        fchk_file_path=test_data_system_1_gaussian / "TS12.fchk",
         tab_file_path=test_data_system_1_cosmo / "TS12.tab",
-        energy=-847.749041202,
+        energy=-847.881008554995,
     )
 
     ts_2_2_fwd = TransitionState(
         name="TS22_fwd",
-        fchk_file_path=test_data_system_1_gaussian / "TS22_fwd.fchk",
+        fchk_file_path=test_data_system_1_gaussian / "TS22.fchk",
         tab_file_path=test_data_system_1_cosmo / "TS22.tab",
-        energy=-847.729373816,
+        energy=-847.862395909096,
     )
 
     ts_2_2_rev = TransitionState(
         name="TS22_rev",
-        fchk_file_path=test_data_system_1_gaussian / "TS22_rev.fchk",
+        fchk_file_path=test_data_system_1_gaussian / "TS22.fchk",
         tab_file_path=test_data_system_1_cosmo / "TS22.tab",
-        energy=-847.729373816,
+        energy=-847.862395909096,
     )
 
     ts_3_2_fwd = TransitionState(
         name="TS32_fwd",
-        fchk_file_path=test_data_system_1_gaussian / "TS32_fwd.fchk",
+        fchk_file_path=test_data_system_1_gaussian / "TS32.fchk",
         tab_file_path=test_data_system_1_cosmo / "TS32.tab",
-        energy=-959.900414613,
+        energy=-960.005129677018,
     )
 
     ts_3_2_rev = TransitionState(
         name="TS32_rev",
-        fchk_file_path=test_data_system_1_gaussian / "TS32_rev.fchk",
+        fchk_file_path=test_data_system_1_gaussian / "TS32.fchk",
         tab_file_path=test_data_system_1_cosmo / "TS32.tab",
-        energy=-959.900414613,
+        energy=-960.005129677018,
     )
 
     ts_4_2_fwd = TransitionState(
         name="TS42_fwd",
-        fchk_file_path=test_data_system_1_gaussian / "TS42_fwd.fchk",
+        fchk_file_path=test_data_system_1_gaussian / "TS42.fchk",
         tab_file_path=test_data_system_1_cosmo / "TS42.tab",
-        energy=-959.874575137,
+        energy=-959.980523196275,
     )
 
     ts_4_2_rev = TransitionState(
         name="TS42_rev",
-        fchk_file_path=test_data_system_1_gaussian / "TS42_rev.fchk",
+        fchk_file_path=test_data_system_1_gaussian / "TS42.fchk",
         tab_file_path=test_data_system_1_cosmo / "TS42.tab",
-        energy=-959.874575137,
+        energy=-959.980523196275,
     )
 
     ##############

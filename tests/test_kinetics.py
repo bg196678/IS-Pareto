@@ -19,14 +19,14 @@ STOICHIOMETRY = {
     'R3_rev': {'ITS3': -1, 'Product2': 1, 'Nucleophilic': 1},
     'R4_fwd': {'Product1': -1, 'Nucleophilic': -1, 'ITS4': 1},
     'R4_rev': {'ITS4': -1, 'Product1': 1, 'Nucleophilic': 1},
-    'R5_fwd': {'ITS1': -1, 'Product1': 1, 'Leaving_Group': 1},
-    'R5_rev': {'Product1': -1, 'Leaving_Group': -1, 'ITS1': 1},
-    'R6_fwd': {'ITS2': -1, 'Product2': 1, 'Leaving_Group': 1},
-    'R6_rev': {'Product2': -1, 'Leaving_Group': -1, 'ITS2': 1},
-    'R7_fwd': {'ITS3': -1, 'Product3': 1, 'Leaving_Group': 1},
-    'R7_rev': {'Product3': -1, 'Leaving_Group': -1, 'ITS3': 1},
-    'R8_fwd': {'ITS4': -1, 'Product3': 1, 'Leaving_Group': 1},
-    'R8_rev': {'Product3': -1, 'Leaving_Group': -1, 'ITS4': 1},
+    'R5_fwd': {'ITS1': -1, 'Product1': 1, 'LeavingGroup': 1},
+    'R5_rev': {'Product1': -1, 'LeavingGroup': -1, 'ITS1': 1},
+    'R6_fwd': {'ITS2': -1, 'Product2': 1, 'LeavingGroup': 1},
+    'R6_rev': {'Product2': -1, 'LeavingGroup': -1, 'ITS2': 1},
+    'R7_fwd': {'ITS3': -1, 'Product3': 1, 'LeavingGroup': 1},
+    'R7_rev': {'Product3': -1, 'LeavingGroup': -1, 'ITS3': 1},
+    'R8_fwd': {'ITS4': -1, 'Product3': 1, 'LeavingGroup': 1},
+    'R8_rev': {'Product3': -1, 'LeavingGroup': -1, 'ITS4': 1},
 }
 
 REACTION_TS_MAP = {
@@ -61,11 +61,13 @@ class TestKinetics:
 
         regular_species = [
             'Substrate', 'Nucleophilic', 'Product1', 'Product2',
-            'Product3', 'Leaving_Group', 'ITS1', 'ITS2', 'ITS3', 'ITS4'
+            'Product3', 'LeavingGroup', 'ITS1', 'ITS2', 'ITS3', 'ITS4'
         ]
 
         for name in regular_species:
-            fchk_path = test_data_system_1_gaussian / f"{name}.fchk"
+            fchk_path = (
+                    test_data_system_1_gaussian / f"{name.split('_')[0]}.fchk"
+            )
             tab_path = test_data_system_1_cosmo / f"{name}.tab"
             if name.startswith('ITS'):
                 species[name] = Product(
@@ -74,7 +76,7 @@ class TestKinetics:
                     fchk_file_path=fchk_path,
                     tab_file_path=tab_path,
                 )
-            elif name in ['Product1', 'Product2', 'Product3', 'Leaving_Group']:
+            elif name in ['Product1', 'Product2', 'Product3', 'LeavingGroup']:
                 species[name] = Product(
                     name=name,
                     mass=100.0,
@@ -90,7 +92,10 @@ class TestKinetics:
                 )
 
         for ts_name in REACTION_TS_MAP.values():
-            fchk_path = test_data_system_1_gaussian / f"{ts_name}.fchk"
+            fchk_path = (
+                    test_data_system_1_gaussian /
+                    f"{ts_name.split('_')[0]}.fchk"
+            )
             tab_path = test_data_system_1_cosmo / f"{ts_name.split('_')[0]}.tab"
             species[ts_name] = TransitionState(
                 name=ts_name,
@@ -223,7 +228,7 @@ class TestKinetics:
         for i in range(len(rate_constants) - 1):
             assert rate_constants[i + 1] > rate_constants[i]
 
-    @pytest.mark.parametrize("tunneling", ["wigner", "eckart", "miller"])
+    @pytest.mark.parametrize("tunneling", ["wigner", "miller", "eckart"])
     def test_tunneling_effect_on_rate(self, simple_reaction, tunneling):
         """Test that tunneling corrections increase rate constant"""
         kinetics_no_tunnel = Kinetics(reactions=[simple_reaction])
@@ -240,7 +245,6 @@ class TestKinetics:
 
     def test_multiple_reactions(self, reactions):
         """Test kinetics with multiple reactions"""
-        # Take first 4 reactions for faster test
         test_reactions = reactions[:4]
         kinetics = Kinetics(reactions=test_reactions)
 
@@ -339,7 +343,7 @@ class TestSystem1Kinetics:
                 expected_k = row[ts_name]
                 calculated_k = kinetics_calculator.k(reaction, temperature)
                 assert np.isclose(
-                    calculated_k, expected_k, rtol=0.01,atol=1e-9
+                    calculated_k, expected_k, rtol=0.00001
                 ),(
                     f"Rate constant mismatch for reaction '{reaction.name}' "
                     f"(TS: '{ts_name}') "

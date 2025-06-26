@@ -36,7 +36,7 @@ substrate = Species(
     mass=0.159,
     fchk_file_path=gaussian_dir / "Substrate.fchk",
     tab_file_path=cosmo_therm_dir / "Substrate.tab",
-    energy=-635.185999076,
+    energy=-635.334856191927,
 )
 
 nucleophilic = Species(
@@ -44,7 +44,7 @@ nucleophilic = Species(
     mass=0.071,
     fchk_file_path=gaussian_dir / "Nucleophilic.fchk",
     tab_file_path=cosmo_therm_dir / "Nucleophilic.tab",
-    energy=-212.576801654,
+    energy=-212.567127673868,
 )
 
 its_1 = Species(
@@ -52,7 +52,7 @@ its_1 = Species(
     mass=0.159 + 0.071,
     fchk_file_path=gaussian_dir / "ITS1.fchk",
     tab_file_path=cosmo_therm_dir / "ITS1.tab",
-    energy=-847.760037351,
+    energy=-847.894967749602,
 )
 
 its_2 = Species(
@@ -60,7 +60,7 @@ its_2 = Species(
     mass=0.159 + 0.071,
     fchk_file_path=gaussian_dir / "ITS2.fchk",
     tab_file_path=cosmo_therm_dir / "ITS2.tab",
-    energy=-847.734323929,
+    energy=-847.87075447606,
 )
 
 its_3 = Species(
@@ -68,7 +68,7 @@ its_3 = Species(
     mass=0.159 + 0.071 + 0.071,
     fchk_file_path=gaussian_dir / "ITS3.fchk",
     tab_file_path=cosmo_therm_dir / "ITS3.tab",
-    energy=-959.9276068,
+    energy=-960.014334953842,
 )
 
 its_4 = Species(
@@ -76,7 +76,7 @@ its_4 = Species(
     mass=0.159 + 0.071 + 0.071,
     fchk_file_path=gaussian_dir / "ITS4.fchk",
     tab_file_path=cosmo_therm_dir / "ITS4.tab",
-    energy=-959.881772303,
+    energy=-959.989508763147,
 )
 
 product_1 = Species(
@@ -84,7 +84,7 @@ product_1 = Species(
     mass=0.21008046,
     fchk_file_path=gaussian_dir / "Product1.fchk",
     tab_file_path=cosmo_therm_dir / "Product1.tab",
-    energy=-747.339396317,
+    energy=-747.459040149113,
 )
 
 product_2 = Species(
@@ -92,7 +92,7 @@ product_2 = Species(
     mass=0.21008046,
     fchk_file_path=gaussian_dir / "Product2.fchk",
     tab_file_path=cosmo_therm_dir / "Product2.tab",
-    energy=-747.339639927,
+    energy=-747.459616153585,
 )
 
 product_3 = Species(
@@ -100,15 +100,15 @@ product_3 = Species(
     mass=0.26114773,
     fchk_file_path=gaussian_dir / "Product3.fchk",
     tab_file_path=cosmo_therm_dir / "Product3.tab",
-    energy=-859.487278239,
+    energy=-859.579422928392,
 )
 
 leaving_group = Species(
     name="LeavingGroup",
     mass=0.020,
-    fchk_file_path=gaussian_dir / "Leaving_Group.fchk",
-    tab_file_path=cosmo_therm_dir / "Leaving_Group.tab",
-    energy=-100.453158015,
+    fchk_file_path=gaussian_dir / "LeavingGroup.fchk",
+    tab_file_path=cosmo_therm_dir / "LeavingGroup.tab",
+    energy=-100.467619260434,
 )
 
 
@@ -119,112 +119,112 @@ ts_1_fwd = TransitionState(
     name="TS1_fwd",
     fchk_file_path=gaussian_dir / "TS1_fwd.fchk",
     tab_file_path=cosmo_therm_dir / "TS1.tab",
-    energy=-847.759104357,
+    energy=-847.893645136721,
 )
 
 ts_1_rev = TransitionState(
     name="TS1_rev",
     fchk_file_path=gaussian_dir / "TS1_rev.fchk",
     tab_file_path=cosmo_therm_dir / "TS1.tab",
-    energy=-847.759104357,
+    energy=-847.893645136721,
 )
 
 ts_2_fwd = TransitionState(
     name="TS2_fwd",
     fchk_file_path=gaussian_dir / "TS2_fwd.fchk",
     tab_file_path=cosmo_therm_dir / "TS2.tab",
-    energy=-847.748732583,
+    energy=-847.88361098324,
 )
 
 ts_2_rev = TransitionState(
     name="TS2_rev",
     fchk_file_path=gaussian_dir / "TS2_rev.fchk",
     tab_file_path=cosmo_therm_dir / "TS2.tab",
-    energy=-847.748732583,
+    energy=-847.88361098324,
 )
 
 ts_3_fwd = TransitionState(
     name="TS3_fwd",
     fchk_file_path=gaussian_dir / "TS3_fwd.fchk",
     tab_file_path=cosmo_therm_dir / "TS3.tab",
-    energy=-959.907069926,
+    energy=-960.013678294337,
 )
 
 ts_3_rev = TransitionState(
     name="TS3_rev",
     fchk_file_path=gaussian_dir / "TS3_rev.fchk",
     tab_file_path=cosmo_therm_dir / "TS3.tab",
-    energy=-959.907069926,
+    energy=-960.013678294337,
 )
 
 ts_4_fwd = TransitionState(
     name="TS4_fwd",
     fchk_file_path=gaussian_dir / "TS4_fwd.fchk",
     tab_file_path=cosmo_therm_dir / "TS4.tab",
-    energy=-959.894825835,
+    energy=-960.001694263016,
 )
 
 ts_4_rev = TransitionState(
     name="TS4_rev",
     fchk_file_path=gaussian_dir / "TS4_rev.fchk",
     tab_file_path=cosmo_therm_dir / "TS4.tab",
-    energy=-959.894825835,
+    energy=-960.001694263016,
 )
 
 ts_1_2_fwd = TransitionState(
     name="TS12_fwd",
     fchk_file_path=gaussian_dir / "TS12_fwd.fchk",
     tab_file_path=cosmo_therm_dir / "TS12.tab",
-    energy=-847.749041202,
+    energy=-847.881008554995,
 )
 
 ts_1_2_rev = TransitionState(
     name="TS12_rev",
     fchk_file_path=gaussian_dir / "TS12_rev.fchk",
     tab_file_path=cosmo_therm_dir / "TS12.tab",
-    energy=-847.749041202,
+    energy=-847.881008554995,
 )
 
 ts_2_2_fwd = TransitionState(
     name="TS22_fwd",
     fchk_file_path=gaussian_dir / "TS22_fwd.fchk",
     tab_file_path=cosmo_therm_dir / "TS22.tab",
-    energy=-847.729373816,
+    energy=-847.862395909096,
 )
 
 ts_2_2_rev = TransitionState(
     name="TS22_rev",
     fchk_file_path=gaussian_dir / "TS22_rev.fchk",
     tab_file_path=cosmo_therm_dir / "TS22.tab",
-    energy=-847.729373816,
+    energy=-847.862395909096,
 )
 
 ts_3_2_fwd = TransitionState(
     name="TS32_fwd",
     fchk_file_path=gaussian_dir / "TS32_fwd.fchk",
     tab_file_path=cosmo_therm_dir / "TS32.tab",
-    energy=-959.900414613,
+    energy=-960.005129677018,
 )
 
 ts_3_2_rev = TransitionState(
     name="TS32_rev",
     fchk_file_path=gaussian_dir / "TS32_rev.fchk",
     tab_file_path=cosmo_therm_dir / "TS32.tab",
-    energy=-959.900414613,
+    energy=-960.005129677018,
 )
 
 ts_4_2_fwd = TransitionState(
     name="TS42_fwd",
     fchk_file_path=gaussian_dir / "TS42_fwd.fchk",
     tab_file_path=cosmo_therm_dir / "TS42.tab",
-    energy=-959.874575137,
+    energy=-959.980523196275,
 )
 
 ts_4_2_rev = TransitionState(
     name="TS42_rev",
     fchk_file_path=gaussian_dir / "TS42_rev.fchk",
     tab_file_path=cosmo_therm_dir / "TS42.tab",
-    energy=-959.874575137,
+    energy=-959.980523196275,
 )
 
 

@@ -59,7 +59,7 @@ class TestSystem1PatchedReactor:
             mass=0.159,
             fchk_file_path=test_data_system_1_gaussian / "Substrate.fchk",
             tab_file_path=test_data_system_1_cosmo / "Substrate.tab",
-            energy=-635.185999076,
+            energy=-635.334856191927,
         )
 
         nucleophilic = Species(
@@ -67,7 +67,7 @@ class TestSystem1PatchedReactor:
             mass=0.071,
             fchk_file_path=test_data_system_1_gaussian / "Nucleophilic.fchk",
             tab_file_path=test_data_system_1_cosmo / "Nucleophilic.tab",
-            energy=-212.576801654,
+            energy=-212.567127673868,
         )
         return substrate, nucleophilic
 
@@ -82,7 +82,7 @@ class TestSystem1PatchedReactor:
             mass=0.21008046,
             fchk_file_path=test_data_system_1_gaussian / "Product1.fchk",
             tab_file_path=test_data_system_1_cosmo / "Product1.tab",
-            energy=-747.339396317,
+            energy=-747.459040149113,
         )
         return product_1
 
@@ -97,7 +97,8 @@ class TestSystem1PatchedReactor:
             test_data_system_1_experimental,
     ):
         experimental_excel_data = pd.read_excel(
-            test_data_system_1_experimental)
+            test_data_system_1_experimental
+        )
 
         reactor = Reactor(
             reactions=construct_system_1,
@@ -177,7 +178,7 @@ class TestSystem1Reactor:
             mass=0.159,
             fchk_file_path=test_data_system_1_gaussian / "Substrate.fchk",
             tab_file_path=test_data_system_1_cosmo / "Substrate.tab",
-            energy=-635.185999076,
+            energy=-635.334856191927,
         )
 
         nucleophilic = Species(
@@ -185,7 +186,7 @@ class TestSystem1Reactor:
             mass=0.071,
             fchk_file_path=test_data_system_1_gaussian / "Nucleophilic.fchk",
             tab_file_path=test_data_system_1_cosmo / "Nucleophilic.tab",
-            energy=-212.576801654,
+            energy=-212.567127673868,
         )
         return substrate, nucleophilic
 
@@ -200,7 +201,7 @@ class TestSystem1Reactor:
             mass=0.21008046,
             fchk_file_path=test_data_system_1_gaussian / "Product1.fchk",
             tab_file_path=test_data_system_1_cosmo / "Product1.tab",
-            energy=-747.339396317,
+            energy=-747.459040149113,
         )
         return product_1
 
@@ -227,7 +228,7 @@ class TestSystem1Reactor:
         for _, row in experimental_excel_data.iterrows():
             time = row["tres/min"]
             ratio = row["2:1"]
-            concentration = row["Conc 1/M"]
+            concentration = row["Conc 1/M"] * 1000
             temperature = row["Temp/°C"]
             expected_E = row["E-factor"]
             exptected_STY = row["STY/kg m-3 h-1"]

@@ -410,12 +410,10 @@ class TestComplexStoichiometryReconstruction:
                 species = self.species[species_name]
                 terms.append(ReactionTerm(species, coeff))
 
-            # Handle case where there might be only one term if a reaction is e.g. A ->
-            # Though in this specific target_stoich, all reactions have multiple species.
             if not terms:
-                reaction = Reaction() # Or handle as an error/empty reaction
+                reaction = Reaction()
             else:
-                reaction = ReactionTerm(terms[0].species, 0) # Start with a neutral reaction
+                reaction = ReactionTerm(terms[0].species, 0)
                 for term in terms:
                     reaction = reaction + term
 
@@ -433,7 +431,6 @@ class TestComplexStoichiometryReconstruction:
                 assert species in reconstructed.stoichiometry
                 assert reconstructed.stoichiometry[species] == target_coeff
 
-            # print(f"✓ {reaction_name}: {target_dict}") # Optional: for verbose output
 
     def test_alternative_reaction_construction(self, test_fchk_path, test_tab_path):
         """Test alternative ways to construct reactions"""
