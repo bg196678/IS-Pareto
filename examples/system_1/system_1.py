@@ -117,112 +117,112 @@ leaving_group = Species(
 ##################
 ts_1_fwd = TransitionState(
     name="TS1_fwd",
-    fchk_file_path=gaussian_dir / "TS1_fwd.fchk",
+    fchk_file_path=gaussian_dir / "TS1.fchk",
     tab_file_path=cosmo_therm_dir / "TS1.tab",
     energy=-847.893645136721,
 )
 
 ts_1_rev = TransitionState(
     name="TS1_rev",
-    fchk_file_path=gaussian_dir / "TS1_rev.fchk",
+    fchk_file_path=gaussian_dir / "TS1.fchk",
     tab_file_path=cosmo_therm_dir / "TS1.tab",
     energy=-847.893645136721,
 )
 
 ts_2_fwd = TransitionState(
     name="TS2_fwd",
-    fchk_file_path=gaussian_dir / "TS2_fwd.fchk",
+    fchk_file_path=gaussian_dir / "TS2.fchk",
     tab_file_path=cosmo_therm_dir / "TS2.tab",
     energy=-847.88361098324,
 )
 
 ts_2_rev = TransitionState(
     name="TS2_rev",
-    fchk_file_path=gaussian_dir / "TS2_rev.fchk",
+    fchk_file_path=gaussian_dir / "TS2.fchk",
     tab_file_path=cosmo_therm_dir / "TS2.tab",
     energy=-847.88361098324,
 )
 
 ts_3_fwd = TransitionState(
     name="TS3_fwd",
-    fchk_file_path=gaussian_dir / "TS3_fwd.fchk",
+    fchk_file_path=gaussian_dir / "TS3.fchk",
     tab_file_path=cosmo_therm_dir / "TS3.tab",
     energy=-960.013678294337,
 )
 
 ts_3_rev = TransitionState(
     name="TS3_rev",
-    fchk_file_path=gaussian_dir / "TS3_rev.fchk",
+    fchk_file_path=gaussian_dir / "TS3.fchk",
     tab_file_path=cosmo_therm_dir / "TS3.tab",
     energy=-960.013678294337,
 )
 
 ts_4_fwd = TransitionState(
     name="TS4_fwd",
-    fchk_file_path=gaussian_dir / "TS4_fwd.fchk",
+    fchk_file_path=gaussian_dir / "TS4.fchk",
     tab_file_path=cosmo_therm_dir / "TS4.tab",
     energy=-960.001694263016,
 )
 
 ts_4_rev = TransitionState(
     name="TS4_rev",
-    fchk_file_path=gaussian_dir / "TS4_rev.fchk",
+    fchk_file_path=gaussian_dir / "TS4.fchk",
     tab_file_path=cosmo_therm_dir / "TS4.tab",
     energy=-960.001694263016,
 )
 
 ts_1_2_fwd = TransitionState(
     name="TS12_fwd",
-    fchk_file_path=gaussian_dir / "TS12_fwd.fchk",
+    fchk_file_path=gaussian_dir / "TS12.fchk",
     tab_file_path=cosmo_therm_dir / "TS12.tab",
     energy=-847.881008554995,
 )
 
 ts_1_2_rev = TransitionState(
     name="TS12_rev",
-    fchk_file_path=gaussian_dir / "TS12_rev.fchk",
+    fchk_file_path=gaussian_dir / "TS12.fchk",
     tab_file_path=cosmo_therm_dir / "TS12.tab",
     energy=-847.881008554995,
 )
 
 ts_2_2_fwd = TransitionState(
     name="TS22_fwd",
-    fchk_file_path=gaussian_dir / "TS22_fwd.fchk",
+    fchk_file_path=gaussian_dir / "TS22.fchk",
     tab_file_path=cosmo_therm_dir / "TS22.tab",
     energy=-847.862395909096,
 )
 
 ts_2_2_rev = TransitionState(
     name="TS22_rev",
-    fchk_file_path=gaussian_dir / "TS22_rev.fchk",
+    fchk_file_path=gaussian_dir / "TS22.fchk",
     tab_file_path=cosmo_therm_dir / "TS22.tab",
     energy=-847.862395909096,
 )
 
 ts_3_2_fwd = TransitionState(
     name="TS32_fwd",
-    fchk_file_path=gaussian_dir / "TS32_fwd.fchk",
+    fchk_file_path=gaussian_dir / "TS32.fchk",
     tab_file_path=cosmo_therm_dir / "TS32.tab",
     energy=-960.005129677018,
 )
 
 ts_3_2_rev = TransitionState(
     name="TS32_rev",
-    fchk_file_path=gaussian_dir / "TS32_rev.fchk",
+    fchk_file_path=gaussian_dir / "TS32.fchk",
     tab_file_path=cosmo_therm_dir / "TS32.tab",
     energy=-960.005129677018,
 )
 
 ts_4_2_fwd = TransitionState(
     name="TS42_fwd",
-    fchk_file_path=gaussian_dir / "TS42_fwd.fchk",
+    fchk_file_path=gaussian_dir / "TS42.fchk",
     tab_file_path=cosmo_therm_dir / "TS42.tab",
     energy=-959.980523196275,
 )
 
 ts_4_2_rev = TransitionState(
     name="TS42_rev",
-    fchk_file_path=gaussian_dir / "TS42_rev.fchk",
+    fchk_file_path=gaussian_dir / "TS42.fchk",
     tab_file_path=cosmo_therm_dir / "TS42.tab",
     energy=-959.980523196275,
 )
@@ -329,7 +329,6 @@ reactions = [
 ############
 kinetics = Kinetics(
     reactions=reactions,
-    tunneling_correction="wigner",
 )
 
 
@@ -361,7 +360,7 @@ optimization_species = OptimizationSpecies(
 optimization_boundaries = OptimizationBoundaries(
     temperature=(60, 140),
     concentration_reactant_1=(100, 500),
-    concentration_ratio=(10, 5.0),
+    concentration_ratio=(1.0, 5.0),
     time=(0.5, 2.0),
 )
 optimizer = TSEmoOptimizer(
@@ -371,4 +370,4 @@ optimizer = TSEmoOptimizer(
     output_directory=output_dir,
     num_initial_points=4,
 )
-optimizer.run(num_iterations=2)
+optimizer.run(num_iterations=100)
