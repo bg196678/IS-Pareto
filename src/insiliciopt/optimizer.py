@@ -501,7 +501,7 @@ class SummitOptimizer(Optimizer):
         domain += ContinuousVariable(
             self._results_columns_names[5],
             is_objective=True,
-            minimize=True,
+            maximize=False,
             bounds=list(self.boundaries.E_factor),
             description="Mass product waste factor objective",
         )
