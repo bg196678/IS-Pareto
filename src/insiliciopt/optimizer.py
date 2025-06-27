@@ -695,9 +695,6 @@ class NSGA2Optimizer(Optimizer):
     specifically the NSGA-II algorithm.
     """
 
-    pop_size: int
-    """Population size for the genetic algorithm"""
-
     class _PymooProblem(ElementwiseProblem):
 
         def __init__(self, optimizer: "NSGA2Optimizer"):
@@ -746,10 +743,8 @@ class NSGA2Optimizer(Optimizer):
             boundaries: OptimizationBoundaries,
             reactor: Reactor,
             output_directory: Path,
-            pop_size: int = 50,
             log_level: int = logging.INFO,
     ) -> None:
-        self.pop_size = pop_size
         super().__init__(
             species=species,
             boundaries=boundaries,
@@ -763,19 +758,16 @@ class NSGA2Optimizer(Optimizer):
         """Optimizer representation"""
         string = "\n\nOPTIMIZER:\n"
         string += "  Type: NSGA2\n"
-        string += f"  Population Size: {self.pop_size}\n"
         return string
 
     def run(self, num_iterations: int) -> None:
         """Runs the Pymoo optimizer."""
         problem = self._PymooProblem(self)
-        algorithm = NSGA2(pop_size=self.pop_size)
-        termination = get_termination("n_eval", num_iterations)
+        algorithm = NSGA2(pop_size=num_iterations)
 
         minimize(
             problem,
             algorithm,
-            termination,
             verbose=False,
             seed=42,
         )

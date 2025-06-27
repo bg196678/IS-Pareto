@@ -23,7 +23,7 @@ dependencies = [
     "pyomo==6.6",
     "openpyxl",
     "scikit-learn==1.0.2",
-    "pymoo==0.6.1",
+    "pymoo==0.6.0",
     "tamkin",
     "numpy",
     "matplotlib",
