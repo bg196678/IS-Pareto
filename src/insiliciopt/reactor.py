@@ -155,7 +155,7 @@ class Reactor(ReactionInput):
             f"Result: E={e_factor} - STY={sty}"
         )
 
-        return sty, e_factor
+        return e_factor, sty
 
     def simulate(self, conditions: ReactorConditions) -> tuple[float, float]:
         """Returns E and STY for given starting conditions"""

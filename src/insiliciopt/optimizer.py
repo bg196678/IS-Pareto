@@ -45,9 +45,9 @@ class OptimizationBoundaries:
     """Concentration Ration Boundaries"""
     time: tuple[float, float]
     """Time Boundaries in Minutes"""
-    STY: tuple[float, float] = (0, 1e8)
+    STY: tuple[float, float] = (0, 1e6)
     """Space Time Yield Objective"""
-    E_factor: tuple[float, float] = (0, 50)
+    E_factor: tuple[float, float] = (0, 100)
     """Mass product waste factor objective"""
 
 @dataclass
@@ -546,9 +546,11 @@ class SummitOptimizer(Optimizer):
         for i in range(self.num_initial_points):
             suggestion = initial_suggestions.iloc[[i]]
             conditions = self._construct_optimization_conditions(suggestion)
-            STY, E = self._simulate_reactor(conditions)
-            self._add_to_result(E, STY, conditions)
-            self._log_iteration(E, STY, conditions, iteration_type="LHS")
+            E, STY = self._simulate_reactor(conditions)
+            self._add_to_result(E=E, STY=STY, conditions=conditions)
+            self._log_iteration(
+                E=E, STY=STY, conditions=conditions, iteration_type="LHS"
+            )
 
     def _run_optimizer(self, num_iterations: int) -> None:
         """Optimized Summit sampling"""
@@ -556,9 +558,11 @@ class SummitOptimizer(Optimizer):
             dataset = DataSet.from_df(self.results)
             suggestion = self._summit_optimizer_suggest(dataset)
             conditions = self._construct_optimization_conditions(suggestion)
-            STY, E = self._simulate_reactor(conditions)
-            self._add_to_result(E, STY, conditions)
-            self._log_iteration(E, STY, conditions, iteration_type="TSEMO")
+            E, STY = self._simulate_reactor(conditions)
+            self._add_to_result(E=E, STY=STY, conditions=conditions)
+            self._log_iteration(
+                E=E, STY=STY, conditions=conditions, iteration_type="TSEMO"
+            )
 
     @abstractmethod
     def _summit_optimizer_suggest(self, dataset: DataSet) -> DataSet:
