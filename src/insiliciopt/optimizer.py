@@ -503,30 +503,22 @@ class SummitOptimizer(Optimizer):
         self.domain = domain
 
     def _construct_optimization_conditions(
-            self, suggestion: DataSet
+                    self, suggestion: DataSet
     ) -> _OptimizerConditions:
         """Convert summit Dataset to Optimizer Conditions"""
         data = suggestion.to_dict()["data"][0]
-        temperature = data[
-            round(self._columns.index(
-                self._results_columns_names[0]
-            ), 4)
-        ]
-        concentration = data[
-            round(self._columns.index(
-                self._results_columns_names[1]
-            ), 4)
-        ]
-        ratio = data[
-            round(self._columns.index(
-                self._results_columns_names[2]
-            ), 4)
-        ]
-        time = data[
-            round(self._columns.index(
-                self._results_columns_names[3]
-            ), 4)
-        ]
+        temperature = round(data[
+            self._columns.index(self._results_columns_names[0])
+        ], 4)
+        concentration = round(data[
+            self._columns.index(self._results_columns_names[1])
+        ], 4)
+        ratio = round(data[
+            self._columns.index(self._results_columns_names[2])
+        ], 4)
+        time = round(data[
+            self._columns.index(self._results_columns_names[3])
+        ], 4)
 
         optimization_conditions = _OptimizerConditions(
             temperature=temperature,
