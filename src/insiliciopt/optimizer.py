@@ -530,7 +530,10 @@ class SummitOptimizer(Optimizer):
 
     def _run_lhs(self) -> None:
         """Initial LHS sampling"""
-        lhs_sampler = LHS(self.domain)
+        lhs_sampler = LHS(
+            self.domain,
+            random_state=np.random.RandomState(seed=42),
+        )
         initial_suggestions = lhs_sampler.suggest_experiments(
             self.num_initial_points,
         )
