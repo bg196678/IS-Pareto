@@ -1127,3 +1127,1459 @@ ITERATION 78
         STY: 3.3063e+03
         E-factor: 1.1712
 
+2025-06-27 19:46:42,400 - Optimizer - INFO
+===================================
+ITERATION 79
+    Type: NSGA2
+    Conditions:
+        Temperature: 62.0280594732366 °C
+        Concentration Reactant 1: 485.05936587117003
+        Concentration Ratio: 4.34
+        Time: 1.54 minutes
+    Results:
+        STY: 3.3041e+03
+        E-factor: 1.6670
+
+2025-06-27 19:47:20,240 - Optimizer - INFO
+===================================
+ITERATION 80
+    Type: NSGA2
+    Conditions:
+        Temperature: 92.71623555314159 °C
+        Concentration Reactant 1: 169.3177280283383
+        Concentration Ratio: 1.63
+        Time: 0.88 minutes
+    Results:
+        STY: 8.4744e+02
+        E-factor: 2.7586
+
+2025-06-27 19:48:01,048 - Optimizer - INFO
+===================================
+ITERATION 81
+    Type: NSGA2
+    Conditions:
+        Temperature: 103.93813317648963 °C
+        Concentration Reactant 1: 385.83836908002496
+        Concentration Ratio: 3.64
+        Time: 0.92 minutes
+    Results:
+        STY: 5.0018e+03
+        E-factor: 1.1010
+
+2025-06-27 19:48:21,874 - Optimizer - INFO
+===================================
+ITERATION 82
+    Type: NSGA2
+    Conditions:
+        Temperature: 136.38922245305554 °C
+        Concentration Reactant 1: 395.1587666783074
+        Concentration Ratio: 3.22
+        Time: 1.42 minutes
+    Results:
+        STY: 3.4733e+03
+        E-factor: 0.8660
+
+2025-06-27 19:49:01,459 - Optimizer - INFO
+===================================
+ITERATION 83
+    Type: NSGA2
+    Conditions:
+        Temperature: 93.5680049942232 °C
+        Concentration Reactant 1: 199.09239580046298
+        Concentration Ratio: 2.42
+        Time: 1.64 minutes
+    Results:
+        STY: 1.1206e+03
+        E-factor: 1.1567
+
+2025-06-27 19:49:38,741 - Optimizer - INFO
+===================================
+ITERATION 84
+    Type: NSGA2
+    Conditions:
+        Temperature: 61.15147909038047 °C
+        Concentration Reactant 1: 146.4290562027665
+        Concentration Ratio: 1.18
+        Time: 0.56 minutes
+    Results:
+        STY: 1.8715e+02
+        E-factor: 19.3373
+
+2025-06-27 19:50:17,051 - Optimizer - INFO
+===================================
+ITERATION 85
+    Type: NSGA2
+    Conditions:
+        Temperature: 128.43684672088057 °C
+        Concentration Reactant 1: 381.46314375200944
+        Concentration Ratio: 2.90
+        Time: 0.65 minutes
+    Results:
+        STY: 7.0855e+03
+        E-factor: 0.8217
+
+2025-06-27 19:50:34,966 - Optimizer - INFO
+===================================
+ITERATION 86
+    Type: NSGA2
+    Conditions:
+        Temperature: 99.32927000934659 °C
+        Concentration Reactant 1: 289.3887083122263
+        Concentration Ratio: 1.69
+        Time: 1.15 minutes
+    Results:
+        STY: 2.0755e+03
+        E-factor: 1.0300
+
+2025-06-27 19:51:13,336 - Optimizer - INFO
+===================================
+ITERATION 87
+    Type: NSGA2
+    Conditions:
+        Temperature: 91.88037875178988 °C
+        Concentration Reactant 1: 346.3400392208866
+        Concentration Ratio: 3.54
+        Time: 0.57 minutes
+    Results:
+        STY: 5.3505e+03
+        E-factor: 1.8066
+
+2025-06-27 19:51:50,951 - Optimizer - INFO
+===================================
+ITERATION 88
+    Type: NSGA2
+    Conditions:
+        Temperature: 89.9690091701177 °C
+        Concentration Reactant 1: 350.3439662856946
+        Concentration Ratio: 3.01
+        Time: 1.78 minutes
+    Results:
+        STY: 2.2925e+03
+        E-factor: 0.9161
+
+2025-06-27 19:52:27,033 - Optimizer - INFO
+===================================
+ITERATION 89
+    Type: NSGA2
+    Conditions:
+        Temperature: 112.69549052951561 °C
+        Concentration Reactant 1: 165.17377083257188
+        Concentration Ratio: 1.28
+        Time: 1.46 minutes
+    Results:
+        STY: 8.1449e+02
+        E-factor: 1.0791
+
+2025-06-27 19:52:50,458 - Optimizer - INFO
+===================================
+ITERATION 90
+    Type: NSGA2
+    Conditions:
+        Temperature: 62.12090484332975 °C
+        Concentration Reactant 1: 334.3102325093853
+        Concentration Ratio: 4.76
+        Time: 1.36 minutes
+    Results:
+        STY: 2.2117e+03
+        E-factor: 2.3071
+
+2025-06-27 19:53:23,827 - Optimizer - INFO
+===================================
+ITERATION 91
+    Type: NSGA2
+    Conditions:
+        Temperature: 91.05359409652175 °C
+        Concentration Reactant 1: 357.3152873769413
+        Concentration Ratio: 2.83
+        Time: 1.32 minutes
+    Results:
+        STY: 2.9444e+03
+        E-factor: 0.9893
+
+2025-06-27 19:53:57,450 - Optimizer - INFO
+===================================
+ITERATION 92
+    Type: NSGA2
+    Conditions:
+        Temperature: 135.317184702122 °C
+        Concentration Reactant 1: 254.4410551203097
+        Concentration Ratio: 4.84
+        Time: 1.86 minutes
+    Results:
+        STY: 1.7032e+03
+        E-factor: 1.4269
+
+2025-06-27 19:54:37,673 - Optimizer - INFO
+===================================
+ITERATION 93
+    Type: NSGA2
+    Conditions:
+        Temperature: 75.66329078314371 °C
+        Concentration Reactant 1: 127.74452035006618
+        Concentration Ratio: 1.40
+        Time: 0.53 minutes
+    Results:
+        STY: 2.9060e+02
+        E-factor: 11.9357
+
+2025-06-27 19:55:06,970 - Optimizer - INFO
+===================================
+ITERATION 94
+    Type: NSGA2
+    Conditions:
+        Temperature: 67.55543686047427 °C
+        Concentration Reactant 1: 373.20270936654276
+        Concentration Ratio: 1.28
+        Time: 0.98 minutes
+    Results:
+        STY: 1.3517e+03
+        E-factor: 3.2367
+
+2025-06-27 19:55:35,620 - Optimizer - INFO
+===================================
+ITERATION 95
+    Type: NSGA2
+    Conditions:
+        Temperature: 127.59002487755636 °C
+        Concentration Reactant 1: 109.30877429433035
+        Concentration Ratio: 4.26
+        Time: 0.92 minutes
+    Results:
+        STY: 1.3139e+03
+        E-factor: 1.4958
+
+2025-06-27 19:56:12,607 - Optimizer - INFO
+===================================
+ITERATION 96
+    Type: NSGA2
+    Conditions:
+        Temperature: 69.45318620973251 °C
+        Concentration Reactant 1: 378.6948661456603
+        Concentration Ratio: 3.52
+        Time: 1.82 minutes
+    Results:
+        STY: 2.1688e+03
+        E-factor: 1.3575
+
+2025-06-27 19:56:54,377 - Optimizer - INFO
+===================================
+ITERATION 97
+    Type: NSGA2
+    Conditions:
+        Temperature: 118.80568350431086 °C
+        Concentration Reactant 1: 421.39237215393945
+        Concentration Ratio: 2.13
+        Time: 0.77 minutes
+    Results:
+        STY: 6.1342e+03
+        E-factor: 0.6686
+
+2025-06-27 19:57:24,218 - Optimizer - INFO
+===================================
+ITERATION 98
+    Type: NSGA2
+    Conditions:
+        Temperature: 120.04918013126867 °C
+        Concentration Reactant 1: 422.7338957069056
+        Concentration Ratio: 4.96
+        Time: 1.12 minutes
+    Results:
+        STY: 4.7159e+03
+        E-factor: 1.4581
+
+2025-06-27 19:57:53,559 - Optimizer - INFO
+===================================
+ITERATION 99
+    Type: NSGA2
+    Conditions:
+        Temperature: 89.76144686342266 °C
+        Concentration Reactant 1: 410.56518429679875
+        Concentration Ratio: 2.36
+        Time: 1.90 minutes
+    Results:
+        STY: 2.4742e+03
+        E-factor: 0.7163
+
+2025-06-27 19:58:30,781 - Optimizer - INFO
+===================================
+ITERATION 100
+    Type: NSGA2
+    Conditions:
+        Temperature: 128.67302014744095 °C
+        Concentration Reactant 1: 271.5976109500074
+        Concentration Ratio: 4.00
+        Time: 1.63 minutes
+    Results:
+        STY: 2.0764e+03
+        E-factor: 1.1321
+
+2025-06-27 19:59:11,427 - Optimizer - INFO
+===================================
+ITERATION 101
+    Type: NSGA2
+    Conditions:
+        Temperature: 68.24990950687462 °C
+        Concentration Reactant 1: 461.0211626718267
+        Concentration Ratio: 3.02
+        Time: 1.74 minutes
+    Results:
+        STY: 2.6857e+03
+        E-factor: 1.2116
+
+2025-06-27 19:59:45,240 - Optimizer - INFO
+===================================
+ITERATION 102
+    Type: NSGA2
+    Conditions:
+        Temperature: 85.60396808244894 °C
+        Concentration Reactant 1: 458.2092913984802
+        Concentration Ratio: 2.56
+        Time: 0.52 minutes
+    Results:
+        STY: 6.2903e+03
+        E-factor: 1.8833
+
+2025-06-27 20:00:18,009 - Optimizer - INFO
+===================================
+ITERATION 103
+    Type: NSGA2
+    Conditions:
+        Temperature: 132.4305581135411 °C
+        Concentration Reactant 1: 136.51467071445342
+        Concentration Ratio: 2.28
+        Time: 1.93 minutes
+    Results:
+        STY: 8.3279e+02
+        E-factor: 0.6388
+
+2025-06-27 20:00:57,594 - Optimizer - INFO
+===================================
+ITERATION 104
+    Type: NSGA2
+    Conditions:
+        Temperature: 136.0485717550045 °C
+        Concentration Reactant 1: 329.37515524931445
+        Concentration Ratio: 3.53
+        Time: 1.17 minutes
+    Results:
+        STY: 3.5022e+03
+        E-factor: 0.9706
+
+2025-06-27 20:01:37,365 - Optimizer - INFO
+===================================
+ITERATION 105
+    Type: NSGA2
+    Conditions:
+        Temperature: 83.45686173584517 °C
+        Concentration Reactant 1: 231.4658181479664
+        Concentration Ratio: 3.69
+        Time: 1.63 minutes
+    Results:
+        STY: 1.4688e+03
+        E-factor: 1.4446
+
+2025-06-27 20:02:05,836 - Optimizer - INFO
+===================================
+ITERATION 106
+    Type: NSGA2
+    Conditions:
+        Temperature: 123.32632349806788 °C
+        Concentration Reactant 1: 415.8472571178215
+        Concentration Ratio: 1.36
+        Time: 1.24 minutes
+    Results:
+        STY: 3.6166e+03
+        E-factor: 0.4223
+
+2025-06-27 20:02:34,566 - Optimizer - INFO
+===================================
+ITERATION 107
+    Type: NSGA2
+    Conditions:
+        Temperature: 64.60470080133155 °C
+        Concentration Reactant 1: 319.8115529294942
+        Concentration Ratio: 2.77
+        Time: 1.83 minutes
+    Results:
+        STY: 1.3829e+03
+        E-factor: 1.6929
+
+2025-06-27 20:03:11,669 - Optimizer - INFO
+===================================
+ITERATION 108
+    Type: NSGA2
+    Conditions:
+        Temperature: 88.0732010041663 °C
+        Concentration Reactant 1: 146.82680657104234
+        Concentration Ratio: 1.57
+        Time: 1.64 minutes
+    Results:
+        STY: 4.7647e+02
+        E-factor: 2.0470
+
+2025-06-27 20:03:51,258 - Optimizer - INFO
+===================================
+ITERATION 109
+    Type: NSGA2
+    Conditions:
+        Temperature: 109.45744506530089 °C
+        Concentration Reactant 1: 140.4490704491161
+        Concentration Ratio: 1.34
+        Time: 1.55 minutes
+    Results:
+        STY: 6.0738e+02
+        E-factor: 1.2708
+
+2025-06-27 20:04:21,680 - Optimizer - INFO
+===================================
+ITERATION 110
+    Type: NSGA2
+    Conditions:
+        Temperature: 65.82104050913549 °C
+        Concentration Reactant 1: 428.74402371614246
+        Concentration Ratio: 3.82
+        Time: 0.62 minutes
+    Results:
+        STY: 4.3854e+03
+        E-factor: 3.0609
+
+2025-06-27 20:04:48,986 - Optimizer - INFO
+===================================
+ITERATION 111
+    Type: NSGA2
+    Conditions:
+        Temperature: 66.78701712681536 °C
+        Concentration Reactant 1: 494.65583140047016
+        Concentration Ratio: 2.50
+        Time: 1.06 minutes
+    Results:
+        STY: 3.4292e+03
+        E-factor: 1.7567
+
+2025-06-27 20:05:25,078 - Optimizer - INFO
+===================================
+ITERATION 112
+    Type: NSGA2
+    Conditions:
+        Temperature: 125.0239653806002 °C
+        Concentration Reactant 1: 478.89943095354346
+        Concentration Ratio: 4.94
+        Time: 1.63 minutes
+    Results:
+        STY: 3.6524e+03
+        E-factor: 1.4619
+
+2025-06-27 20:06:05,401 - Optimizer - INFO
+===================================
+ITERATION 113
+    Type: NSGA2
+    Conditions:
+        Temperature: 90.10076684247326 °C
+        Concentration Reactant 1: 133.4002866794675
+        Concentration Ratio: 4.11
+        Time: 1.34 minutes
+    Results:
+        STY: 8.7926e+02
+        E-factor: 2.0677
+
+2025-06-27 20:06:36,472 - Optimizer - INFO
+===================================
+ITERATION 114
+    Type: NSGA2
+    Conditions:
+        Temperature: 93.9377607397581 °C
+        Concentration Reactant 1: 462.5417540378944
+        Concentration Ratio: 1.44
+        Time: 1.24 minutes
+    Results:
+        STY: 3.2668e+03
+        E-factor: 0.7940
+
+2025-06-27 20:07:04,382 - Optimizer - INFO
+===================================
+ITERATION 115
+    Type: NSGA2
+    Conditions:
+        Temperature: 60.90829158139353 °C
+        Concentration Reactant 1: 287.4642567976505
+        Concentration Ratio: 1.23
+        Time: 0.68 minutes
+    Results:
+        STY: 6.8816e+02
+        E-factor: 8.0909
+
+2025-06-27 20:07:40,390 - Optimizer - INFO
+===================================
+ITERATION 116
+    Type: NSGA2
+    Conditions:
+        Temperature: 69.40209974216839 °C
+        Concentration Reactant 1: 359.6841208464254
+        Concentration Ratio: 3.98
+        Time: 1.38 minutes
+    Results:
+        STY: 2.5434e+03
+        E-factor: 1.7271
+
+2025-06-27 20:08:19,174 - Optimizer - INFO
+===================================
+ITERATION 117
+    Type: NSGA2
+    Conditions:
+        Temperature: 136.97380387796335 °C
+        Concentration Reactant 1: 249.94823180948163
+        Concentration Ratio: 2.14
+        Time: 1.80 minutes
+    Results:
+        STY: 1.7136e+03
+        E-factor: 0.5107
+
+2025-06-27 20:08:52,376 - Optimizer - INFO
+===================================
+ITERATION 118
+    Type: NSGA2
+    Conditions:
+        Temperature: 77.8876670815562 °C
+        Concentration Reactant 1: 485.2890157762445
+        Concentration Ratio: 1.05
+        Time: 1.95 minutes
+    Results:
+        STY: 1.7131e+03
+        E-factor: 1.0302
+
+2025-06-27 20:09:17,973 - Optimizer - INFO
+===================================
+ITERATION 119
+    Type: NSGA2
+    Conditions:
+        Temperature: 63.45279295604609 °C
+        Concentration Reactant 1: 456.45724547922845
+        Concentration Ratio: 3.11
+        Time: 1.99 minutes
+    Results:
+        STY: 2.2982e+03
+        E-factor: 1.2759
+
+2025-06-27 20:09:51,463 - Optimizer - INFO
+===================================
+ITERATION 120
+    Type: NSGA2
+    Conditions:
+        Temperature: 65.9037251788319 °C
+        Concentration Reactant 1: 321.5417137605283
+        Concentration Ratio: 4.88
+        Time: 1.28 minutes
+    Results:
+        STY: 2.3428e+03
+        E-factor: 2.2394
+
+2025-06-27 20:10:30,485 - Optimizer - INFO
+===================================
+ITERATION 121
+    Type: NSGA2
+    Conditions:
+        Temperature: 110.351891050821 °C
+        Concentration Reactant 1: 378.29947559384686
+        Concentration Ratio: 2.82
+        Time: 1.44 minutes
+    Results:
+        STY: 3.2226e+03
+        E-factor: 0.7552
+
+2025-06-27 20:11:04,930 - Optimizer - INFO
+===================================
+ITERATION 122
+    Type: NSGA2
+    Conditions:
+        Temperature: 106.74514495384801 °C
+        Concentration Reactant 1: 460.46320419639557
+        Concentration Ratio: 1.18
+        Time: 0.92 minutes
+    Results:
+        STY: 4.0377e+03
+        E-factor: 0.8042
+
+2025-06-27 20:11:26,649 - Optimizer - INFO
+===================================
+ITERATION 123
+    Type: NSGA2
+    Conditions:
+        Temperature: 136.0329187261247 °C
+        Concentration Reactant 1: 456.10551355636653
+        Concentration Ratio: 2.82
+        Time: 1.43 minutes
+    Results:
+        STY: 3.9746e+03
+        E-factor: 0.7307
+
+2025-06-27 20:12:05,715 - Optimizer - INFO
+===================================
+ITERATION 124
+    Type: NSGA2
+    Conditions:
+        Temperature: 82.1904946384906 °C
+        Concentration Reactant 1: 175.24846388950454
+        Concentration Ratio: 2.85
+        Time: 1.03 minutes
+    Results:
+        STY: 1.0234e+03
+        E-factor: 2.6084
+
+2025-06-27 20:12:41,398 - Optimizer - INFO
+===================================
+ITERATION 125
+    Type: NSGA2
+    Conditions:
+        Temperature: 106.69248894806977 °C
+        Concentration Reactant 1: 131.09385478599393
+        Concentration Ratio: 4.90
+        Time: 1.98 minutes
+    Results:
+        STY: 8.0271e+02
+        E-factor: 1.5090
+
+2025-06-27 20:13:21,937 - Optimizer - INFO
+===================================
+ITERATION 126
+    Type: NSGA2
+    Conditions:
+        Temperature: 115.85293712157961 °C
+        Concentration Reactant 1: 314.43854653764816
+        Concentration Ratio: 2.24
+        Time: 1.72 minutes
+    Results:
+        STY: 2.2094e+03
+        E-factor: 0.5780
+
+2025-06-27 20:13:40,105 - Optimizer - INFO
+===================================
+ITERATION 127
+    Type: NSGA2
+    Conditions:
+        Temperature: 114.77849380431034 °C
+        Concentration Reactant 1: 165.04677573795652
+        Concentration Ratio: 4.64
+        Time: 1.73 minutes
+    Results:
+        STY: 1.1776e+03
+        E-factor: 1.3707
+
+2025-06-27 20:14:18,074 - Optimizer - INFO
+===================================
+ITERATION 128
+    Type: NSGA2
+    Conditions:
+        Temperature: 135.98399306335392 °C
+        Concentration Reactant 1: 390.287803355344
+        Concentration Ratio: 3.45
+        Time: 1.13 minutes
+    Results:
+        STY: 4.3161e+03
+        E-factor: 0.9457
+
+2025-06-27 20:14:55,650 - Optimizer - INFO
+===================================
+ITERATION 129
+    Type: NSGA2
+    Conditions:
+        Temperature: 134.61827866832107 °C
+        Concentration Reactant 1: 446.42555580016335
+        Concentration Ratio: 1.18
+        Time: 0.54 minutes
+    Results:
+        STY: 7.3023e+03
+        E-factor: 0.6513
+
+2025-06-27 20:15:35,635 - Optimizer - INFO
+===================================
+ITERATION 130
+    Type: NSGA2
+    Conditions:
+        Temperature: 90.11706935024397 °C
+        Concentration Reactant 1: 424.2213323127332
+        Concentration Ratio: 4.95
+        Time: 0.73 minutes
+    Results:
+        STY: 6.6975e+03
+        E-factor: 1.6735
+
+2025-06-27 20:15:54,228 - Optimizer - INFO
+===================================
+ITERATION 131
+    Type: NSGA2
+    Conditions:
+        Temperature: 107.5304572281708 °C
+        Concentration Reactant 1: 252.3563426524086
+        Concentration Ratio: 4.88
+        Time: 1.76 minutes
+    Results:
+        STY: 1.7856e+03
+        E-factor: 1.4313
+
+2025-06-27 20:16:30,560 - Optimizer - INFO
+===================================
+ITERATION 132
+    Type: NSGA2
+    Conditions:
+        Temperature: 127.06629637689103 °C
+        Concentration Reactant 1: 287.4772639179881
+        Concentration Ratio: 2.66
+        Time: 0.91 minutes
+    Results:
+        STY: 3.7480e+03
+        E-factor: 0.7591
+
+2025-06-27 20:17:08,116 - Optimizer - INFO
+===================================
+ITERATION 133
+    Type: NSGA2
+    Conditions:
+        Temperature: 64.51003973207418 °C
+        Concentration Reactant 1: 445.88895050202126
+        Concentration Ratio: 4.25
+        Time: 2.00 minutes
+    Results:
+        STY: 2.5160e+03
+        E-factor: 1.4511
+
+2025-06-27 20:17:47,742 - Optimizer - INFO
+===================================
+ITERATION 134
+    Type: NSGA2
+    Conditions:
+        Temperature: 139.73094696591244 °C
+        Concentration Reactant 1: 322.172682241051
+        Concentration Ratio: 4.08
+        Time: 1.92 minutes
+    Results:
+        STY: 2.0860e+03
+        E-factor: 1.1677
+
+2025-06-27 20:18:09,818 - Optimizer - INFO
+===================================
+ITERATION 135
+    Type: NSGA2
+    Conditions:
+        Temperature: 127.97179125419292 °C
+        Concentration Reactant 1: 198.93924069727905
+        Concentration Ratio: 2.80
+        Time: 0.69 minutes
+    Results:
+        STY: 3.0204e+03
+        E-factor: 1.0395
+
+2025-06-27 20:18:42,051 - Optimizer - INFO
+===================================
+ITERATION 136
+    Type: NSGA2
+    Conditions:
+        Temperature: 136.3240821806978 °C
+        Concentration Reactant 1: 342.469853780352
+        Concentration Ratio: 1.91
+        Time: 1.51 minutes
+    Results:
+        STY: 2.7985e+03
+        E-factor: 0.4369
+
+2025-06-27 20:19:19,138 - Optimizer - INFO
+===================================
+ITERATION 137
+    Type: NSGA2
+    Conditions:
+        Temperature: 109.45025923663167 °C
+        Concentration Reactant 1: 243.2650872131362
+        Concentration Ratio: 1.45
+        Time: 1.51 minutes
+    Results:
+        STY: 1.4453e+03
+        E-factor: 0.7574
+
+2025-06-27 20:20:02,967 - Optimizer - INFO
+===================================
+ITERATION 138
+    Type: NSGA2
+    Conditions:
+        Temperature: 101.62461607230347 °C
+        Concentration Reactant 1: 408.9273566942557
+        Concentration Ratio: 3.08
+        Time: 1.78 minutes
+    Results:
+        STY: 2.8468e+03
+        E-factor: 0.8311
+
+2025-06-27 20:20:28,748 - Optimizer - INFO
+===================================
+ITERATION 139
+    Type: NSGA2
+    Conditions:
+        Temperature: 104.15254710195885 °C
+        Concentration Reactant 1: 324.37518861415447
+        Concentration Ratio: 4.51
+        Time: 1.11 minutes
+    Results:
+        STY: 3.6033e+03
+        E-factor: 1.3412
+
+2025-06-27 20:21:02,231 - Optimizer - INFO
+===================================
+ITERATION 140
+    Type: NSGA2
+    Conditions:
+        Temperature: 70.72121827605126 °C
+        Concentration Reactant 1: 111.51307052533559
+        Concentration Ratio: 4.02
+        Time: 1.43 minutes
+    Results:
+        STY: 4.1391e+02
+        E-factor: 4.0230
+
+2025-06-27 20:21:39,158 - Optimizer - INFO
+===================================
+ITERATION 141
+    Type: NSGA2
+    Conditions:
+        Temperature: 116.32638144793788 °C
+        Concentration Reactant 1: 185.1856646035643
+        Concentration Ratio: 1.55
+        Time: 0.52 minutes
+    Results:
+        STY: 1.8562e+03
+        E-factor: 2.0831
+
+2025-06-27 20:22:18,530 - Optimizer - INFO
+===================================
+ITERATION 142
+    Type: NSGA2
+    Conditions:
+        Temperature: 88.04700470452775 °C
+        Concentration Reactant 1: 335.96707474185325
+        Concentration Ratio: 2.57
+        Time: 1.16 minutes
+    Results:
+        STY: 2.7423e+03
+        E-factor: 1.1709
+
+2025-06-27 20:22:46,137 - Optimizer - INFO
+===================================
+ITERATION 143
+    Type: NSGA2
+    Conditions:
+        Temperature: 132.33269555949988 °C
+        Concentration Reactant 1: 239.30218680932015
+        Concentration Ratio: 3.06
+        Time: 1.68 minutes
+    Results:
+        STY: 1.7791e+03
+        E-factor: 0.8114
+
+2025-06-27 20:23:15,296 - Optimizer - INFO
+===================================
+ITERATION 144
+    Type: NSGA2
+    Conditions:
+        Temperature: 91.72342258570161 °C
+        Concentration Reactant 1: 348.8346800911494
+        Concentration Ratio: 4.45
+        Time: 1.92 minutes
+    Results:
+        STY: 2.2515e+03
+        E-factor: 1.2946
+
+2025-06-27 20:23:51,548 - Optimizer - INFO
+===================================
+ITERATION 145
+    Type: NSGA2
+    Conditions:
+        Temperature: 71.76587847432303 °C
+        Concentration Reactant 1: 470.63505006459775
+        Concentration Ratio: 2.97
+        Time: 0.89 minutes
+    Results:
+        STY: 4.2604e+03
+        E-factor: 1.7623
+
+2025-06-27 20:24:30,469 - Optimizer - INFO
+===================================
+ITERATION 146
+    Type: NSGA2
+    Conditions:
+        Temperature: 96.7308604990609 °C
+        Concentration Reactant 1: 492.0130301141908
+        Concentration Ratio: 2.97
+        Time: 0.99 minutes
+    Results:
+        STY: 5.7464e+03
+        E-factor: 0.9138
+
+2025-06-27 20:25:04,701 - Optimizer - INFO
+===================================
+ITERATION 147
+    Type: NSGA2
+    Conditions:
+        Temperature: 110.67206834533806 °C
+        Concentration Reactant 1: 196.05824751127722
+        Concentration Ratio: 1.30
+        Time: 0.69 minutes
+    Results:
+        STY: 1.4460e+03
+        E-factor: 1.9519
+
+2025-06-27 20:25:32,166 - Optimizer - INFO
+===================================
+ITERATION 148
+    Type: NSGA2
+    Conditions:
+        Temperature: 70.2436671166218 °C
+        Concentration Reactant 1: 160.76107740491773
+        Concentration Ratio: 1.56
+        Time: 1.46 minutes
+    Results:
+        STY: 3.5533e+02
+        E-factor: 4.0053
+
+2025-06-27 20:26:07,702 - Optimizer - INFO
+===================================
+ITERATION 149
+    Type: NSGA2
+    Conditions:
+        Temperature: 74.55040675193159 °C
+        Concentration Reactant 1: 238.26691332954528
+        Concentration Ratio: 4.59
+        Time: 1.21 minutes
+    Results:
+        STY: 1.7693e+03
+        E-factor: 2.2345
+
+2025-06-27 20:26:47,850 - Optimizer - INFO
+===================================
+ITERATION 150
+    Type: NSGA2
+    Conditions:
+        Temperature: 113.40461908168217 °C
+        Concentration Reactant 1: 168.92794848065193
+        Concentration Ratio: 1.77
+        Time: 0.56 minutes
+    Results:
+        STY: 1.6300e+03
+        E-factor: 2.1533
+
+2025-06-27 20:27:23,166 - Optimizer - INFO
+===================================
+ITERATION 151
+    Type: NSGA2
+    Conditions:
+        Temperature: 73.51480504577316 °C
+        Concentration Reactant 1: 211.43613561278346
+        Concentration Ratio: 1.71
+        Time: 0.63 minutes
+    Results:
+        STY: 8.2100e+02
+        E-factor: 5.8415
+
+2025-06-27 20:27:44,345 - Optimizer - INFO
+===================================
+ITERATION 152
+    Type: NSGA2
+    Conditions:
+        Temperature: 69.65086968804806 °C
+        Concentration Reactant 1: 284.3115072130903
+        Concentration Ratio: 1.83
+        Time: 1.05 minutes
+    Results:
+        STY: 1.1798e+03
+        E-factor: 2.9880
+
+2025-06-27 20:28:26,610 - Optimizer - INFO
+===================================
+ITERATION 153
+    Type: NSGA2
+    Conditions:
+        Temperature: 100.27338166838855 °C
+        Concentration Reactant 1: 376.1579314517461
+        Concentration Ratio: 1.16
+        Time: 1.70 minutes
+    Results:
+        STY: 1.9065e+03
+        E-factor: 0.6807
+
+2025-06-27 20:29:01,436 - Optimizer - INFO
+===================================
+ITERATION 154
+    Type: NSGA2
+    Conditions:
+        Temperature: 110.23203115927262 °C
+        Concentration Reactant 1: 132.70361277954876
+        Concentration Ratio: 4.49
+        Time: 1.88 minutes
+    Results:
+        STY: 8.5181e+02
+        E-factor: 1.3758
+
+2025-06-27 20:29:41,466 - Optimizer - INFO
+===================================
+ITERATION 155
+    Type: NSGA2
+    Conditions:
+        Temperature: 64.8862367883891 °C
+        Concentration Reactant 1: 210.7510592588815
+        Concentration Ratio: 4.22
+        Time: 1.62 minutes
+    Results:
+        STY: 1.0017e+03
+        E-factor: 2.5714
+
+2025-06-27 20:30:00,231 - Optimizer - INFO
+===================================
+ITERATION 156
+    Type: NSGA2
+    Conditions:
+        Temperature: 74.76168154851018 °C
+        Concentration Reactant 1: 183.7397293346841
+        Concentration Ratio: 2.48
+        Time: 1.23 minutes
+    Results:
+        STY: 7.8334e+02
+        E-factor: 2.8460
+
+2025-06-27 20:30:39,599 - Optimizer - INFO
+===================================
+ITERATION 157
+    Type: NSGA2
+    Conditions:
+        Temperature: 109.46038172242368 °C
+        Concentration Reactant 1: 247.56545582790898
+        Concentration Ratio: 2.85
+        Time: 1.62 minutes
+    Results:
+        STY: 1.8150e+03
+        E-factor: 0.8245
+
+2025-06-27 20:31:16,533 - Optimizer - INFO
+===================================
+ITERATION 158
+    Type: NSGA2
+    Conditions:
+        Temperature: 62.93465623124783 °C
+        Concentration Reactant 1: 200.9747777376083
+        Concentration Ratio: 3.85
+        Time: 1.84 minutes
+    Results:
+        STY: 7.9396e+02
+        E-factor: 2.5657
+
+2025-06-27 20:31:56,280 - Optimizer - INFO
+===================================
+ITERATION 159
+    Type: NSGA2
+    Conditions:
+        Temperature: 100.93419536925329 °C
+        Concentration Reactant 1: 312.84539410612626
+        Concentration Ratio: 1.43
+        Time: 1.17 minutes
+    Results:
+        STY: 2.1195e+03
+        E-factor: 0.9699
+
+2025-06-27 20:32:17,430 - Optimizer - INFO
+===================================
+ITERATION 160
+    Type: NSGA2
+    Conditions:
+        Temperature: 102.60938131640185 °C
+        Concentration Reactant 1: 196.98820145389186
+        Concentration Ratio: 2.08
+        Time: 1.07 minutes
+    Results:
+        STY: 1.4605e+03
+        E-factor: 1.3271
+
+2025-06-27 20:32:54,287 - Optimizer - INFO
+===================================
+ITERATION 161
+    Type: NSGA2
+    Conditions:
+        Temperature: 61.60569582221811 °C
+        Concentration Reactant 1: 228.8316662332713
+        Concentration Ratio: 1.85
+        Time: 0.99 minutes
+    Results:
+        STY: 6.3581e+02
+        E-factor: 5.3192
+
+2025-06-27 20:33:33,028 - Optimizer - INFO
+===================================
+ITERATION 162
+    Type: NSGA2
+    Conditions:
+        Temperature: 69.5809705455401 °C
+        Concentration Reactant 1: 456.210912295958
+        Concentration Ratio: 3.37
+        Time: 1.52 minutes
+    Results:
+        STY: 3.0865e+03
+        E-factor: 1.3280
+
+2025-06-27 20:34:12,877 - Optimizer - INFO
+===================================
+ITERATION 163
+    Type: NSGA2
+    Conditions:
+        Temperature: 123.13369908858706 °C
+        Concentration Reactant 1: 299.3768795716229
+        Concentration Ratio: 1.35
+        Time: 1.31 minutes
+    Results:
+        STY: 2.2951e+03
+        E-factor: 0.5270
+
+2025-06-27 20:34:35,831 - Optimizer - INFO
+===================================
+ITERATION 164
+    Type: NSGA2
+    Conditions:
+        Temperature: 106.94728944167034 °C
+        Concentration Reactant 1: 398.17578967373197
+        Concentration Ratio: 2.73
+        Time: 0.69 minutes
+    Results:
+        STY: 6.1363e+03
+        E-factor: 0.9859
+
+2025-06-27 20:35:08,743 - Optimizer - INFO
+===================================
+ITERATION 165
+    Type: NSGA2
+    Conditions:
+        Temperature: 82.70207246389796 °C
+        Concentration Reactant 1: 245.23291855945405
+        Concentration Ratio: 3.58
+        Time: 1.36 minutes
+    Results:
+        STY: 1.7447e+03
+        E-factor: 1.5714
+
+2025-06-27 20:35:50,460 - Optimizer - INFO
+===================================
+ITERATION 166
+    Type: NSGA2
+    Conditions:
+        Temperature: 88.48773807182769 °C
+        Concentration Reactant 1: 494.60609951719186
+        Concentration Ratio: 3.42
+        Time: 0.86 minutes
+    Results:
+        STY: 6.3484e+03
+        E-factor: 1.1963
+
+2025-06-27 20:36:29,932 - Optimizer - INFO
+===================================
+ITERATION 167
+    Type: NSGA2
+    Conditions:
+        Temperature: 68.14259780963229 °C
+        Concentration Reactant 1: 161.1436556737328
+        Concentration Ratio: 1.98
+        Time: 0.74 minutes
+    Results:
+        STY: 4.6397e+02
+        E-factor: 7.4328
+
+2025-06-27 20:36:52,395 - Optimizer - INFO
+===================================
+ITERATION 168
+    Type: NSGA2
+    Conditions:
+        Temperature: 74.92536192410446 °C
+        Concentration Reactant 1: 214.03806747753885
+        Concentration Ratio: 1.69
+        Time: 1.85 minutes
+    Results:
+        STY: 6.6095e+02
+        E-factor: 1.9409
+
+2025-06-27 20:37:22,353 - Optimizer - INFO
+===================================
+ITERATION 169
+    Type: NSGA2
+    Conditions:
+        Temperature: 66.41869965293138 °C
+        Concentration Reactant 1: 309.80455582810185
+        Concentration Ratio: 2.64
+        Time: 1.97 minutes
+    Results:
+        STY: 1.2831e+03
+        E-factor: 1.5443
+
+2025-06-27 20:37:58,529 - Optimizer - INFO
+===================================
+ITERATION 170
+    Type: NSGA2
+    Conditions:
+        Temperature: 68.96311217344419 °C
+        Concentration Reactant 1: 259.1422396182967
+        Concentration Ratio: 4.88
+        Time: 1.80 minutes
+    Results:
+        STY: 1.4838e+03
+        E-factor: 1.9451
+
+2025-06-27 20:38:39,537 - Optimizer - INFO
+===================================
+ITERATION 171
+    Type: NSGA2
+    Conditions:
+        Temperature: 125.3657656759424 °C
+        Concentration Reactant 1: 203.16113081797593
+        Concentration Ratio: 1.68
+        Time: 1.50 minutes
+    Results:
+        STY: 1.4266e+03
+        E-factor: 0.5839
+
+2025-06-27 20:39:10,535 - Optimizer - INFO
+===================================
+ITERATION 172
+    Type: NSGA2
+    Conditions:
+        Temperature: 134.35007913020686 °C
+        Concentration Reactant 1: 322.70515720557194
+        Concentration Ratio: 3.29
+        Time: 0.92 minutes
+    Results:
+        STY: 4.3573e+03
+        E-factor: 0.8955
+
+2025-06-27 20:39:38,656 - Optimizer - INFO
+===================================
+ITERATION 173
+    Type: NSGA2
+    Conditions:
+        Temperature: 121.55943465535495 °C
+        Concentration Reactant 1: 174.81749942300934
+        Concentration Ratio: 2.29
+        Time: 1.14 minutes
+    Results:
+        STY: 1.5807e+03
+        E-factor: 0.8773
+
+2025-06-27 20:40:14,472 - Optimizer - INFO
+===================================
+ITERATION 174
+    Type: NSGA2
+    Conditions:
+        Temperature: 100.6088302947564 °C
+        Concentration Reactant 1: 196.9638929660321
+        Concentration Ratio: 1.46
+        Time: 1.42 minutes
+    Results:
+        STY: 9.7623e+02
+        E-factor: 1.2456
+
+2025-06-27 20:40:51,733 - Optimizer - INFO
+===================================
+ITERATION 175
+    Type: NSGA2
+    Conditions:
+        Temperature: 83.09044425922046 °C
+        Concentration Reactant 1: 332.4952885690449
+        Concentration Ratio: 1.62
+        Time: 1.22 minutes
+    Results:
+        STY: 1.8229e+03
+        E-factor: 1.4534
+
+2025-06-27 20:41:29,783 - Optimizer - INFO
+===================================
+ITERATION 176
+    Type: NSGA2
+    Conditions:
+        Temperature: 102.60715460412686 °C
+        Concentration Reactant 1: 120.72941472897077
+        Concentration Ratio: 2.35
+        Time: 0.70 minutes
+    Results:
+        STY: 8.5529e+02
+        E-factor: 2.9307
+
+2025-06-27 20:41:47,168 - Optimizer - INFO
+===================================
+ITERATION 177
+    Type: NSGA2
+    Conditions:
+        Temperature: 65.06999763782142 °C
+        Concentration Reactant 1: 495.9840929559781
+        Concentration Ratio: 2.29
+        Time: 1.71 minutes
+    Results:
+        STY: 2.4828e+03
+        E-factor: 1.2479
+
+2025-06-27 20:42:23,428 - Optimizer - INFO
+===================================
+ITERATION 178
+    Type: NSGA2
+    Conditions:
+        Temperature: 80.3712523811011 °C
+        Concentration Reactant 1: 372.6010888895717
+        Concentration Ratio: 4.04
+        Time: 1.39 minutes
+    Results:
+        STY: 3.0232e+03
+        E-factor: 1.3667
+
+2025-06-27 20:43:00,644 - Optimizer - INFO
+===================================
+ITERATION 179
+    Type: NSGA2
+    Conditions:
+        Temperature: 97.72609508401267 °C
+        Concentration Reactant 1: 264.7363656589074
+        Concentration Ratio: 2.40
+        Time: 1.89 minutes
+    Results:
+        STY: 1.5434e+03
+        E-factor: 0.7882
+
+2025-06-27 20:43:41,934 - Optimizer - INFO
+===================================
+ITERATION 180
+    Type: NSGA2
+    Conditions:
+        Temperature: 126.44955262301833 °C
+        Concentration Reactant 1: 486.010764266605
+        Concentration Ratio: 1.50
+        Time: 1.60 minutes
+    Results:
+        STY: 3.6575e+03
+        E-factor: 0.3254
+
+2025-06-27 20:44:03,171 - Optimizer - INFO
+===================================
+ITERATION 181
+    Type: NSGA2
+    Conditions:
+        Temperature: 135.06723654568304 °C
+        Concentration Reactant 1: 172.49322646626405
+        Concentration Ratio: 1.27
+        Time: 1.61 minutes
+    Results:
+        STY: 1.0332e+03
+        E-factor: 0.5472
+
+2025-06-27 20:44:37,160 - Optimizer - INFO
+===================================
+ITERATION 182
+    Type: NSGA2
+    Conditions:
+        Temperature: 105.95784905439295 °C
+        Concentration Reactant 1: 436.7315107033088
+        Concentration Ratio: 1.56
+        Time: 1.69 minutes
+    Results:
+        STY: 2.8424e+03
+        E-factor: 0.4690
+
+2025-06-27 20:45:12,548 - Optimizer - INFO
+===================================
+ITERATION 183
+    Type: NSGA2
+    Conditions:
+        Temperature: 76.13018560381957 °C
+        Concentration Reactant 1: 165.4623771462818
+        Concentration Ratio: 1.66
+        Time: 1.72 minutes
+    Results:
+        STY: 4.4672e+02
+        E-factor: 2.5711
+
+2025-06-27 20:45:53,199 - Optimizer - INFO
+===================================
+ITERATION 184
+    Type: NSGA2
+    Conditions:
+        Temperature: 113.215777655696 °C
+        Concentration Reactant 1: 309.2261699076477
+        Concentration Ratio: 2.44
+        Time: 1.82 minutes
+    Results:
+        STY: 2.0757e+03
+        E-factor: 0.6342
+
+2025-06-27 20:46:27,064 - Optimizer - INFO
+===================================
+ITERATION 185
+    Type: NSGA2
+    Conditions:
+        Temperature: 91.39560859381083 °C
+        Concentration Reactant 1: 426.63977578863086
+        Concentration Ratio: 2.76
+        Time: 1.07 minutes
+    Results:
+        STY: 4.2791e+03
+        E-factor: 0.9921
+
+2025-06-27 20:46:47,573 - Optimizer - INFO
+===================================
+ITERATION 186
+    Type: NSGA2
+    Conditions:
+        Temperature: 97.01438285356852 °C
+        Concentration Reactant 1: 220.55114966565685
+        Concentration Ratio: 3.99
+        Time: 1.25 minutes
+    Results:
+        STY: 1.9554e+03
+        E-factor: 1.3873
+
+2025-06-27 20:47:22,704 - Optimizer - INFO
+===================================
+ITERATION 187
+    Type: NSGA2
+    Conditions:
+        Temperature: 78.57701561174538 °C
+        Concentration Reactant 1: 459.8298293098274
+        Concentration Ratio: 2.54
+        Time: 1.32 minutes
+    Results:
+        STY: 3.4116e+03
+        E-factor: 1.0848
+
+2025-06-27 20:48:03,300 - Optimizer - INFO
+===================================
+ITERATION 188
+    Type: NSGA2
+    Conditions:
+        Temperature: 132.51776887716375 °C
+        Concentration Reactant 1: 349.69519836559687
+        Concentration Ratio: 1.47
+        Time: 1.91 minutes
+    Results:
+        STY: 2.1933e+03
+        E-factor: 0.3188
+
+2025-06-27 20:48:41,794 - Optimizer - INFO
+===================================
+ITERATION 189
+    Type: NSGA2
+    Conditions:
+        Temperature: 110.21664424571343 °C
+        Concentration Reactant 1: 233.96224586283444
+        Concentration Ratio: 1.56
+        Time: 1.69 minutes
+    Results:
+        STY: 1.3322e+03
+        E-factor: 0.6800
+
+2025-06-27 20:49:03,518 - Optimizer - INFO
+===================================
+ITERATION 190
+    Type: NSGA2
+    Conditions:
+        Temperature: 109.60582047428107 °C
+        Concentration Reactant 1: 313.38443679052864
+        Concentration Ratio: 4.58
+        Time: 1.68 minutes
+    Results:
+        STY: 2.3261e+03
+        E-factor: 1.3245
+
