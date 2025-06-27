@@ -80,12 +80,12 @@ class Optimizer(ABC):
     """Dataframe holding the results"""
 
     _results_columns_names: list[str] = [
-        "Temperature[Celsius]",
-        "Concentration[%]",
+        "Temperature",
+        "Concentration",
         "ConcentrationRatio",
-        "Time[Minutes]",
+        "Time",
         "STY",
-        "E",
+        "E_factor",
     ]
 
     _counter: int = 0
