@@ -488,15 +488,15 @@ class SummitOptimizer(Optimizer):
         domain += ContinuousVariable(
             self._results_columns_names[4],
             is_objective=True,
-            maximize=True,
             bounds=list(self.boundaries.STY),
+            maximize=True,
             description="Space Time Yield Objective",
         )
         domain += ContinuousVariable(
             self._results_columns_names[5],
             is_objective=True,
-            maximize=False,
             bounds=list(self.boundaries.E_factor),
+            maximize=False,
             description="Mass product waste factor objective",
         )
         self._columns = [variable.name for variable in domain.variables]

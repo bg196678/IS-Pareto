@@ -164,7 +164,7 @@ class Reactor(ReactionInput):
 
         TransformationFactory(
             "dae.finite_difference"
-        ).apply_to(model, nfe=200, scheme="BACKWARD")
+        ).apply_to(model, nfe=400, scheme="BACKWARD")
         solver = SolverFactory("ipopt")
         solver.solve(model, tee=False)
 
