@@ -45,7 +45,11 @@ def test_data_system_1_gsolv(test_data_system_1_path):
 
 @pytest.fixture(scope="session")
 def test_data_system_1_experimental(test_data_system_1_path):
-    return test_data_system_1_path / "experimental" / "experimental.xlsx"
+    return test_data_system_1_path / "reference" / "experimental.xlsx"
+
+@pytest.fixture(scope="session")
+def test_data_system_1_tsemo_results(test_data_system_1_path):
+    return test_data_system_1_path / "reference" / "tsemo_results.csv"
 
 @pytest.fixture
 def construct_system_1(test_data_system_1_gaussian, test_data_system_1_cosmo):

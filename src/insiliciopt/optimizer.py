@@ -45,9 +45,9 @@ class OptimizationBoundaries:
     """Concentration Ration Boundaries"""
     time: tuple[float, float]
     """Time Boundaries in Minutes"""
-    STY: tuple[float, float] = (0, 1e6)
+    STY: tuple[float, float] = (0, 1e8)
     """Space Time Yield Objective"""
-    E_factor: tuple[float, float] = (0, 100)
+    E_factor: tuple[float, float] = (0, 50)
     """Mass product waste factor objective"""
 
 @dataclass
@@ -508,24 +508,24 @@ class SummitOptimizer(Optimizer):
         """Convert summit Dataset to Optimizer Conditions"""
         data = suggestion.to_dict()["data"][0]
         temperature = data[
-            self._columns.index(
+            round(self._columns.index(
                 self._results_columns_names[0]
-            )
+            ), 4)
         ]
         concentration = data[
-            self._columns.index(
+            round(self._columns.index(
                 self._results_columns_names[1]
-            )
+            ), 4)
         ]
         ratio = data[
-            self._columns.index(
+            round(self._columns.index(
                 self._results_columns_names[2]
-            )
+            ), 4)
         ]
         time = data[
-            self._columns.index(
+            round(self._columns.index(
                 self._results_columns_names[3]
-            )
+            ), 4)
         ]
 
         optimization_conditions = _OptimizerConditions(
