@@ -128,7 +128,7 @@ class TestSystem1PatchedReactor:
                 time=time,
             )
 
-            STY, E = reactor.simulate(reactor_conditions)
+            E, STY = reactor.simulate(reactor_conditions)
 
             assert np.isclose(
                 E, expected_E, rtol=0.15, atol=0.3

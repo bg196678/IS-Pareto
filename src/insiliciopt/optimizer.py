@@ -427,6 +427,10 @@ class Optimizer(ABC):
         self._log_summary()
 
 
+###############
+# Summit Optimizers
+###############
+
 class SummitOptimizer(Optimizer):
 
     domain: Domain
@@ -675,3 +679,105 @@ class EntMootOptimizer(SummitOptimizer):
         return self._ent_moot_optimizer.suggest_experiments(
             1, prev_res=dataset,
         )
+
+###############
+# Pymoo Optimizer
+###############
+
+from pymoo.core.problem import ElementwiseProblem
+from pymoo.algorithms.moo.nsga2 import NSGA2
+from pymoo.optimize import minimize
+from pymoo.termination import get_termination
+
+class NSGA2Optimizer(Optimizer):
+    """
+    A simple multi-objective optimizer using the Pymoo library,
+    specifically the NSGA-II algorithm.
+    """
+
+    pop_size: int
+    """Population size for the genetic algorithm"""
+
+    class _PymooProblem(ElementwiseProblem):
+
+        def __init__(self, optimizer: "NSGA2Optimizer"):
+            self.optimizer = optimizer
+            b = self.optimizer.boundaries
+
+            xl = [
+                b.temperature[0],
+                b.concentration_reactant_1[0],
+                b.concentration_ratio[0],
+                b.time[0]
+            ]
+            xu = [
+                b.temperature[1],
+                b.concentration_reactant_1[1],
+                b.concentration_ratio[1],
+                b.time[1]
+            ]
+
+            super().__init__(
+                n_var=4, n_obj=2, xl=np.array(xl), xu=np.array(xu)
+            )
+
+        def _evaluate(self, x, out, *args, **kwargs):
+
+            conditions = _OptimizerConditions(
+                temperature=x[0],
+                concentration_reactant_1=x[1],
+                concentration_ratio=x[2],
+                time=x[3],
+            )
+
+            E, STY = self.optimizer._simulate_reactor(conditions)
+
+            self.optimizer._add_to_result(E=E, STY=STY, conditions=conditions)
+            self.optimizer._log_iteration(
+                E=E, STY=STY, conditions=conditions, iteration_type="NSGA2"
+            )
+
+            out["F"] = [-STY, E]
+
+
+    def __init__(
+            self,
+            species: OptimizationSpecies,
+            boundaries: OptimizationBoundaries,
+            reactor: Reactor,
+            output_directory: Path,
+            pop_size: int = 50,
+            log_level: int = logging.INFO,
+    ) -> None:
+        self.pop_size = pop_size
+        super().__init__(
+            species=species,
+            boundaries=boundaries,
+            reactor=reactor,
+            output_directory=output_directory,
+            log_level=log_level,
+            num_initial_points=0,  # No initial sampling
+        )
+
+    def __repr__(self) -> str:
+        """Optimizer representation"""
+        string = "\n\nOPTIMIZER:\n"
+        string += "  Type: NSGA2\n"
+        string += f"  Population Size: {self.pop_size}\n"
+        return string
+
+    def run(self, num_iterations: int) -> None:
+        """Runs the Pymoo optimizer."""
+        problem = self._PymooProblem(self)
+        algorithm = NSGA2(pop_size=self.pop_size)
+        termination = get_termination("n_eval", num_iterations)
+
+        minimize(
+            problem,
+            algorithm,
+            termination,
+            verbose=False,
+            seed=42,
+        )
+
+        self._end()

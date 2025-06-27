@@ -19,11 +19,11 @@ classifiers = [
 ]
 requires-python = ">=3.10,<3.11"
 dependencies = [
-    "summit==0.8.8",
+    "summit==0.8.9",
     "pyomo==6.6",
     "openpyxl",
     "scikit-learn==1.0.2",
-    "pymoo==0.4.2.2",
+    "pymoo==0.6.1",
     "tamkin",
     "numpy",
     "matplotlib",
