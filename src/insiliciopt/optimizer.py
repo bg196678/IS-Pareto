@@ -591,7 +591,10 @@ class TSEmoOptimizer(SummitOptimizer):
             num_initial_points,
         )
 
-        self._ts_emo_strategy = TSEMO(self.domain)
+        self._ts_emo_strategy = TSEMO(
+            self.domain,
+            n_spectral_points=4000
+        )
 
     def __repr__(self) -> str:
         string = "\n\nOPTIMIZER:\n"
