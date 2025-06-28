@@ -694,7 +694,7 @@ class NSGA2Optimizer(Optimizer):
     specifically the NSGA-II algorithm.
     """
 
-    _pop_size: int = 30
+    _pop_size: int = 15
     """Population size for the NSGA-II algorithm"""
 
     _num_generations: int | None = None

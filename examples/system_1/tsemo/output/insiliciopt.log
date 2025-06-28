@@ -1947,3 +1947,81 @@ ITERATION 141
         STY: 2.6301e+03
         E-factor: 1.5991
 
+2025-06-28 16:24:45,717 - Optimizer - INFO
+===================================
+ITERATION 142
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.9996 °C
+        Concentration Reactant 1: 386.7559
+        Concentration Ratio: 1.38
+        Time: 1.45 minutes
+    Results:
+        STY: 3.1604e+03
+        E-factor: 0.3046
+
+2025-06-28 17:09:41,830 - Optimizer - INFO
+===================================
+ITERATION 143
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.9997 °C
+        Concentration Reactant 1: 499.9999
+        Concentration Ratio: 1.61
+        Time: 0.61 minutes
+    Results:
+        STY: 9.2507e+03
+        E-factor: 0.4466
+
+2025-06-28 17:55:21,517 - Optimizer - INFO
+===================================
+ITERATION 144
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 499.9995
+        Concentration Ratio: 1.24
+        Time: 1.43 minutes
+    Results:
+        STY: 4.1125e+03
+        E-factor: 0.2596
+
+2025-06-28 18:36:53,160 - Optimizer - INFO
+===================================
+ITERATION 145
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 499.9992
+        Concentration Ratio: 1.47
+        Time: 0.65 minutes
+    Results:
+        STY: 8.5518e+03
+        E-factor: 0.4236
+
+2025-06-28 19:17:30,034 - Optimizer - INFO
+===================================
+ITERATION 146
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.48
+        Time: 0.78 minutes
+    Results:
+        STY: 7.4017e+03
+        E-factor: 0.3801
+
+2025-06-28 20:05:34,265 - Optimizer - INFO
+===================================
+ITERATION 147
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 499.9999
+        Concentration Ratio: 1.39
+        Time: 0.98 minutes
+    Results:
+        STY: 5.9299e+03
+        E-factor: 0.3268
+
