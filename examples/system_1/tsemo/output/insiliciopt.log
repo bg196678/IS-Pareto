@@ -816,3 +816,1030 @@ ITERATION 54
         STY: 1.0650e+04
         E-factor: 0.5242
 
+2025-06-27 20:51:28,574 - Optimizer - INFO
+===================================
+ITERATION 55
+    Type: TSEMO
+    Conditions:
+        Temperature: 113.2253 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 2.49
+        Time: 1.95 minutes
+    Results:
+        STY: 3.1984e+03
+        E-factor: 0.6157
+
+2025-06-27 20:53:48,399 - Optimizer - INFO
+===================================
+ITERATION 56
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 498.0316
+        Concentration Ratio: 1.00
+        Time: 0.80 minutes
+    Results:
+        STY: 5.9539e+03
+        E-factor: 0.4372
+
+2025-06-27 20:56:14,405 - Optimizer - INFO
+===================================
+ITERATION 57
+    Type: TSEMO
+    Conditions:
+        Temperature: 127.4942 °C
+        Concentration Reactant 1: 483.7909
+        Concentration Ratio: 5.00
+        Time: 0.50 minutes
+    Results:
+        STY: 1.2056e+04
+        E-factor: 1.4755
+
+2025-06-27 20:58:42,192 - Optimizer - INFO
+===================================
+ITERATION 58
+    Type: TSEMO
+    Conditions:
+        Temperature: 115.3315 °C
+        Concentration Reactant 1: 483.9901
+        Concentration Ratio: 1.84
+        Time: 0.92 minutes
+    Results:
+        STY: 5.8685e+03
+        E-factor: 0.5592
+
+2025-06-27 21:01:07,285 - Optimizer - INFO
+===================================
+ITERATION 59
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.2782 °C
+        Concentration Reactant 1: 352.5525
+        Concentration Ratio: 2.48
+        Time: 1.27 minutes
+    Results:
+        STY: 3.4666e+03
+        E-factor: 0.6151
+
+2025-06-27 21:03:34,688 - Optimizer - INFO
+===================================
+ITERATION 60
+    Type: TSEMO
+    Conditions:
+        Temperature: 132.1958 °C
+        Concentration Reactant 1: 113.1298
+        Concentration Ratio: 4.98
+        Time: 2.00 minutes
+    Results:
+        STY: 7.0501e+02
+        E-factor: 1.4695
+
+2025-06-27 21:06:07,951 - Optimizer - INFO
+===================================
+ITERATION 61
+    Type: TSEMO
+    Conditions:
+        Temperature: 103.3239 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 4.99
+        Time: 1.58 minutes
+    Results:
+        STY: 3.9610e+03
+        E-factor: 1.4642
+
+2025-06-27 21:08:34,681 - Optimizer - INFO
+===================================
+ITERATION 62
+    Type: TSEMO
+    Conditions:
+        Temperature: 93.6366 °C
+        Concentration Reactant 1: 308.8264
+        Concentration Ratio: 2.67
+        Time: 2.00 minutes
+    Results:
+        STY: 1.7881e+03
+        E-factor: 0.8072
+
+2025-06-27 21:11:04,435 - Optimizer - INFO
+===================================
+ITERATION 63
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.00
+        Time: 1.82 minutes
+    Results:
+        STY: 3.0287e+03
+        E-factor: 0.2510
+
+2025-06-27 21:13:33,807 - Optimizer - INFO
+===================================
+ITERATION 64
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 460.3679
+        Concentration Ratio: 1.58
+        Time: 0.96 minutes
+    Results:
+        STY: 5.7300e+03
+        E-factor: 0.3682
+
+2025-06-27 21:16:10,098 - Optimizer - INFO
+===================================
+ITERATION 65
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.25
+        Time: 0.56 minutes
+    Results:
+        STY: 8.9140e+03
+        E-factor: 0.4914
+
+2025-06-27 21:19:05,062 - Optimizer - INFO
+===================================
+ITERATION 66
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.9997 °C
+        Concentration Reactant 1: 358.2152
+        Concentration Ratio: 2.23
+        Time: 0.61 minutes
+    Results:
+        STY: 6.8741e+03
+        E-factor: 0.6254
+
+2025-06-27 21:22:02,333 - Optimizer - INFO
+===================================
+ITERATION 67
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 355.7146
+        Concentration Ratio: 1.00
+        Time: 2.00 minutes
+    Results:
+        STY: 1.9005e+03
+        E-factor: 0.2918
+
+2025-06-27 21:25:02,547 - Optimizer - INFO
+===================================
+ITERATION 68
+    Type: TSEMO
+    Conditions:
+        Temperature: 110.4463 °C
+        Concentration Reactant 1: 266.7968
+        Concentration Ratio: 5.00
+        Time: 1.53 minutes
+    Results:
+        STY: 2.1740e+03
+        E-factor: 1.4718
+
+2025-06-27 21:28:07,198 - Optimizer - INFO
+===================================
+ITERATION 69
+    Type: TSEMO
+    Conditions:
+        Temperature: 116.8978 °C
+        Concentration Reactant 1: 100.0491
+        Concentration Ratio: 1.83
+        Time: 2.00 minutes
+    Results:
+        STY: 4.3868e+02
+        E-factor: 0.9775
+
+2025-06-27 21:31:25,339 - Optimizer - INFO
+===================================
+ITERATION 70
+    Type: TSEMO
+    Conditions:
+        Temperature: 134.8538 °C
+        Concentration Reactant 1: 438.8862
+        Concentration Ratio: 2.99
+        Time: 2.00 minutes
+    Results:
+        STY: 2.7301e+03
+        E-factor: 0.7917
+
+2025-06-27 21:34:29,857 - Optimizer - INFO
+===================================
+ITERATION 71
+    Type: TSEMO
+    Conditions:
+        Temperature: 122.1123 °C
+        Concentration Reactant 1: 479.5113
+        Concentration Ratio: 2.05
+        Time: 1.67 minutes
+    Results:
+        STY: 3.5613e+03
+        E-factor: 0.4737
+
+2025-06-27 21:37:45,833 - Optimizer - INFO
+===================================
+ITERATION 72
+    Type: TSEMO
+    Conditions:
+        Temperature: 136.0521 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.50
+        Time: 0.80 minutes
+    Results:
+        STY: 7.1015e+03
+        E-factor: 0.3971
+
+2025-06-27 21:41:45,049 - Optimizer - INFO
+===================================
+ITERATION 73
+    Type: TSEMO
+    Conditions:
+        Temperature: 118.7473 °C
+        Concentration Reactant 1: 499.9998
+        Concentration Ratio: 1.42
+        Time: 1.61 minutes
+    Results:
+        STY: 3.5990e+03
+        E-factor: 0.3453
+
+2025-06-27 21:45:49,395 - Optimizer - INFO
+===================================
+ITERATION 74
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.9983 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 2.20
+        Time: 0.50 minutes
+    Results:
+        STY: 1.1908e+04
+        E-factor: 0.5892
+
+2025-06-27 21:49:44,311 - Optimizer - INFO
+===================================
+ITERATION 75
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 296.2146
+        Concentration Ratio: 1.49
+        Time: 1.82 minutes
+    Results:
+        STY: 1.9524e+03
+        E-factor: 0.3253
+
+2025-06-27 21:53:26,109 - Optimizer - INFO
+===================================
+ITERATION 76
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 499.9966
+        Concentration Ratio: 3.18
+        Time: 0.50 minutes
+    Results:
+        STY: 1.2394e+04
+        E-factor: 0.8638
+
+2025-06-27 21:57:22,153 - Optimizer - INFO
+===================================
+ITERATION 77
+    Type: TSEMO
+    Conditions:
+        Temperature: 129.4555 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.37
+        Time: 1.52 minutes
+    Results:
+        STY: 3.8936e+03
+        E-factor: 0.3001
+
+2025-06-27 22:02:16,261 - Optimizer - INFO
+===================================
+ITERATION 78
+    Type: TSEMO
+    Conditions:
+        Temperature: 134.2122 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.52
+        Time: 1.20 minutes
+    Results:
+        STY: 5.0129e+03
+        E-factor: 0.3360
+
+2025-06-27 22:06:48,140 - Optimizer - INFO
+===================================
+ITERATION 79
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 338.4713
+        Concentration Ratio: 1.77
+        Time: 1.03 minutes
+    Results:
+        STY: 3.9083e+03
+        E-factor: 0.4401
+
+2025-06-27 22:11:12,636 - Optimizer - INFO
+===================================
+ITERATION 80
+    Type: TSEMO
+    Conditions:
+        Temperature: 122.974 °C
+        Concentration Reactant 1: 493.4533
+        Concentration Ratio: 1.50
+        Time: 1.36 minutes
+    Results:
+        STY: 4.2482e+03
+        E-factor: 0.3645
+
+2025-06-27 22:14:47,031 - Optimizer - INFO
+===================================
+ITERATION 81
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.73
+        Time: 0.50 minutes
+    Results:
+        STY: 1.1145e+04
+        E-factor: 0.5139
+
+2025-06-27 22:19:41,756 - Optimizer - INFO
+===================================
+ITERATION 82
+    Type: TSEMO
+    Conditions:
+        Temperature: 134.4531 °C
+        Concentration Reactant 1: 483.5903
+        Concentration Ratio: 1.34
+        Time: 1.07 minutes
+    Results:
+        STY: 5.1508e+03
+        E-factor: 0.3439
+
+2025-06-27 22:26:02,379 - Optimizer - INFO
+===================================
+ITERATION 83
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.5851 °C
+        Concentration Reactant 1: 429.625
+        Concentration Ratio: 1.54
+        Time: 1.30 minutes
+    Results:
+        STY: 4.0087e+03
+        E-factor: 0.3314
+
+2025-06-27 22:31:10,540 - Optimizer - INFO
+===================================
+ITERATION 84
+    Type: TSEMO
+    Conditions:
+        Temperature: 111.7779 °C
+        Concentration Reactant 1: 499.9009
+        Concentration Ratio: 1.36
+        Time: 1.84 minutes
+    Results:
+        STY: 3.0756e+03
+        E-factor: 0.3589
+
+2025-06-27 22:36:36,122 - Optimizer - INFO
+===================================
+ITERATION 85
+    Type: TSEMO
+    Conditions:
+        Temperature: 138.0284 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.33
+        Time: 1.04 minutes
+    Results:
+        STY: 5.5300e+03
+        E-factor: 0.3227
+
+2025-06-27 22:42:19,012 - Optimizer - INFO
+===================================
+ITERATION 86
+    Type: TSEMO
+    Conditions:
+        Temperature: 136.326 °C
+        Concentration Reactant 1: 499.959
+        Concentration Ratio: 1.23
+        Time: 1.38 minutes
+    Results:
+        STY: 4.1843e+03
+        E-factor: 0.2793
+
+2025-06-27 22:47:36,918 - Optimizer - INFO
+===================================
+ITERATION 87
+    Type: TSEMO
+    Conditions:
+        Temperature: 124.7994 °C
+        Concentration Reactant 1: 423.711
+        Concentration Ratio: 1.32
+        Time: 1.22 minutes
+    Results:
+        STY: 3.7256e+03
+        E-factor: 0.4109
+
+2025-06-27 22:53:08,387 - Optimizer - INFO
+===================================
+ITERATION 88
+    Type: TSEMO
+    Conditions:
+        Temperature: 138.2355 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.68
+        Time: 0.57 minutes
+    Results:
+        STY: 9.8787e+03
+        E-factor: 0.4856
+
+2025-06-27 22:59:12,952 - Optimizer - INFO
+===================================
+ITERATION 89
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 2.66
+        Time: 0.50 minutes
+    Results:
+        STY: 1.2237e+04
+        E-factor: 0.7049
+
+2025-06-27 23:06:18,238 - Optimizer - INFO
+===================================
+ITERATION 90
+    Type: TSEMO
+    Conditions:
+        Temperature: 103.5694 °C
+        Concentration Reactant 1: 446.1257
+        Concentration Ratio: 1.65
+        Time: 1.46 minutes
+    Results:
+        STY: 3.2876e+03
+        E-factor: 0.5405
+
+2025-06-27 23:14:26,861 - Optimizer - INFO
+===================================
+ITERATION 91
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.51
+        Time: 0.89 minutes
+    Results:
+        STY: 6.5837e+03
+        E-factor: 0.3549
+
+2025-06-27 23:18:49,914 - Optimizer - INFO
+===================================
+ITERATION 92
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.9373 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.34
+        Time: 1.73 minutes
+    Results:
+        STY: 3.5240e+03
+        E-factor: 0.2515
+
+2025-06-27 23:24:33,880 - Optimizer - INFO
+===================================
+ITERATION 93
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.63
+        Time: 0.59 minutes
+    Results:
+        STY: 9.5260e+03
+        E-factor: 0.4565
+
+2025-06-27 23:31:14,425 - Optimizer - INFO
+===================================
+ITERATION 94
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.9999 °C
+        Concentration Reactant 1: 499.9996
+        Concentration Ratio: 1.96
+        Time: 0.50 minutes
+    Results:
+        STY: 1.1597e+04
+        E-factor: 0.5432
+
+2025-06-27 23:40:01,338 - Optimizer - INFO
+===================================
+ITERATION 95
+    Type: TSEMO
+    Conditions:
+        Temperature: 133.6394 °C
+        Concentration Reactant 1: 436.3784
+        Concentration Ratio: 1.33
+        Time: 1.80 minutes
+    Results:
+        STY: 2.8947e+03
+        E-factor: 0.2759
+
+2025-06-27 23:47:38,561 - Optimizer - INFO
+===================================
+ITERATION 96
+    Type: TSEMO
+    Conditions:
+        Temperature: 134.3434 °C
+        Concentration Reactant 1: 499.9347
+        Concentration Ratio: 1.60
+        Time: 1.92 minutes
+    Results:
+        STY: 3.2276e+03
+        E-factor: 0.3170
+
+2025-06-27 23:55:24,110 - Optimizer - INFO
+===================================
+ITERATION 97
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.54
+        Time: 0.72 minutes
+    Results:
+        STY: 7.9974e+03
+        E-factor: 0.4019
+
+2025-06-28 00:06:58,842 - Optimizer - INFO
+===================================
+ITERATION 98
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.9365 °C
+        Concentration Reactant 1: 499.9999
+        Concentration Ratio: 1.26
+        Time: 1.54 minutes
+    Results:
+        STY: 3.8598e+03
+        E-factor: 0.2515
+
+2025-06-28 00:17:35,349 - Optimizer - INFO
+===================================
+ITERATION 99
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.9974 °C
+        Concentration Reactant 1: 499.9993
+        Concentration Ratio: 1.37
+        Time: 1.19 minutes
+    Results:
+        STY: 4.9851e+03
+        E-factor: 0.2950
+
+2025-06-28 00:27:39,995 - Optimizer - INFO
+===================================
+ITERATION 100
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 499.9945
+        Concentration Ratio: 1.34
+        Time: 1.48 minutes
+    Results:
+        STY: 4.0747e+03
+        E-factor: 0.2646
+
+2025-06-28 00:39:58,667 - Optimizer - INFO
+===================================
+ITERATION 101
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.997 °C
+        Concentration Reactant 1: 471.1332
+        Concentration Ratio: 1.22
+        Time: 1.93 minutes
+    Results:
+        STY: 2.9271e+03
+        E-factor: 0.2303
+
+2025-06-28 00:51:31,197 - Optimizer - INFO
+===================================
+ITERATION 102
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.69
+        Time: 0.53 minutes
+    Results:
+        STY: 1.0545e+04
+        E-factor: 0.4927
+
+2025-06-28 01:03:14,966 - Optimizer - INFO
+===================================
+ITERATION 103
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.915 °C
+        Concentration Reactant 1: 499.9967
+        Concentration Ratio: 2.43
+        Time: 0.50 minutes
+    Results:
+        STY: 1.2104e+04
+        E-factor: 0.6451
+
+2025-06-28 01:15:13,356 - Optimizer - INFO
+===================================
+ITERATION 104
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 499.9975
+        Concentration Ratio: 1.45
+        Time: 0.81 minutes
+    Results:
+        STY: 7.1190e+03
+        E-factor: 0.3697
+
+2025-06-28 01:28:20,420 - Optimizer - INFO
+===================================
+ITERATION 105
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.39
+        Time: 0.93 minutes
+    Results:
+        STY: 6.2357e+03
+        E-factor: 0.3376
+
+2025-06-28 01:40:06,165 - Optimizer - INFO
+===================================
+ITERATION 106
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.9999 °C
+        Concentration Reactant 1: 488.3882
+        Concentration Ratio: 1.25
+        Time: 1.80 minutes
+    Results:
+        STY: 3.2657e+03
+        E-factor: 0.2366
+
+2025-06-28 01:53:46,532 - Optimizer - INFO
+===================================
+ITERATION 107
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 499.9972
+        Concentration Ratio: 2.93
+        Time: 0.50 minutes
+    Results:
+        STY: 1.2339e+04
+        E-factor: 0.7864
+
+2025-06-28 02:03:43,074 - Optimizer - INFO
+===================================
+ITERATION 108
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 499.9999
+        Concentration Ratio: 1.54
+        Time: 0.62 minutes
+    Results:
+        STY: 9.0800e+03
+        E-factor: 0.4410
+
+2025-06-28 02:17:47,409 - Optimizer - INFO
+===================================
+ITERATION 109
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.60
+        Time: 0.56 minutes
+    Results:
+        STY: 9.9669e+03
+        E-factor: 0.4727
+
+2025-06-28 02:32:29,630 - Optimizer - INFO
+===================================
+ITERATION 110
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.9473 °C
+        Concentration Reactant 1: 488.6602
+        Concentration Ratio: 1.20
+        Time: 2.00 minutes
+    Results:
+        STY: 2.9346e+03
+        E-factor: 0.2219
+
+2025-06-28 02:48:45,254 - Optimizer - INFO
+===================================
+ITERATION 111
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.46
+        Time: 0.76 minutes
+    Results:
+        STY: 7.5406e+03
+        E-factor: 0.3850
+
+2025-06-28 03:03:47,932 - Optimizer - INFO
+===================================
+ITERATION 112
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.53
+        Time: 0.68 minutes
+    Results:
+        STY: 8.3733e+03
+        E-factor: 0.4150
+
+2025-06-28 03:19:18,588 - Optimizer - INFO
+===================================
+ITERATION 113
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.993 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.34
+        Time: 1.30 minutes
+    Results:
+        STY: 4.5830e+03
+        E-factor: 0.2801
+
+2025-06-28 03:35:23,435 - Optimizer - INFO
+===================================
+ITERATION 114
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.86
+        Time: 0.50 minutes
+    Results:
+        STY: 1.1421e+04
+        E-factor: 0.5281
+
+2025-06-28 03:46:32,810 - Optimizer - INFO
+===================================
+ITERATION 115
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.9942 °C
+        Concentration Reactant 1: 499.9985
+        Concentration Ratio: 1.33
+        Time: 1.06 minutes
+    Results:
+        STY: 5.4668e+03
+        E-factor: 0.3095
+
+2025-06-28 04:02:01,331 - Optimizer - INFO
+===================================
+ITERATION 116
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.36
+        Time: 1.00 minutes
+    Results:
+        STY: 5.8188e+03
+        E-factor: 0.3224
+
+2025-06-28 04:22:05,813 - Optimizer - INFO
+===================================
+ITERATION 117
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 2.08
+        Time: 0.50 minutes
+    Results:
+        STY: 1.1769e+04
+        E-factor: 0.5646
+
+2025-06-28 04:37:19,669 - Optimizer - INFO
+===================================
+ITERATION 118
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.9999 °C
+        Concentration Reactant 1: 499.999
+        Concentration Ratio: 1.28
+        Time: 1.34 minutes
+    Results:
+        STY: 4.3920e+03
+        E-factor: 0.2703
+
+2025-06-28 04:56:22,476 - Optimizer - INFO
+===================================
+ITERATION 119
+    Type: TSEMO
+    Conditions:
+        Temperature: 137.9618 °C
+        Concentration Reactant 1: 481.8499
+        Concentration Ratio: 1.31
+        Time: 1.65 minutes
+    Results:
+        STY: 3.5066e+03
+        E-factor: 0.2590
+
+2025-06-28 05:16:40,100 - Optimizer - INFO
+===================================
+ITERATION 120
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.63
+        Time: 0.50 minutes
+    Results:
+        STY: 1.0924e+04
+        E-factor: 0.5087
+
+2025-06-28 05:36:11,136 - Optimizer - INFO
+===================================
+ITERATION 121
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.9997 °C
+        Concentration Reactant 1: 499.9993
+        Concentration Ratio: 1.65
+        Time: 0.55 minutes
+    Results:
+        STY: 1.0217e+04
+        E-factor: 0.4810
+
+2025-06-28 06:03:03,619 - Optimizer - INFO
+===================================
+ITERATION 122
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 5.00
+        Time: 2.00 minutes
+    Results:
+        STY: 3.0728e+03
+        E-factor: 1.5095
+
+2025-06-28 06:26:48,816 - Optimizer - INFO
+===================================
+ITERATION 123
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.999 °C
+        Concentration Reactant 1: 499.9976
+        Concentration Ratio: 2.32
+        Time: 0.50 minutes
+    Results:
+        STY: 1.2023e+04
+        E-factor: 0.6171
+
+2025-06-28 06:48:40,883 - Optimizer - INFO
+===================================
+ITERATION 124
+    Type: TSEMO
+    Conditions:
+        Temperature: 130.4314 °C
+        Concentration Reactant 1: 303.1818
+        Concentration Ratio: 1.54
+        Time: 1.19 minutes
+    Results:
+        STY: 2.7858e+03
+        E-factor: 0.4688
+
+2025-06-28 07:18:28,637 - Optimizer - INFO
+===================================
+ITERATION 125
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.23
+        Time: 1.69 minutes
+    Results:
+        STY: 3.5219e+03
+        E-factor: 0.2382
+
+2025-06-28 07:46:54,203 - Optimizer - INFO
+===================================
+ITERATION 126
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 499.9991
+        Concentration Ratio: 1.55
+        Time: 0.64 minutes
+    Results:
+        STY: 8.8204e+03
+        E-factor: 0.4311
+
+2025-06-28 08:17:43,564 - Optimizer - INFO
+===================================
+ITERATION 127
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.8769 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.43
+        Time: 0.84 minutes
+    Results:
+        STY: 6.8218e+03
+        E-factor: 0.3597
+
+2025-06-28 08:45:21,179 - Optimizer - INFO
+===================================
+ITERATION 128
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.9998 °C
+        Concentration Reactant 1: 499.9958
+        Concentration Ratio: 2.77
+        Time: 0.50 minutes
+    Results:
+        STY: 1.2285e+04
+        E-factor: 0.7371
+
+2025-06-28 09:12:15,658 - Optimizer - INFO
+===================================
+ITERATION 129
+    Type: TSEMO
+    Conditions:
+        Temperature: 138.5628 °C
+        Concentration Reactant 1: 499.9805
+        Concentration Ratio: 1.18
+        Time: 1.82 minutes
+    Results:
+        STY: 3.2380e+03
+        E-factor: 0.2319
+
+2025-06-28 09:35:34,804 - Optimizer - INFO
+===================================
+ITERATION 130
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.9996 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 2.53
+        Time: 0.50 minutes
+    Results:
+        STY: 1.2169e+04
+        E-factor: 0.6691
+
+2025-06-28 09:59:39,350 - Optimizer - INFO
+===================================
+ITERATION 131
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.9903 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.24
+        Time: 1.87 minutes
+    Results:
+        STY: 3.2168e+03
+        E-factor: 0.2289
+
+2025-06-28 10:27:27,159 - Optimizer - INFO
+===================================
+ITERATION 132
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.9996 °C
+        Concentration Reactant 1: 499.841
+        Concentration Ratio: 1.29
+        Time: 1.11 minutes
+    Results:
+        STY: 5.2104e+03
+        E-factor: 0.3004
+
+2025-06-28 11:08:59,415 - Optimizer - INFO
+===================================
+ITERATION 133
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.63
+        Time: 0.58 minutes
+    Results:
+        STY: 9.7359e+03
+        E-factor: 0.4638
+
