@@ -369,4 +369,4 @@ optimizer = NSGA2Optimizer(
     reactor=reactor,
     output_directory=output_dir,
 )
-optimizer.run(num_iterations=350)
+optimizer.run(num_iterations=800)

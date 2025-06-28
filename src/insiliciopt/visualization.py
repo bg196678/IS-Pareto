@@ -179,7 +179,7 @@ class Visualization:
         with imageio.get_writer(
                 str(output_path),
                 mode="I",
-                duration=0.4,
+                fps=24,
                 loop=0
         ) as writer:
             for frame_path in frame_paths:

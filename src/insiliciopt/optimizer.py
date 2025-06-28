@@ -16,6 +16,10 @@ from summit.strategies import (
 )
 from summit.utils.dataset import DataSet
 
+from pymoo.optimize import minimize
+from pymoo.algorithms.moo.nsga2 import NSGA2
+from pymoo.core.problem import ElementwiseProblem
+
 from insiliciopt.reactor import (
     Reactor,
     ReactorConditions,
@@ -684,15 +688,18 @@ class EntMootOptimizer(SummitOptimizer):
 # Pymoo Optimizer
 ###############
 
-from pymoo.core.problem import ElementwiseProblem
-from pymoo.algorithms.moo.nsga2 import NSGA2
-from pymoo.optimize import minimize
-from pymoo.termination import get_termination
-
 class NSGA2Optimizer(Optimizer):
     """
     A simple multi-objective optimizer using the Pymoo library,
     specifically the NSGA-II algorithm.
+    """
+
+    _pop_size: int = 30
+    """Population size for the NSGA-II algorithm"""
+
+    _num_generations: int | None = None
+    """Number of generations for the NSGA-II algorithm, if None, it will be
+    calculated based on num_iterations
     """
 
     class _PymooProblem(ElementwiseProblem):
@@ -758,16 +765,25 @@ class NSGA2Optimizer(Optimizer):
         """Optimizer representation"""
         string = "\n\nOPTIMIZER:\n"
         string += "  Type: NSGA2\n"
+        string += f"  Population Size: {self._pop_size}\n"
+        if self._num_generations is not None:
+            string += f"  Generations: {self._num_generations}\n"
+        else:
+            string += "  Generations: Not specified, will be calculated.\n"
         return string
 
     def run(self, num_iterations: int) -> None:
         """Runs the Pymoo optimizer."""
+        num_generations = num_iterations // self._pop_size
         problem = self._PymooProblem(self)
-        algorithm = NSGA2(pop_size=num_iterations)
+        algorithm = NSGA2(
+            pop_size=self._pop_size,
+        )
 
         minimize(
             problem,
             algorithm,
+            ("n_gen", num_generations),
             verbose=False,
             seed=42,
         )
