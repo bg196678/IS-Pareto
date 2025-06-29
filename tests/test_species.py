@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import patch
 
-from insiliciopt.species import (
+from quantumpareto.species import (
     Species,
     Reactant,
     Product,

@@ -52,7 +52,7 @@ SOLVATION:
 
 
 OUTPUT DIRECTORY:
-    /home/lennart/PycharmProjects/insiliciopt/examples/system_1/nsga2/output
+    /home/lennart/PycharmProjects/quantumpareto/examples/system_1/nsga2/output
 
 
 OPTIMIZER:
@@ -15742,7 +15742,7 @@ STATISTICS:
     STY Range: [3.0171e+02, 1.2289e+04]
     E-factor Range: [0.2174, 7.1393]
     Temperature Range: [65.20, 140.00] °C
-    Final results stored at: /home/lennart/PycharmProjects/insiliciopt/examples/system_1/nsga2/output/data/insiliciopt.csv
+    Final results stored at: /home/lennart/PycharmProjects/quantumpareto/examples/system_1/nsga2/output/data/quantumpareto.csv
 
 
 ============= TERMINATED NORMALLY =============

@@ -1,7 +1,7 @@
 from pathlib import Path
 from abc import abstractmethod, ABC
 
-from insiliciopt.species import (
+from quantumpareto.species import (
     Reaction,
     Species,
 )
@@ -45,7 +45,7 @@ class ReactionInput:
         for reaction in self.reactions:
             if not isinstance(reaction, Reaction):
                 raise TypeError(
-                    "Reaction must be a list of insiliciopt.Reactions"
+                    "Reaction must be a list of quantumpareto.Reactions"
                 )
 
             if not reaction.reactants:

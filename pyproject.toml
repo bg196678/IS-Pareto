@@ -3,9 +3,9 @@ requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "insiliciopt"
+name = "quantumpareto"
 version = "0.1.0"
-description = "In Silicio Multi Objective Optimization"
+description = "In Silicio Quantum Multi Objective Optimization"
 readme = "README.md"
 authors = [
     {name = "Bjoern Grandke"},

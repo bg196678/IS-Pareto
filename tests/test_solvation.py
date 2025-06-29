@@ -2,7 +2,7 @@ import pytest
 import numpy as np
 import pandas as pd
 
-from insiliciopt.solvation import Solvation
+from quantumpareto.solvation import Solvation
 
 
 class TestSolvation:
@@ -29,11 +29,13 @@ class TestSolvation:
             assert isinstance(solvation_instance._g_values[species], dict)
             assert len(solvation_instance._g_values[species]) > 0
 
-    def test_parse_cosmo_therm_file(self, construct_system_1):
+    def test_parse_cosmo_therm_file(
+            self, construct_system_1, solvation_instance
+    ):
         """Test the _parse_cosmo_therm_file static method."""
         test_species = construct_system_1[0].reactants[0]
 
-        g_values = Solvation._parse_cosmo_therm_file(test_species)
+        g_values = solvation_instance._parse_cosmo_therm_file(test_species)
         assert isinstance(g_values, dict)
         for temp, g_val in g_values.items():
             assert isinstance(temp, float)

@@ -16,11 +16,11 @@ from tamkin import (
     Miller
 )
 
-from insiliciopt.species import (
+from quantumpareto.species import (
     Reaction,
     Species,
 )
-from insiliciopt.utils import (
+from quantumpareto.utils import (
     ReactionInput,
     DataOutput,
 )

@@ -1,18 +1,18 @@
 from pathlib import Path
 
-from insiliciopt.species import (
+from quantumpareto.species import (
     Species,
     TransitionState,
 )
-from insiliciopt.kinetics import Kinetics
-from insiliciopt.reactor import Reactor
-from insiliciopt.solvation import Solvation
-from insiliciopt.optimizer import (
+from quantumpareto.kinetics import Kinetics
+from quantumpareto.reactor import Reactor
+from quantumpareto.solvation import Solvation
+from quantumpareto.optimizer import (
     TSEmoOptimizer,
     OptimizationSpecies,
     OptimizationBoundaries,
 )
-import insiliciopt.visualization as visualization
+import quantumpareto.visualization as visualization
 
 ##############
 # Paths
