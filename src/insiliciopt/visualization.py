@@ -1,7 +1,7 @@
 import os
-import imageio
 import tempfile
 import numpy as np
+from PIL import Image
 from pathlib import Path
 import matplotlib.pyplot as plt
 
@@ -174,14 +174,18 @@ class Visualization:
 
             frame_paths.append(file)
 
+        frame_paths.sort(key=lambda x: int(x.stem.split("_")[-1]))
         output_path = self.plot_directory / "pareto_front_animation.gif"
 
-        with imageio.get_writer(
-                str(output_path),
-                mode="I",
-                duration=1.0,
-                loop=0
-        ) as writer:
-            for frame_path in frame_paths:
-                image = imageio.imread(frame_path)
-                writer.append_data(image)
+        frames = [
+            Image.open(frame_path)
+            for frame_path in frame_paths
+        ]
+        frames[0].save(
+            output_path,
+            format="GIF",
+            append_images=frames[1:],
+            save_all=True,
+            duration=100,
+            loop=0
+        )

@@ -370,4 +370,4 @@ optimizer = TSEmoOptimizer(
     output_directory=output_dir,
     num_initial_points=20,
 )
-optimizer.run(num_iterations=150)
+optimizer.run(num_iterations=110)
