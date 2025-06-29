@@ -51,4 +51,4 @@ you can use the `-m` flag:
 pytest -v -m "not slow"
 ```
 
-## Licesnse
+## License
