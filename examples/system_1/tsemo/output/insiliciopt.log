@@ -2025,3 +2025,159 @@ ITERATION 147
         STY: 5.9299e+03
         E-factor: 0.3268
 
+2025-06-28 20:47:00,498 - Optimizer - INFO
+===================================
+ITERATION 148
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.78
+        Time: 0.50 minutes
+    Results:
+        STY: 1.1281e+04
+        E-factor: 0.5197
+
+2025-06-28 21:53:33,284 - Optimizer - INFO
+===================================
+ITERATION 149
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.9999 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 3.07
+        Time: 0.50 minutes
+    Results:
+        STY: 1.2373e+04
+        E-factor: 0.8300
+
+2025-06-28 22:35:02,234 - Optimizer - INFO
+===================================
+ITERATION 150
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 499.9992
+        Concentration Ratio: 1.53
+        Time: 0.70 minutes
+    Results:
+        STY: 8.1510e+03
+        E-factor: 0.4070
+
+2025-06-28 23:35:58,618 - Optimizer - INFO
+===================================
+ITERATION 151
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.9996 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 2.03
+        Time: 0.50 minutes
+    Results:
+        STY: 1.1694e+04
+        E-factor: 0.5543
+
+2025-06-29 00:37:49,032 - Optimizer - INFO
+===================================
+ITERATION 152
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.4285 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.20
+        Time: 2.00 minutes
+    Results:
+        STY: 2.9997e+03
+        E-factor: 0.2204
+
+2025-06-29 02:00:47,455 - Optimizer - INFO
+===================================
+ITERATION 153
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.997 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 2.83
+        Time: 0.50 minutes
+    Results:
+        STY: 1.2307e+04
+        E-factor: 0.7553
+
+2025-06-29 03:23:48,158 - Optimizer - INFO
+===================================
+ITERATION 154
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 499.9985
+        Concentration Ratio: 1.30
+        Time: 1.21 minutes
+    Results:
+        STY: 4.8580e+03
+        E-factor: 0.2871
+
+2025-06-29 04:33:29,176 - Optimizer - INFO
+===================================
+ITERATION 155
+    Type: TSEMO
+    Conditions:
+        Temperature: 139.9925 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.70
+        Time: 0.54 minutes
+    Results:
+        STY: 1.0444e+04
+        E-factor: 0.4894
+
+2025-06-29 05:41:13,950 - Optimizer - INFO
+===================================
+ITERATION 156
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.21
+        Time: 1.96 minutes
+    Results:
+        STY: 3.0590e+03
+        E-factor: 0.2214
+
+2025-06-29 06:46:27,746 - Optimizer - INFO
+===================================
+ITERATION 157
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.19
+        Time: 1.56 minutes
+    Results:
+        STY: 3.7582e+03
+        E-factor: 0.2472
+
+2025-06-29 08:00:28,583 - Optimizer - INFO
+===================================
+ITERATION 158
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 499.9993
+        Concentration Ratio: 1.38
+        Time: 1.05 minutes
+    Results:
+        STY: 5.5850e+03
+        E-factor: 0.3150
+
+2025-06-29 09:33:53,263 - Optimizer - INFO
+===================================
+ITERATION 159
+    Type: TSEMO
+    Conditions:
+        Temperature: 140.0 °C
+        Concentration Reactant 1: 500.0
+        Concentration Ratio: 1.40
+        Time: 0.91 minutes
+    Results:
+        STY: 6.3546e+03
+        E-factor: 0.3419
+
