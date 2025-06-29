@@ -2,7 +2,7 @@
 
 # QuantumPareto
 
-![System 1 Pareto Front](examples/system_1/nsga2/output/plots/pareto_front_animation.gif)
+![System 1 Pareto Front](examples/system_1/tsemo/output/plots/pareto_front_animation.gif)
 
 ## Installation
 
