@@ -114,7 +114,7 @@ kinetics = Kinetics(
     
 )
 ```
-Tunneling Correction `wigner, eckart and wagner` can also be specified here in addition
+Tunneling Correction `wigner, eckart and miller` can also be specified here in addition
 to the `gradient_threshold`. The gradient threshold is passed to the `tamkin.ConstrainExt`
 treatment.
 
