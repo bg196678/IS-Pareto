@@ -1,6 +1,6 @@
 [![ispareto](https://github.com/lennartthi/IS-Pareto/actions/workflows/ispareto.yml/badge.svg)](https://github.com/lennartthi/IS-Pareto/actions/workflows/ispareto.yml)
 
-# IS-Pareto
+# *iS*-Pareto
 
 A tool for automated in-silicio quantum multi objective optimization.
 
