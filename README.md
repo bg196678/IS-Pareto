@@ -169,7 +169,7 @@ from quantumpareto.optimizer import OptimizationBoundaries
 
 optimization_boundaries = OptimizationBoundaries(
     temperature=(60, 140),  # Celsius Degrees
-    concentration_reactant_1=(100, 500),  #
+    concentration_reactant_1=(100, 500),  # Mol/L 
     concentration_ratio=(1.0, 5.0),  # 
     time=(0.5, 2.0),  # Minutes
 )
