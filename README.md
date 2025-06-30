@@ -31,7 +31,7 @@ conda install -c conda-forge ipopt tamkin
 
 Afterwards the rest of the dependencies can be installed via pip:
 ```bash
-pip install git+https://github.com/lennartthi/IS-Pareto.git
+pip install git+https://github.com/bg196678/IS-Pareto.git
 ```
 
 ## Workflow
