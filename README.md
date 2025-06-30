@@ -42,7 +42,7 @@ reproduce $STY$ and $E$-factor values.
 
 This package is only compatible with Python **3.10**.
 
-First install the `ipopt` solver and the `tamkin` package from conda-forge:
+First install the `ipopt` solver and the `tamkin` [[2]](#2) package from conda-forge:
 ```bash
 conda install -c conda-forge ipopt tamkin
 ```
@@ -253,3 +253,5 @@ pytest -v -m "not slow"
 ## References
 <a id="1">[1]</a> 
 Schweidtmann, Artur M., Adam D. Clayton, Nicholas Holmes, Eric Bradford, Richard A. Bourne, and Alexei A. Lapkin. (November 15, 2018): 277–82. 
+<a id="2">[2]</a> 
+Ghysels et al. “TAMkin: A Versatile Package for Vibrational Analysis and Chemical Kinetics.” Journal of Chemical Information and Modeling 50, no. 9 (September 27, 2010): 1736–50
