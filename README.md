@@ -11,6 +11,11 @@ A tool for automated in-silicio quantum multi objective optimization.
 
 ## Features
 
+- Multi-Objective Optimization with several Optimizers
+- Automatic Reaction Rate Calculation
+- Automatic Gibbs Free Energy Interpolation
+- Visualization of Pareto Front
+
 
 ## About
 
@@ -189,7 +194,7 @@ optimizer = TSEmoOptimizer(
     species=optimization_species,
     boundaries=optimization_boundaries,
     reactor=reactor,
-    output_directory=Path("/path/to/a/output/directory"),
+    output_directory=Path("/path/to/an/output/directory"),
     num_initial_points=4,
 )
 optimizer.run(num_iteration=100)
