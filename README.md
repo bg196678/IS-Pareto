@@ -2,7 +2,7 @@
 
 # *iS*-Pareto
 
-A tool for automated in-silicio quantum multi objective optimization.
+Ab-initio based optimization towards the Pareto front of multiple reaction conditions
 
 **Version 0.1.0**
 
@@ -11,6 +11,7 @@ A tool for automated in-silicio quantum multi objective optimization.
 
 ## Features
 
+- Multi-Objective Optimization of multiple reaction conditions
 - Multi-Objective Optimization with several Optimizers
 - Automatic Reaction Rate Calculation
 - Automatic Gibbs Free Energy Interpolation
@@ -19,6 +20,23 @@ A tool for automated in-silicio quantum multi objective optimization.
 
 ## About
 
+Pharmaceutical industry is one of the fastest growing economies and essential for the lives of billions of people. 
+
+**BUT**
+- The costs to produces a new drug are assumed to be over 2.5$ billion
+- The pharmaceutical industry generates 25-100kg of hazardous waste per kg of product
+- 250-1000 times more waste is produced in pharmaceutical industry than in the oil refining industry
+
+Optimizing reaction conditions in pharmaceutical reactors is essential to boost API yield and selectivity while cutting costs
+and waste for a greener, more efficient pharmaceutical industry.
+
+By leveraging in-silicio optimization, *i*S-Pareto can significantly reduce experimental workload, time and costs.
+However, further validation is needed to confirm its broader applicability
+
+## Example $S_N Ar$ Reaction System
+
+*i*S-Pareto tries to reproduce the study on the $S_NAr$ system by Schweidtmann et al. [[1]](#1). The workflow aims to
+reproduce $STY$ and $E$-factor values.
 
 ## Installation
 
@@ -36,13 +54,13 @@ pip install git+https://github.com/bg196678/IS-Pareto.git
 
 ## Workflow
 
-1. CREST
-2. GAUSSIAN -> `.fchk` files
-3. COSMOTHERM -> `.tab` files
+1. `CREST` - Conformer Search
+2. `Gaussian` - $\Delta G_{Thermal}$ -> `.fchk` files
+3. `CosmoTherm` - $\Delta E$ -> `.tab` files
 
 ## Usage
 
-A complete usage example is in `examples/system_1/tsemo/system_1.py`.
+A complete usage example can be found in `examples/system_1/tsemo/system_1.py`.
 
 ### Species and Transition States
 
@@ -231,3 +249,7 @@ pytest -v -m "not slow"
 ```
 
 ## License
+
+## References
+<a id="1">[1]</a> 
+Schweidtmann, Artur M., Adam D. Clayton, Nicholas Holmes, Eric Bradford, Richard A. Bourne, and Alexei A. Lapkin. (November 15, 2018): 277–82. 
