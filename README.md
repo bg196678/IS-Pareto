@@ -148,7 +148,7 @@ reactor = Reactor(
 ### Optimization
 
 For the multi-objective optimization two different types of data has to be defined. On one hand we have to define the
-`Species` (reactants and products) have to be defined:
+`Species` (reactants and products) to be optimized:
 
 ```python
 from quantumpareto.optimizer import OptimizationSpecies
@@ -162,7 +162,7 @@ optimization_species = OptimizationSpecies(
 Here we start the reactor with `species_A` and `species_B` and would like to maximize the 
 outcome of `Species_C`.
 
-On the other hand we have to define the bonudaries of the optimization:
+On the other hand we have to define the boundaries of the optimization:
 
 ```python
 from quantumpareto.optimizer import OptimizationBoundaries
@@ -176,7 +176,7 @@ optimization_boundaries = OptimizationBoundaries(
 ```
 
 Here the concentration range of reactant 1 (`Species_A`) is provided. In addition the concentration of reactant 2 (`Species_B`)
-is given b the `concentration_ratio`. Furthermore the temperature range and the time is defined.
+is given with the `concentration_ratio` range. Furthermore the temperature range and the time is defined.
 
 After defining Species, Reactions, Kinetics, Solvation and Optimization Boundaries the optimization can
 begin:
@@ -201,7 +201,16 @@ Afterwards the optimization is run for `num_iteration=100` iterations.
 
 ## Output
 
+In the output directory will be a file called `quantumpareto.log` which gives an overview of the input and logs every
+optimization iteration.
 
+Two folders will be created, `plots` and `data`. In the plots folder there will be for every iteration the data as a scatter
+plot with the current pareto front. In the end an animation is generated. An example can be seen above.
+In the data folder there will be four `.csv` files: 
+- `corrections.csv`: thermal corrections evaluated on a fine grid
+- `gsolv.csv`: 
+- `kinetics.csv`: reaction rate constants evaluated on a fine grid
+- `quantumpareto.csv` evaluations of the reactor model with reactor starting conditions and `E` and `STY`
 
 
 ## Running Tests
