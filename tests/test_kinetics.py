@@ -2,13 +2,13 @@ import pytest
 import numpy as np
 import pandas as pd
 
-from quantumpareto.species import (
+from ispareto.species import (
     Reactant,
     Product,
     TransitionState,
     Reaction,
 )
-from quantumpareto.kinetics import Kinetics
+from ispareto.kinetics import Kinetics
 
 STOICHIOMETRY = {
     'R1_fwd': {'Substrate': -1, 'Nucleophilic': -1, 'ITS1': 1},

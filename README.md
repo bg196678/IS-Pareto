@@ -1,6 +1,6 @@
-[![quantumpareto](https://github.com/lennartthi/QuantumPareto/actions/workflows/quantumpareto.yml/badge.svg)](https://github.com/lennartthi/QuantumPareto/actions/workflows/quantumpareto.yml)
+[![ispareto](https://github.com/lennartthi/IS-Pareto/actions/workflows/ispareto.yml/badge.svg)](https://github.com/lennartthi/IS-Pareto/actions/workflows/ispareto.yml)
 
-# QuantumPareto
+# IS-Pareto
 
 A tool for automated in-silicio quantum multi objective optimization.
 
@@ -31,7 +31,7 @@ conda install -c conda-forge ipopt tamkin
 
 Afterwards the rest of the dependencies can be installed via pip:
 ```bash
-pip install git+https://github.com/lennartthi/QuantumPareto
+pip install git+https://github.com/lennartthi/IS-Pareto.git
 ```
 
 ## Workflow
@@ -50,7 +50,7 @@ Species are divided into general species and transition states. Species can be d
 
 ```python
 from pathlib import Path
-from quantumpareto.species import Species
+from ispareto.species import Species
 
 
 species_A = Species(
@@ -69,7 +69,7 @@ In addition there is a seperate class for defining transisiton states:
 
 ```python
 from pathlib import Path
-from quantumpareto.species import TransitionState
+from ispareto.species import TransitionState
 
 
 transisiton_state_A = TransitionState(
@@ -101,7 +101,7 @@ The `Kinetics` class is used to automatically calculate the needed reaction rate
 on the fly. It takes in a list of reactions:
 
 ```python
-from quantumpareto.kinetics import Kinetics
+from ispareto.kinetics import Kinetics
 
 reactions = [
     reaction_1,
@@ -123,7 +123,7 @@ the `.tab` files for every species. The `Solvation` is also constructed with the
 of reactions:
 
 ```python
-from quantumpareto.solvation import Solvation
+from ispareto.solvation import Solvation
 
 reactions = [
     reaction_1,
@@ -141,7 +141,7 @@ The grid of temperatures is interpolated to match the varying temperatures in th
 The reactor is based on the reactions, the corresponding kinetics and the $\Delta G_{solv}$ values:
 
 ```python
-from quantumpareto.reactor import Reactor
+from ispareto.reactor import Reactor
 
 reactor = Reactor(
     reactions=reactions,
@@ -156,7 +156,7 @@ For the multi-objective optimization two different types of data has to be defin
 `Species` (reactants and products) to be optimized:
 
 ```python
-from quantumpareto.optimizer import OptimizationSpecies
+from ispareto.optimizer import OptimizationSpecies
 
 optimization_species = OptimizationSpecies(
     reactant_1=species_A,
@@ -170,7 +170,7 @@ outcome of `Species_C`.
 On the other hand we have to define the boundaries of the optimization:
 
 ```python
-from quantumpareto.optimizer import OptimizationBoundaries
+from ispareto.optimizer import OptimizationBoundaries
 
 optimization_boundaries = OptimizationBoundaries(
     temperature=(60, 140),  # Celsius Degrees
@@ -188,7 +188,7 @@ begin:
 
 ```python
 from pathlib import Path
-from quantumpareto.optimizer import TSEmoOptimizer
+from ispareto.optimizer import TSEmoOptimizer
 
 optimizer = TSEmoOptimizer(
     species=optimization_species,
@@ -206,7 +206,7 @@ Afterwards the optimization is run for `num_iteration=100` iterations.
 
 ## Output
 
-In the output directory will be a file called `quantumpareto.log` which gives an overview of the input and logs every
+In the output directory will be a file called `ispareto.log` which gives an overview of the input and logs every
 optimization iteration.
 
 Two folders will be created, `plots` and `data`. In the plots folder there will be for every iteration the data as a scatter
@@ -215,7 +215,7 @@ In the data folder there will be four `.csv` files:
 - `corrections.csv`: thermal corrections evaluated on a fine grid
 - `gsolv.csv`: 
 - `kinetics.csv`: reaction rate constants evaluated on a fine grid
-- `quantumpareto.csv` evaluations of the reactor model with reactor starting conditions and `E` and `STY`
+- `ispareto.csv` evaluations of the reactor model with reactor starting conditions and `E` and `STY`
 
 
 ## Running Tests

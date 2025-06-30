@@ -3,13 +3,13 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 
-from quantumpareto.kinetics import Kinetics
-from quantumpareto.reactor import (
+from ispareto.kinetics import Kinetics
+from ispareto.reactor import (
     Reactor,
     ReactorConditions,
 )
-from quantumpareto.species import Species
-from quantumpareto.solvation import Solvation
+from ispareto.species import Species
+from ispareto.solvation import Solvation
 
 class PatchedKinetics(Kinetics):
 

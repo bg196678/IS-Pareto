@@ -1,7 +1,7 @@
 import pytest
 from pathlib import Path
 
-from quantumpareto.species import (
+from ispareto.species import (
     Species,
     TransitionState,
 )

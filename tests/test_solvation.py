@@ -2,7 +2,7 @@ import pytest
 import numpy as np
 import pandas as pd
 
-from quantumpareto.solvation import Solvation
+from ispareto.solvation import Solvation
 
 
 class TestSolvation:

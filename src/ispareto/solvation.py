@@ -3,11 +3,11 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 
-from quantumpareto.species import (
+from ispareto.species import (
     Reaction,
     Species,
 )
-from quantumpareto.utils import (
+from ispareto.utils import (
     ReactionInput,
     DataOutput,
 )

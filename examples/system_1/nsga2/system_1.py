@@ -1,18 +1,18 @@
 from pathlib import Path
 
-from quantumpareto.species import (
+from ispareto.species import (
     Species,
     TransitionState,
 )
-from quantumpareto.kinetics import Kinetics
-from quantumpareto.reactor import Reactor
-from quantumpareto.solvation import Solvation
-from quantumpareto.optimizer import (
+from ispareto.kinetics import Kinetics
+from ispareto.reactor import Reactor
+from ispareto.solvation import Solvation
+from ispareto.optimizer import (
     NSGA2Optimizer,
     OptimizationSpecies,
     OptimizationBoundaries,
 )
-import quantumpareto.visualization as visualization
+import ispareto.visualization as visualization
 
 ##############
 # Paths

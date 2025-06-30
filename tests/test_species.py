@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import patch
 
-from quantumpareto.species import (
+from ispareto.species import (
     Species,
     Reactant,
     Product,

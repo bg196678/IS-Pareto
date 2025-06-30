@@ -13,13 +13,13 @@ from pyomo.environ import (
 from pyomo.dae.contset import ContinuousSet
 from pyomo.dae.diffvar import DerivativeVar
 
-from quantumpareto.species import (
+from ispareto.species import (
     Reaction,
     Species,
 )
-from quantumpareto.kinetics import Kinetics
-from quantumpareto.solvation import Solvation
-from quantumpareto.utils import ReactionInput
+from ispareto.kinetics import Kinetics
+from ispareto.solvation import Solvation
+from ispareto.utils import ReactionInput
 
 @dataclass
 class ReactorConditions:

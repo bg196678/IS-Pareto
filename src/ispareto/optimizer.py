@@ -20,13 +20,13 @@ from pymoo.optimize import minimize
 from pymoo.algorithms.moo.nsga2 import NSGA2
 from pymoo.core.problem import ElementwiseProblem
 
-from quantumpareto.reactor import (
+from ispareto.reactor import (
     Reactor,
     ReactorConditions,
 )
-from quantumpareto.species import Species
-from quantumpareto.utils import _logo
-from quantumpareto.visualization import Visualization
+from ispareto.species import Species
+from ispareto.utils import _logo
+from ispareto.visualization import Visualization
 
 
 @dataclass
@@ -160,7 +160,7 @@ class Optimizer(ABC):
         console_handler.setFormatter(formatter)
         self._logger.addHandler(console_handler)
 
-        log_file = self.output_directory / "quantumpareto.log"
+        log_file = self.output_directory / "ispareto.log"
         if log_file.exists():
             log_file.unlink()
 
@@ -345,7 +345,7 @@ class Optimizer(ABC):
         summary += (
             f"    "
             f"Final results stored at: "
-            f"{self._output_data_directory / 'quantumpareto.csv'}\n"
+            f"{self._output_data_directory / 'ispareto.csv'}\n"
         )
 
         summary += "\n\n============= TERMINATED NORMALLY =============\n\n"
@@ -373,7 +373,7 @@ class Optimizer(ABC):
 
     def _store_results(self) -> None:
         self.results.to_csv(
-            self._output_data_directory / "quantumpareto.csv",
+            self._output_data_directory / "ispareto.csv",
             index=False,
         )
 
