@@ -59,7 +59,8 @@ class Solvation(ReactionInput, DataOutput):
                 temperature = float(parts)
 
             if "Compound" in line:
-                parts = lines[i+2].split()
+                # TODO always last
+                parts = lines[i+3].split()
                 parts = parts[5]
                 gsolv = float(parts)
                 temperature_g_solve[temperature] = gsolv

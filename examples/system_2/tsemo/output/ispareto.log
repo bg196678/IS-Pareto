@@ -1,0 +1,169 @@
+2025-08-19 14:50:52,263 - Optimizer - INFO
+
+    ██╗███████╗      ██████╗  █████╗ ██████╗ ███████╗████████╗ ██████╗ 
+    ██║██╔════╝      ██╔══██╗██╔══██╗██╔══██╗██╔════╝╚══██╔══╝██╔═══██╗
+    ██║███████╗█████╗██████╔╝███████║██████╔╝█████╗     ██║   ██║   ██║
+    ██║╚════██║╚════╝██╔═══╝ ██╔══██║██╔══██╗██╔══╝     ██║   ██║   ██║
+    ██║███████║      ██║     ██║  ██║██║  ██║███████╗   ██║   ╚██████╔╝
+    ╚═╝╚══════╝      ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝   ╚═╝    ╚═════╝ 
+                                Version 0.1.0                           
+                      Multi-Objective Quantum Optimization
+
+
+OPTIMIZATION SPECIES:
+    Reactant 1: Reactant1
+    Reactant 2: Reactant2
+    Products: Product1
+
+
+OPTIMIZATION BOUNDARIES:
+    Temperature: (100, 150) °C
+    Concentration Reactant 1: (100, 500) %
+    Concentration Ratio: (1.0, 5.0)
+    Time: (10.0, 20.0) minutes
+    STY: (0, 100000000.0)
+    E_factor: (0, 50)
+
+
+REACTOR:
+  Num Reactions: 2
+  Num Species: 5
+  Num Transition States: 2
+
+
+KINETICS:
+  Num Reactions: 2
+  Num Species: 5
+  Num Transition States: 2
+  Tunneling correction: None
+  Gradient threshold: 0.004
+
+
+SOLVATION:
+  Num Reactions: 2
+  Num Species: 5
+  Num Transition States: 2
+  Gas Constant: 8.3145
+
+
+OUTPUT DIRECTORY:
+    /home/lennart/PycharmProjects/IS-Pareto/examples/system_2/tsemo/output
+
+
+OPTIMIZER:
+  Type: TSEMO
+  Num LHS points: 5
+
+
+REACTIONS:
+   R1_fwd: Reactant1 + Reactant2 → Product1 + HBr (TS: TS1_fwd)
+   R2_fwd: Reactant2 + Product1 → Product2 + HBr (TS: TS2_fwd)
+
+
+SPECIES:
+   Species('Product2', mass=0.29921337000000003, energy=-906.940141884542, fchk='Product2.fchk', tab='Product2.tab')
+   Species('Reactant2', mass=0.16997311, energy=-2845.0216955827, fchk='Reactant2.fchk', tab='Reactant2.tab')
+   Species('HBr', mass=0.080911, energy=-2574.66039157451, fchk='HBr.fchk', tab='HBr.tab')
+   Species('Product1', mass=0.21015126, energy=-636.581035187144, fchk='Product1.fchk', tab='Product1.tab')
+   Species('Reactant1', mass=0.12108915, energy=-366.220519437833, fchk='Reactant1.fchk', tab='Reactant1.tab')
+
+
+TRANSITION STATES:
+   TransitionState('TS1_fwd', mass=None, energy=-3211.2069180058, fchk='TS1.fchk', tab='TS1.tab')
+   TransitionState('TS2_fwd', mass=None, energy=-3481.570039358, fchk='TS2.fchk', tab='TS2.tab')
+
+
+===== STARTING OPTIMIZATION =====
+
+
+2025-08-19 14:50:54,427 - Optimizer - INFO
+===================================
+ITERATION 1
+    Type: LHS
+    Conditions:
+        Temperature: 105.0 °C
+        Concentration Reactant 1: 140.0
+        Concentration Ratio: 1.40
+        Time: 13.00 minutes
+    Results:
+        STY: 2.6281e-01
+        E-factor: 881.7930
+
+2025-08-19 14:50:55,985 - Optimizer - INFO
+===================================
+ITERATION 2
+    Type: LHS
+    Conditions:
+        Temperature: 135.0 °C
+        Concentration Reactant 1: 220.0
+        Concentration Ratio: 2.20
+        Time: 17.00 minutes
+    Results:
+        STY: 6.1401e+00
+        E-factor: 61.6006
+
+2025-08-19 14:50:57,487 - Optimizer - INFO
+===================================
+ITERATION 3
+    Type: LHS
+    Conditions:
+        Temperature: 115.0 °C
+        Concentration Reactant 1: 300.0
+        Concentration Ratio: 4.60
+        Time: 19.00 minutes
+    Results:
+        STY: 7.3870e+00
+        E-factor: 114.8033
+
+2025-08-19 14:50:58,987 - Optimizer - INFO
+===================================
+ITERATION 4
+    Type: LHS
+    Conditions:
+        Temperature: 145.0 °C
+        Concentration Reactant 1: 460.0
+        Concentration Ratio: 3.80
+        Time: 15.00 minutes
+    Results:
+        STY: 7.0525e+01
+        E-factor: 19.0107
+
+2025-08-19 14:51:00,497 - Optimizer - INFO
+===================================
+ITERATION 5
+    Type: LHS
+    Conditions:
+        Temperature: 125.0 °C
+        Concentration Reactant 1: 380.0
+        Concentration Ratio: 3.00
+        Time: 11.00 minutes
+    Results:
+        STY: 1.4150e+01
+        E-factor: 91.4288
+
+2025-08-19 14:53:32,091 - Optimizer - INFO
+===================================
+ITERATION 6
+    Type: TSEMO
+    Conditions:
+        Temperature: 128.562 °C
+        Concentration Reactant 1: 339.8876
+        Concentration Ratio: 4.82
+        Time: 13.42 minutes
+    Results:
+        STY: 2.1812e+01
+        E-factor: 64.5576
+
+2025-08-19 14:56:08,383 - Optimizer - INFO
+===================================
+ITERATION 7
+    Type: TSEMO
+    Conditions:
+        Temperature: 141.4816 °C
+        Concentration Reactant 1: 464.3071
+        Concentration Ratio: 4.07
+        Time: 13.34 minutes
+    Results:
+        STY: 6.5852e+01
+        E-factor: 24.7830
+
