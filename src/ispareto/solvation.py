@@ -58,13 +58,26 @@ class Solvation(ReactionInput, DataOutput):
                 parts = parts.replace("K", "")
                 temperature = float(parts)
 
-            if "Compound" in line:
-                # TODO always last
-                parts = lines[i+3].split()
-                parts = parts[5]
-                gsolv = float(parts)
-                temperature_g_solve[temperature] = gsolv
-                temperature = None
+            if "Nr Compound" in line:
+                # Count compounds by finding data lines after the header
+                num_compounds = 0
+                j = i + 1
+                while j < len(lines):
+                    data_line = lines[j].strip()
+                    if not data_line:
+                        break
+                    if data_line and data_line[0].isdigit():
+                        num_compounds += 1
+                        j += 1
+                    else:
+                        break
+
+                if num_compounds > 0:
+                    last_compound_line = lines[i + num_compounds]
+                    parts = last_compound_line.split()
+                    gsolv = float(parts[5])
+                    temperature_g_solve[temperature] = gsolv
+                    temperature = None
 
         self._logger.debug(
             f"Extracted {len(temperature_g_solve)} Temperature G Solvation "
