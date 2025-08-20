@@ -1,4 +1,4 @@
-2025-08-19 14:50:52,263 - Optimizer - INFO
+2025-08-19 19:37:32,249 - Optimizer - INFO
 
     ██╗███████╗      ██████╗  █████╗ ██████╗ ███████╗████████╗ ██████╗ 
     ██║██╔════╝      ██╔══██╗██╔══██╗██╔══██╗██╔════╝╚══██╔══╝██╔═══██╗
@@ -18,11 +18,11 @@ OPTIMIZATION SPECIES:
 
 OPTIMIZATION BOUNDARIES:
     Temperature: (100, 150) °C
-    Concentration Reactant 1: (100, 500) %
+    Concentration Reactant 1: (399.999, 400) %
     Concentration Ratio: (1.0, 5.0)
     Time: (10.0, 20.0) minutes
-    STY: (0, 100000000.0)
-    E_factor: (0, 50)
+    STY: (0.0, 500.0)
+    E_factor: (0.0, 15.0)
 
 
 REACTOR:
@@ -52,7 +52,7 @@ OUTPUT DIRECTORY:
 
 OPTIMIZER:
   Type: TSEMO
-  Num LHS points: 5
+  Num LHS points: 100
 
 
 REACTIONS:
@@ -61,109 +61,1318 @@ REACTIONS:
 
 
 SPECIES:
-   Species('Product2', mass=0.29921337000000003, energy=-906.940141884542, fchk='Product2.fchk', tab='Product2.tab')
-   Species('Reactant2', mass=0.16997311, energy=-2845.0216955827, fchk='Reactant2.fchk', tab='Reactant2.tab')
-   Species('HBr', mass=0.080911, energy=-2574.66039157451, fchk='HBr.fchk', tab='HBr.tab')
    Species('Product1', mass=0.21015126, energy=-636.581035187144, fchk='Product1.fchk', tab='Product1.tab')
+   Species('Product2', mass=0.29921337000000003, energy=-906.940141884542, fchk='Product2.fchk', tab='Product2.tab')
    Species('Reactant1', mass=0.12108915, energy=-366.220519437833, fchk='Reactant1.fchk', tab='Reactant1.tab')
+   Species('HBr', mass=0.080911, energy=-2574.66039157451, fchk='HBr.fchk', tab='HBr.tab')
+   Species('Reactant2', mass=0.16997311, energy=-2845.0216955827, fchk='Reactant2.fchk', tab='Reactant2.tab')
 
 
 TRANSITION STATES:
-   TransitionState('TS1_fwd', mass=None, energy=-3211.2069180058, fchk='TS1.fchk', tab='TS1.tab')
    TransitionState('TS2_fwd', mass=None, energy=-3481.570039358, fchk='TS2.fchk', tab='TS2.tab')
+   TransitionState('TS1_fwd', mass=None, energy=-3211.2069180058, fchk='TS1.fchk', tab='TS1.tab')
 
 
 ===== STARTING OPTIMIZATION =====
 
 
-2025-08-19 14:50:54,427 - Optimizer - INFO
+2025-08-19 19:37:34,377 - Optimizer - INFO
 ===================================
 ITERATION 1
     Type: LHS
     Conditions:
-        Temperature: 105.0 °C
-        Concentration Reactant 1: 140.0
-        Concentration Ratio: 1.40
-        Time: 13.00 minutes
+        Temperature: 136.75 °C
+        Concentration Reactant 1: 399.999
+        Concentration Ratio: 2.06
+        Time: 16.15 minutes
     Results:
-        STY: 2.6281e-01
-        E-factor: 881.7930
+        STY: 2.0397e+01
+        E-factor: 33.3333
 
-2025-08-19 14:50:55,985 - Optimizer - INFO
+2025-08-19 19:37:35,906 - Optimizer - INFO
 ===================================
 ITERATION 2
     Type: LHS
     Conditions:
-        Temperature: 135.0 °C
-        Concentration Reactant 1: 220.0
-        Concentration Ratio: 2.20
-        Time: 17.00 minutes
+        Temperature: 133.25 °C
+        Concentration Reactant 1: 399.9996
+        Concentration Ratio: 1.26
+        Time: 19.65 minutes
     Results:
-        STY: 6.1401e+00
-        E-factor: 61.6006
+        STY: 1.0428e+01
+        E-factor: 38.2680
 
-2025-08-19 14:50:57,487 - Optimizer - INFO
+2025-08-19 19:37:37,487 - Optimizer - INFO
 ===================================
 ITERATION 3
     Type: LHS
     Conditions:
-        Temperature: 115.0 °C
-        Concentration Reactant 1: 300.0
-        Concentration Ratio: 4.60
-        Time: 19.00 minutes
+        Temperature: 115.75 °C
+        Concentration Reactant 1: 399.9994
+        Concentration Ratio: 2.10
+        Time: 17.55 minutes
     Results:
-        STY: 7.3870e+00
-        E-factor: 114.8033
+        STY: 6.3360e+00
+        E-factor: 102.1754
 
-2025-08-19 14:50:58,987 - Optimizer - INFO
+2025-08-19 19:37:39,032 - Optimizer - INFO
 ===================================
 ITERATION 4
     Type: LHS
     Conditions:
-        Temperature: 145.0 °C
-        Concentration Reactant 1: 460.0
-        Concentration Ratio: 3.80
-        Time: 15.00 minutes
+        Temperature: 122.25 °C
+        Concentration Reactant 1: 399.9993
+        Concentration Ratio: 2.42
+        Time: 19.55 minutes
     Results:
-        STY: 7.0525e+01
-        E-factor: 19.0107
+        STY: 1.0647e+01
+        E-factor: 60.3912
 
-2025-08-19 14:51:00,497 - Optimizer - INFO
+2025-08-19 19:37:40,608 - Optimizer - INFO
 ===================================
 ITERATION 5
     Type: LHS
     Conditions:
-        Temperature: 125.0 °C
-        Concentration Reactant 1: 380.0
-        Concentration Ratio: 3.00
-        Time: 11.00 minutes
+        Temperature: 127.25 °C
+        Concentration Reactant 1: 399.9996
+        Concentration Ratio: 3.34
+        Time: 15.75 minutes
     Results:
-        STY: 1.4150e+01
-        E-factor: 91.4288
+        STY: 1.9449e+01
+        E-factor: 52.9675
 
-2025-08-19 14:53:32,091 - Optimizer - INFO
+2025-08-19 19:37:42,130 - Optimizer - INFO
 ===================================
 ITERATION 6
-    Type: TSEMO
+    Type: LHS
     Conditions:
-        Temperature: 128.562 °C
-        Concentration Reactant 1: 339.8876
-        Concentration Ratio: 4.82
-        Time: 13.42 minutes
+        Temperature: 115.25 °C
+        Concentration Reactant 1: 399.9999
+        Concentration Ratio: 4.78
+        Time: 15.95 minutes
     Results:
-        STY: 2.1812e+01
-        E-factor: 64.5576
+        STY: 1.3789e+01
+        E-factor: 100.8753
 
-2025-08-19 14:56:08,383 - Optimizer - INFO
+2025-08-19 19:37:43,659 - Optimizer - INFO
 ===================================
 ITERATION 7
-    Type: TSEMO
+    Type: LHS
     Conditions:
-        Temperature: 141.4816 °C
-        Concentration Reactant 1: 464.3071
-        Concentration Ratio: 4.07
-        Time: 13.34 minutes
+        Temperature: 116.75 °C
+        Concentration Reactant 1: 399.9997
+        Concentration Ratio: 2.62
+        Time: 12.65 minutes
     Results:
-        STY: 6.5852e+01
-        E-factor: 24.7830
+        STY: 8.4211e+00
+        E-factor: 126.6115
+
+2025-08-19 19:37:45,453 - Optimizer - INFO
+===================================
+ITERATION 8
+    Type: LHS
+    Conditions:
+        Temperature: 111.75 °C
+        Concentration Reactant 1: 399.9994
+        Concentration Ratio: 4.22
+        Time: 18.65 minutes
+    Results:
+        STY: 9.8430e+00
+        E-factor: 108.6084
+
+2025-08-19 19:37:47,426 - Optimizer - INFO
+===================================
+ITERATION 9
+    Type: LHS
+    Conditions:
+        Temperature: 147.75 °C
+        Concentration Reactant 1: 399.9991
+        Concentration Ratio: 4.46
+        Time: 17.15 minutes
+    Results:
+        STY: 6.8893e+01
+        E-factor: 16.8585
+
+2025-08-19 19:37:49,305 - Optimizer - INFO
+===================================
+ITERATION 10
+    Type: LHS
+    Conditions:
+        Temperature: 107.25 °C
+        Concentration Reactant 1: 399.9997
+        Concentration Ratio: 1.34
+        Time: 18.95 minutes
+    Results:
+        STY: 2.3744e+00
+        E-factor: 185.0731
+
+2025-08-19 19:37:51,262 - Optimizer - INFO
+===================================
+ITERATION 11
+    Type: LHS
+    Conditions:
+        Temperature: 117.75 °C
+        Concentration Reactant 1: 399.9995
+        Concentration Ratio: 4.90
+        Time: 17.05 minutes
+    Results:
+        STY: 1.6325e+01
+        E-factor: 81.2573
+
+2025-08-19 19:37:53,193 - Optimizer - INFO
+===================================
+ITERATION 12
+    Type: LHS
+    Conditions:
+        Temperature: 149.75 °C
+        Concentration Reactant 1: 399.9997
+        Concentration Ratio: 4.86
+        Time: 15.35 minutes
+    Results:
+        STY: 8.2180e+01
+        E-factor: 17.0202
+
+2025-08-19 19:37:55,057 - Optimizer - INFO
+===================================
+ITERATION 13
+    Type: LHS
+    Conditions:
+        Temperature: 109.75 °C
+        Concentration Reactant 1: 399.9998
+        Concentration Ratio: 3.42
+        Time: 12.95 minutes
+    Results:
+        STY: 7.1252e+00
+        E-factor: 181.6957
+
+2025-08-19 19:37:56,941 - Optimizer - INFO
+===================================
+ITERATION 14
+    Type: LHS
+    Conditions:
+        Temperature: 125.25 °C
+        Concentration Reactant 1: 400.0
+        Concentration Ratio: 2.74
+        Time: 16.85 minutes
+    Results:
+        STY: 1.4328e+01
+        E-factor: 57.3329
+
+2025-08-19 19:37:58,882 - Optimizer - INFO
+===================================
+ITERATION 15
+    Type: LHS
+    Conditions:
+        Temperature: 120.25 °C
+        Concentration Reactant 1: 399.9999
+        Concentration Ratio: 2.58
+        Time: 11.15 minutes
+    Results:
+        STY: 1.0242e+01
+        E-factor: 116.6111
+
+2025-08-19 19:38:00,766 - Optimizer - INFO
+===================================
+ITERATION 16
+    Type: LHS
+    Conditions:
+        Temperature: 131.75 °C
+        Concentration Reactant 1: 399.9998
+        Concentration Ratio: 3.38
+        Time: 13.45 minutes
+    Results:
+        STY: 2.5359e+01
+        E-factor: 47.9465
+
+2025-08-19 19:38:02,607 - Optimizer - INFO
+===================================
+ITERATION 17
+    Type: LHS
+    Conditions:
+        Temperature: 146.25 °C
+        Concentration Reactant 1: 399.9994
+        Concentration Ratio: 2.82
+        Time: 19.25 minutes
+    Results:
+        STY: 4.2779e+01
+        E-factor: 16.4985
+
+2025-08-19 19:38:04,494 - Optimizer - INFO
+===================================
+ITERATION 18
+    Type: LHS
+    Conditions:
+        Temperature: 133.75 °C
+        Concentration Reactant 1: 399.9997
+        Concentration Ratio: 4.58
+        Time: 13.15 minutes
+    Results:
+        STY: 3.7606e+01
+        E-factor: 42.6576
+
+2025-08-19 19:38:06,331 - Optimizer - INFO
+===================================
+ITERATION 19
+    Type: LHS
+    Conditions:
+        Temperature: 129.75 °C
+        Concentration Reactant 1: 399.9992
+        Concentration Ratio: 4.14
+        Time: 12.85 minutes
+    Results:
+        STY: 2.7682e+01
+        E-factor: 54.6473
+
+2025-08-19 19:38:08,227 - Optimizer - INFO
+===================================
+ITERATION 20
+    Type: LHS
+    Conditions:
+        Temperature: 110.25 °C
+        Concentration Reactant 1: 399.9998
+        Concentration Ratio: 1.82
+        Time: 10.45 minutes
+    Results:
+        STY: 3.9451e+00
+        E-factor: 249.5830
+
+2025-08-19 19:38:10,110 - Optimizer - INFO
+===================================
+ITERATION 21
+    Type: LHS
+    Conditions:
+        Temperature: 124.75 °C
+        Concentration Reactant 1: 399.9995
+        Concentration Ratio: 1.74
+        Time: 19.45 minutes
+    Results:
+        STY: 8.9084e+00
+        E-factor: 56.7382
+
+2025-08-19 19:38:12,035 - Optimizer - INFO
+===================================
+ITERATION 22
+    Type: LHS
+    Conditions:
+        Temperature: 101.25 °C
+        Concentration Reactant 1: 399.9994
+        Concentration Ratio: 1.70
+        Time: 15.45 minutes
+    Results:
+        STY: 2.0047e+00
+        E-factor: 316.7299
+
+2025-08-19 19:38:13,975 - Optimizer - INFO
+===================================
+ITERATION 23
+    Type: LHS
+    Conditions:
+        Temperature: 112.75 °C
+        Concentration Reactant 1: 400.0
+        Concentration Ratio: 4.42
+        Time: 16.65 minutes
+    Results:
+        STY: 1.0979e+01
+        E-factor: 113.5346
+
+2025-08-19 19:38:15,814 - Optimizer - INFO
+===================================
+ITERATION 24
+    Type: LHS
+    Conditions:
+        Temperature: 148.75 °C
+        Concentration Reactant 1: 399.9999
+        Concentration Ratio: 4.30
+        Time: 16.75 minutes
+    Results:
+        STY: 7.0070e+01
+        E-factor: 16.4217
+
+2025-08-19 19:38:17,670 - Optimizer - INFO
+===================================
+ITERATION 25
+    Type: LHS
+    Conditions:
+        Temperature: 127.75 °C
+        Concentration Reactant 1: 399.9998
+        Concentration Ratio: 1.98
+        Time: 10.85 minutes
+    Results:
+        STY: 1.2191e+01
+        E-factor: 82.0338
+
+2025-08-19 19:38:19,580 - Optimizer - INFO
+===================================
+ITERATION 26
+    Type: LHS
+    Conditions:
+        Temperature: 132.25 °C
+        Concentration Reactant 1: 399.9992
+        Concentration Ratio: 2.70
+        Time: 13.05 minutes
+    Results:
+        STY: 2.1039e+01
+        E-factor: 49.7009
+
+2025-08-19 19:38:21,408 - Optimizer - INFO
+===================================
+ITERATION 27
+    Type: LHS
+    Conditions:
+        Temperature: 123.75 °C
+        Concentration Reactant 1: 399.9996
+        Concentration Ratio: 3.66
+        Time: 12.35 minutes
+    Results:
+        STY: 1.7628e+01
+        E-factor: 80.9301
+
+2025-08-19 19:38:23,279 - Optimizer - INFO
+===================================
+ITERATION 28
+    Type: LHS
+    Conditions:
+        Temperature: 139.75 °C
+        Concentration Reactant 1: 399.9993
+        Concentration Ratio: 3.22
+        Time: 11.05 minutes
+    Results:
+        STY: 3.7315e+01
+        E-factor: 37.9045
+
+2025-08-19 19:38:25,165 - Optimizer - INFO
+===================================
+ITERATION 29
+    Type: LHS
+    Conditions:
+        Temperature: 145.25 °C
+        Concentration Reactant 1: 399.9999
+        Concentration Ratio: 2.94
+        Time: 18.15 minutes
+    Results:
+        STY: 4.2751e+01
+        E-factor: 18.2022
+
+2025-08-19 19:38:27,034 - Optimizer - INFO
+===================================
+ITERATION 30
+    Type: LHS
+    Conditions:
+        Temperature: 148.25 °C
+        Concentration Reactant 1: 399.9991
+        Concentration Ratio: 1.30
+        Time: 11.55 minutes
+    Results:
+        STY: 2.4081e+01
+        E-factor: 28.5158
+
+2025-08-19 19:38:29,009 - Optimizer - INFO
+===================================
+ITERATION 31
+    Type: LHS
+    Conditions:
+        Temperature: 102.75 °C
+        Concentration Reactant 1: 399.9996
+        Concentration Ratio: 2.38
+        Time: 17.35 minutes
+    Results:
+        STY: 3.1029e+00
+        E-factor: 233.3244
+
+2025-08-19 19:38:30,893 - Optimizer - INFO
+===================================
+ITERATION 32
+    Type: LHS
+    Conditions:
+        Temperature: 116.25 °C
+        Concentration Reactant 1: 399.9998
+        Concentration Ratio: 1.86
+        Time: 18.75 minutes
+    Results:
+        STY: 5.7860e+00
+        E-factor: 95.7280
+
+2025-08-19 19:38:32,750 - Optimizer - INFO
+===================================
+ITERATION 33
+    Type: LHS
+    Conditions:
+        Temperature: 101.75 °C
+        Concentration Reactant 1: 400.0
+        Concentration Ratio: 2.46
+        Time: 14.25 minutes
+    Results:
+        STY: 2.9990e+00
+        E-factor: 301.8244
+
+2025-08-19 19:38:34,715 - Optimizer - INFO
+===================================
+ITERATION 34
+    Type: LHS
+    Conditions:
+        Temperature: 141.25 °C
+        Concentration Reactant 1: 399.9994
+        Concentration Ratio: 2.22
+        Time: 12.05 minutes
+    Results:
+        STY: 2.8157e+01
+        E-factor: 34.2570
+
+2025-08-19 19:38:36,697 - Optimizer - INFO
+===================================
+ITERATION 35
+    Type: LHS
+    Conditions:
+        Temperature: 138.25 °C
+        Concentration Reactant 1: 399.9998
+        Concentration Ratio: 1.62
+        Time: 14.95 minutes
+    Results:
+        STY: 1.7595e+01
+        E-factor: 35.1703
+
+2025-08-19 19:38:38,697 - Optimizer - INFO
+===================================
+ITERATION 36
+    Type: LHS
+    Conditions:
+        Temperature: 126.75 °C
+        Concentration Reactant 1: 399.9998
+        Concentration Ratio: 3.94
+        Time: 13.25 minutes
+    Results:
+        STY: 2.2354e+01
+        E-factor: 63.0775
+
+2025-08-19 19:38:40,605 - Optimizer - INFO
+===================================
+ITERATION 37
+    Type: LHS
+    Conditions:
+        Temperature: 110.75 °C
+        Concentration Reactant 1: 399.9994
+        Concentration Ratio: 1.42
+        Time: 14.55 minutes
+    Results:
+        STY: 3.1716e+00
+        E-factor: 187.5056
+
+2025-08-19 19:38:42,476 - Optimizer - INFO
+===================================
+ITERATION 38
+    Type: LHS
+    Conditions:
+        Temperature: 100.25 °C
+        Concentration Reactant 1: 399.9993
+        Concentration Ratio: 1.50
+        Time: 14.85 minutes
+    Results:
+        STY: 1.6516e+00
+        E-factor: 366.9846
+
+2025-08-19 19:38:44,374 - Optimizer - INFO
+===================================
+ITERATION 39
+    Type: LHS
+    Conditions:
+        Temperature: 103.75 °C
+        Concentration Reactant 1: 399.9991
+        Concentration Ratio: 1.06
+        Time: 17.95 minutes
+    Results:
+        STY: 1.4853e+00
+        E-factor: 270.1970
+
+2025-08-19 19:38:46,243 - Optimizer - INFO
+===================================
+ITERATION 40
+    Type: LHS
+    Conditions:
+        Temperature: 143.75 °C
+        Concentration Reactant 1: 399.999
+        Concentration Ratio: 1.22
+        Time: 10.55 minutes
+    Results:
+        STY: 1.8094e+01
+        E-factor: 40.2956
+
+2025-08-19 19:38:48,110 - Optimizer - INFO
+===================================
+ITERATION 41
+    Type: LHS
+    Conditions:
+        Temperature: 142.25 °C
+        Concentration Reactant 1: 399.9992
+        Concentration Ratio: 3.74
+        Time: 13.65 minutes
+    Results:
+        STY: 4.7674e+01
+        E-factor: 26.9106
+
+2025-08-19 19:38:50,042 - Optimizer - INFO
+===================================
+ITERATION 42
+    Type: LHS
+    Conditions:
+        Temperature: 118.25 °C
+        Concentration Reactant 1: 399.999
+        Concentration Ratio: 3.10
+        Time: 17.65 minutes
+    Results:
+        STY: 1.0773e+01
+        E-factor: 80.7914
+
+2025-08-19 19:38:51,909 - Optimizer - INFO
+===================================
+ITERATION 43
+    Type: LHS
+    Conditions:
+        Temperature: 131.25 °C
+        Concentration Reactant 1: 399.9999
+        Concentration Ratio: 3.30
+        Time: 14.15 minutes
+    Results:
+        STY: 2.4058e+01
+        E-factor: 47.0814
+
+2025-08-19 19:38:53,789 - Optimizer - INFO
+===================================
+ITERATION 44
+    Type: LHS
+    Conditions:
+        Temperature: 132.75 °C
+        Concentration Reactant 1: 399.9991
+        Concentration Ratio: 1.78
+        Time: 11.85 minutes
+    Results:
+        STY: 1.4484e+01
+        E-factor: 58.2385
+
+2025-08-19 19:38:55,678 - Optimizer - INFO
+===================================
+ITERATION 45
+    Type: LHS
+    Conditions:
+        Temperature: 100.75 °C
+        Concentration Reactant 1: 399.9993
+        Concentration Ratio: 3.98
+        Time: 16.45 minutes
+    Results:
+        STY: 4.5071e+00
+        E-factor: 257.1779
+
+2025-08-19 19:38:57,550 - Optimizer - INFO
+===================================
+ITERATION 46
+    Type: LHS
+    Conditions:
+        Temperature: 113.25 °C
+        Concentration Reactant 1: 399.9995
+        Concentration Ratio: 2.90
+        Time: 13.95 minutes
+    Results:
+        STY: 7.5142e+00
+        E-factor: 139.5813
+
+2025-08-19 19:38:59,481 - Optimizer - INFO
+===================================
+ITERATION 47
+    Type: LHS
+    Conditions:
+        Temperature: 136.25 °C
+        Concentration Reactant 1: 399.9995
+        Concentration Ratio: 4.66
+        Time: 18.85 minutes
+    Results:
+        STY: 4.1767e+01
+        E-factor: 26.8364
+
+2025-08-19 19:39:01,406 - Optimizer - INFO
+===================================
+ITERATION 48
+    Type: LHS
+    Conditions:
+        Temperature: 134.75 °C
+        Concentration Reactant 1: 399.9993
+        Concentration Ratio: 1.38
+        Time: 15.05 minutes
+    Results:
+        STY: 1.2493e+01
+        E-factor: 44.3968
+
+2025-08-19 19:39:03,269 - Optimizer - INFO
+===================================
+ITERATION 49
+    Type: LHS
+    Conditions:
+        Temperature: 119.75 °C
+        Concentration Reactant 1: 399.9995
+        Concentration Ratio: 4.70
+        Time: 13.35 minutes
+    Results:
+        STY: 1.7790e+01
+        E-factor: 91.9665
+
+2025-08-19 19:39:05,178 - Optimizer - INFO
+===================================
+ITERATION 50
+    Type: LHS
+    Conditions:
+        Temperature: 146.75 °C
+        Concentration Reactant 1: 399.9996
+        Concentration Ratio: 2.14
+        Time: 12.15 minutes
+    Results:
+        STY: 3.5815e+01
+        E-factor: 25.7402
+
+2025-08-19 19:39:07,044 - Optimizer - INFO
+===================================
+ITERATION 51
+    Type: LHS
+    Conditions:
+        Temperature: 122.75 °C
+        Concentration Reactant 1: 399.9991
+        Concentration Ratio: 4.94
+        Time: 15.25 minutes
+    Results:
+        STY: 2.2032e+01
+        E-factor: 67.6267
+
+2025-08-19 19:39:08,962 - Optimizer - INFO
+===================================
+ITERATION 52
+    Type: LHS
+    Conditions:
+        Temperature: 103.25 °C
+        Concentration Reactant 1: 399.9999
+        Concentration Ratio: 4.02
+        Time: 19.05 minutes
+    Results:
+        STY: 5.3881e+00
+        E-factor: 187.0798
+
+2025-08-19 19:39:10,934 - Optimizer - INFO
+===================================
+ITERATION 53
+    Type: LHS
+    Conditions:
+        Temperature: 118.75 °C
+        Concentration Reactant 1: 399.9995
+        Concentration Ratio: 4.18
+        Time: 19.85 minutes
+    Results:
+        STY: 1.4748e+01
+        E-factor: 67.1720
+
+2025-08-19 19:39:12,799 - Optimizer - INFO
+===================================
+ITERATION 54
+    Type: LHS
+    Conditions:
+        Temperature: 149.25 °C
+        Concentration Reactant 1: 399.9993
+        Concentration Ratio: 2.66
+        Time: 17.25 minutes
+    Results:
+        STY: 4.7294e+01
+        E-factor: 15.8630
+
+2025-08-19 19:39:14,714 - Optimizer - INFO
+===================================
+ITERATION 55
+    Type: LHS
+    Conditions:
+        Temperature: 121.75 °C
+        Concentration Reactant 1: 399.9991
+        Concentration Ratio: 3.18
+        Time: 14.45 minutes
+    Results:
+        STY: 1.3633e+01
+        E-factor: 79.6012
+
+2025-08-19 19:39:16,566 - Optimizer - INFO
+===================================
+ITERATION 56
+    Type: LHS
+    Conditions:
+        Temperature: 104.75 °C
+        Concentration Reactant 1: 399.9992
+        Concentration Ratio: 4.50
+        Time: 14.05 minutes
+    Results:
+        STY: 6.6950e+00
+        E-factor: 225.0484
+
+2025-08-19 19:39:18,411 - Optimizer - INFO
+===================================
+ITERATION 57
+    Type: LHS
+    Conditions:
+        Temperature: 147.25 °C
+        Concentration Reactant 1: 399.9999
+        Concentration Ratio: 1.58
+        Time: 17.45 minutes
+    Results:
+        STY: 2.6758e+01
+        E-factor: 19.0278
+
+2025-08-19 19:39:20,340 - Optimizer - INFO
+===================================
+ITERATION 58
+    Type: LHS
+    Conditions:
+        Temperature: 139.25 °C
+        Concentration Reactant 1: 399.9993
+        Concentration Ratio: 1.94
+        Time: 10.95 minutes
+    Results:
+        STY: 2.2407e+01
+        E-factor: 43.0991
+
+2025-08-19 19:39:22,181 - Optimizer - INFO
+===================================
+ITERATION 59
+    Type: LHS
+    Conditions:
+        Temperature: 123.25 °C
+        Concentration Reactant 1: 399.9997
+        Concentration Ratio: 2.30
+        Time: 10.35 minutes
+    Results:
+        STY: 1.0920e+01
+        E-factor: 107.7250
+
+2025-08-19 19:39:24,044 - Optimizer - INFO
+===================================
+ITERATION 60
+    Type: LHS
+    Conditions:
+        Temperature: 108.75 °C
+        Concentration Reactant 1: 399.9994
+        Concentration Ratio: 3.70
+        Time: 16.95 minutes
+    Results:
+        STY: 7.1782e+00
+        E-factor: 146.9383
+
+2025-08-19 19:39:26,014 - Optimizer - INFO
+===================================
+ITERATION 61
+    Type: LHS
+    Conditions:
+        Temperature: 105.25 °C
+        Concentration Reactant 1: 399.9994
+        Concentration Ratio: 4.74
+        Time: 11.95 minutes
+    Results:
+        STY: 7.3050e+00
+        E-factor: 253.7952
+
+2025-08-19 19:39:27,860 - Optimizer - INFO
+===================================
+ITERATION 62
+    Type: LHS
+    Conditions:
+        Temperature: 121.25 °C
+        Concentration Reactant 1: 399.9996
+        Concentration Ratio: 3.06
+        Time: 11.25 minutes
+    Results:
+        STY: 1.2843e+01
+        E-factor: 105.5105
+
+2025-08-19 19:39:29,757 - Optimizer - INFO
+===================================
+ITERATION 63
+    Type: LHS
+    Conditions:
+        Temperature: 114.25 °C
+        Concentration Reactant 1: 399.9997
+        Concentration Ratio: 4.98
+        Time: 16.55 minutes
+    Results:
+        STY: 1.3499e+01
+        E-factor: 102.9379
+
+2025-08-19 19:39:31,641 - Optimizer - INFO
+===================================
+ITERATION 64
+    Type: LHS
+    Conditions:
+        Temperature: 137.25 °C
+        Concentration Reactant 1: 399.9995
+        Concentration Ratio: 3.50
+        Time: 12.45 minutes
+    Results:
+        STY: 3.5199e+01
+        E-factor: 38.2123
+
+2025-08-19 19:39:33,488 - Optimizer - INFO
+===================================
+ITERATION 65
+    Type: LHS
+    Conditions:
+        Temperature: 117.25 °C
+        Concentration Reactant 1: 399.9996
+        Concentration Ratio: 3.82
+        Time: 14.35 minutes
+    Results:
+        STY: 1.2526e+01
+        E-factor: 101.8591
+
+2025-08-19 19:39:35,389 - Optimizer - INFO
+===================================
+ITERATION 66
+    Type: LHS
+    Conditions:
+        Temperature: 102.25 °C
+        Concentration Reactant 1: 399.9996
+        Concentration Ratio: 2.18
+        Time: 11.65 minutes
+    Results:
+        STY: 2.7558e+00
+        E-factor: 366.5209
+
+2025-08-19 19:39:37,339 - Optimizer - INFO
+===================================
+ITERATION 67
+    Type: LHS
+    Conditions:
+        Temperature: 106.75 °C
+        Concentration Reactant 1: 399.9997
+        Concentration Ratio: 4.26
+        Time: 15.65 minutes
+    Results:
+        STY: 7.2373e+00
+        E-factor: 178.0867
+
+2025-08-19 19:39:39,191 - Optimizer - INFO
+===================================
+ITERATION 68
+    Type: LHS
+    Conditions:
+        Temperature: 135.75 °C
+        Concentration Reactant 1: 399.9999
+        Concentration Ratio: 3.78
+        Time: 13.85 minutes
+    Results:
+        STY: 3.4732e+01
+        E-factor: 37.0967
+
+2025-08-19 19:39:41,254 - Optimizer - INFO
+===================================
+ITERATION 69
+    Type: LHS
+    Conditions:
+        Temperature: 128.75 °C
+        Concentration Reactant 1: 399.9991
+        Concentration Ratio: 3.54
+        Time: 18.25 minutes
+    Results:
+        STY: 2.2123e+01
+        E-factor: 41.9661
+
+2025-08-19 19:39:43,111 - Optimizer - INFO
+===================================
+ITERATION 70
+    Type: LHS
+    Conditions:
+        Temperature: 120.75 °C
+        Concentration Reactant 1: 399.9993
+        Concentration Ratio: 2.50
+        Time: 16.35 minutes
+    Results:
+        STY: 1.0134e+01
+        E-factor: 78.0939
+
+2025-08-19 19:39:45,085 - Optimizer - INFO
+===================================
+ITERATION 71
+    Type: LHS
+    Conditions:
+        Temperature: 143.25 °C
+        Concentration Reactant 1: 399.9992
+        Concentration Ratio: 4.82
+        Time: 11.45 minutes
+    Results:
+        STY: 6.4148e+01
+        E-factor: 29.7266
+
+2025-08-19 19:39:46,996 - Optimizer - INFO
+===================================
+ITERATION 72
+    Type: LHS
+    Conditions:
+        Temperature: 119.25 °C
+        Concentration Reactant 1: 399.9997
+        Concentration Ratio: 3.62
+        Time: 13.75 minutes
+    Results:
+        STY: 1.3392e+01
+        E-factor: 94.9783
+
+2025-08-19 19:39:48,858 - Optimizer - INFO
+===================================
+ITERATION 73
+    Type: LHS
+    Conditions:
+        Temperature: 128.25 °C
+        Concentration Reactant 1: 399.9998
+        Concentration Ratio: 1.54
+        Time: 11.75 minutes
+    Results:
+        STY: 9.7765e+00
+        E-factor: 78.9861
+
+2025-08-19 19:39:50,830 - Optimizer - INFO
+===================================
+ITERATION 74
+    Type: LHS
+    Conditions:
+        Temperature: 140.25 °C
+        Concentration Reactant 1: 399.9997
+        Concentration Ratio: 1.90
+        Time: 12.25 minutes
+    Results:
+        STY: 2.3014e+01
+        E-factor: 36.8016
+
+2025-08-19 19:39:52,748 - Optimizer - INFO
+===================================
+ITERATION 75
+    Type: LHS
+    Conditions:
+        Temperature: 111.25 °C
+        Concentration Reactant 1: 399.9991
+        Concentration Ratio: 2.86
+        Time: 10.25 minutes
+    Results:
+        STY: 6.5795e+00
+        E-factor: 215.0896
+
+2025-08-19 19:39:54,631 - Optimizer - INFO
+===================================
+ITERATION 76
+    Type: LHS
+    Conditions:
+        Temperature: 126.25 °C
+        Concentration Reactant 1: 399.9999
+        Concentration Ratio: 1.66
+        Time: 10.65 minutes
+    Results:
+        STY: 9.4115e+00
+        E-factor: 95.5541
+
+2025-08-19 19:39:56,566 - Optimizer - INFO
+===================================
+ITERATION 77
+    Type: LHS
+    Conditions:
+        Temperature: 140.75 °C
+        Concentration Reactant 1: 399.9999
+        Concentration Ratio: 3.26
+        Time: 18.45 minutes
+    Results:
+        STY: 3.7835e+01
+        E-factor: 22.2142
+
+2025-08-19 19:39:58,446 - Optimizer - INFO
+===================================
+ITERATION 78
+    Type: LHS
+    Conditions:
+        Temperature: 112.25 °C
+        Concentration Reactant 1: 399.9992
+        Concentration Ratio: 1.18
+        Time: 15.85 minutes
+    Results:
+        STY: 2.8942e+00
+        E-factor: 167.2841
+
+2025-08-19 19:40:00,401 - Optimizer - INFO
+===================================
+ITERATION 79
+    Type: LHS
+    Conditions:
+        Temperature: 144.75 °C
+        Concentration Reactant 1: 399.999
+        Concentration Ratio: 4.34
+        Time: 18.35 minutes
+    Results:
+        STY: 5.8434e+01
+        E-factor: 18.2213
+
+2025-08-19 19:40:02,286 - Optimizer - INFO
+===================================
+ITERATION 80
+    Type: LHS
+    Conditions:
+        Temperature: 134.25 °C
+        Concentration Reactant 1: 399.9995
+        Concentration Ratio: 4.62
+        Time: 19.15 minutes
+    Results:
+        STY: 3.7492e+01
+        E-factor: 29.2977
+
+2025-08-19 19:40:04,134 - Optimizer - INFO
+===================================
+ITERATION 81
+    Type: LHS
+    Conditions:
+        Temperature: 107.75 °C
+        Concentration Reactant 1: 399.999
+        Concentration Ratio: 1.46
+        Time: 10.15 minutes
+    Results:
+        STY: 2.6859e+00
+        E-factor: 324.0703
+
+2025-08-19 19:40:06,108 - Optimizer - INFO
+===================================
+ITERATION 82
+    Type: LHS
+    Conditions:
+        Temperature: 125.75 °C
+        Concentration Reactant 1: 399.9993
+        Concentration Ratio: 2.98
+        Time: 17.75 minutes
+    Results:
+        STY: 1.5943e+01
+        E-factor: 52.2265
+
+2025-08-19 19:40:07,957 - Optimizer - INFO
+===================================
+ITERATION 83
+    Type: LHS
+    Conditions:
+        Temperature: 138.75 °C
+        Concentration Reactant 1: 399.9991
+        Concentration Ratio: 1.10
+        Time: 12.75 minutes
+    Results:
+        STY: 1.2485e+01
+        E-factor: 45.4467
+
+2025-08-19 19:40:09,802 - Optimizer - INFO
+===================================
+ITERATION 84
+    Type: LHS
+    Conditions:
+        Temperature: 113.75 °C
+        Concentration Reactant 1: 399.9991
+        Concentration Ratio: 3.14
+        Time: 11.35 minutes
+    Results:
+        STY: 8.4086e+00
+        E-factor: 163.6662
+
+2025-08-19 19:40:11,831 - Optimizer - INFO
+===================================
+ITERATION 85
+    Type: LHS
+    Conditions:
+        Temperature: 135.25 °C
+        Concentration Reactant 1: 399.9995
+        Concentration Ratio: 4.54
+        Time: 19.75 minutes
+    Results:
+        STY: 3.8635e+01
+        E-factor: 27.0805
+
+2025-08-19 19:40:13,742 - Optimizer - INFO
+===================================
+ITERATION 86
+    Type: LHS
+    Conditions:
+        Temperature: 104.25 °C
+        Concentration Reactant 1: 400.0
+        Concentration Ratio: 2.02
+        Time: 19.95 minutes
+    Results:
+        STY: 2.9159e+00
+        E-factor: 190.6114
+
+2025-08-19 19:40:15,619 - Optimizer - INFO
+===================================
+ITERATION 87
+    Type: LHS
+    Conditions:
+        Temperature: 137.75 °C
+        Concentration Reactant 1: 399.9992
+        Concentration Ratio: 2.54
+        Time: 17.85 minutes
+    Results:
+        STY: 2.6003e+01
+        E-factor: 27.5850
+
+2025-08-19 19:40:17,497 - Optimizer - INFO
+===================================
+ITERATION 88
+    Type: LHS
+    Conditions:
+        Temperature: 145.75 °C
+        Concentration Reactant 1: 399.9996
+        Concentration Ratio: 3.86
+        Time: 15.15 minutes
+    Results:
+        STY: 5.7053e+01
+        E-factor: 20.5798
+
+2025-08-19 19:40:19,361 - Optimizer - INFO
+===================================
+ITERATION 89
+    Type: LHS
+    Conditions:
+        Temperature: 130.25 °C
+        Concentration Reactant 1: 399.9992
+        Concentration Ratio: 2.34
+        Time: 10.75 minutes
+    Results:
+        STY: 1.6528e+01
+        E-factor: 69.0801
+
+2025-08-19 19:40:21,301 - Optimizer - INFO
+===================================
+ITERATION 90
+    Type: LHS
+    Conditions:
+        Temperature: 105.75 °C
+        Concentration Reactant 1: 399.9992
+        Concentration Ratio: 2.26
+        Time: 10.05 minutes
+    Results:
+        STY: 3.6285e+00
+        E-factor: 331.5095
+
+2025-08-19 19:40:23,169 - Optimizer - INFO
+===================================
+ITERATION 91
+    Type: LHS
+    Conditions:
+        Temperature: 124.25 °C
+        Concentration Reactant 1: 399.9994
+        Concentration Ratio: 3.58
+        Time: 13.55 minutes
+    Results:
+        STY: 1.7692e+01
+        E-factor: 72.0413
+
+2025-08-19 19:40:25,007 - Optimizer - INFO
+===================================
+ITERATION 92
+    Type: LHS
+    Conditions:
+        Temperature: 109.25 °C
+        Concentration Reactant 1: 399.9997
+        Concentration Ratio: 3.46
+        Time: 12.55 minutes
+    Results:
+        STY: 6.9777e+00
+        E-factor: 193.3660
+
+2025-08-19 19:40:26,914 - Optimizer - INFO
+===================================
+ITERATION 93
+    Type: LHS
+    Conditions:
+        Temperature: 129.25 °C
+        Concentration Reactant 1: 399.9998
+        Concentration Ratio: 1.14
+        Time: 18.05 minutes
+    Results:
+        STY: 7.6091e+00
+        E-factor: 54.0197
+
+2025-08-19 19:40:28,770 - Optimizer - INFO
+===================================
+ITERATION 94
+    Type: LHS
+    Conditions:
+        Temperature: 106.25 °C
+        Concentration Reactant 1: 399.9998
+        Concentration Ratio: 4.06
+        Time: 16.05 minutes
+    Results:
+        STY: 6.6737e+00
+        E-factor: 180.7539
+
+2025-08-19 19:40:30,696 - Optimizer - INFO
+===================================
+ITERATION 95
+    Type: LHS
+    Conditions:
+        Temperature: 142.75 °C
+        Concentration Reactant 1: 399.9992
+        Concentration Ratio: 2.78
+        Time: 14.75 minutes
+    Results:
+        STY: 3.6933e+01
+        E-factor: 25.1522
+
+2025-08-19 19:40:32,572 - Optimizer - INFO
+===================================
+ITERATION 96
+    Type: LHS
+    Conditions:
+        Temperature: 144.25 °C
+        Concentration Reactant 1: 399.9995
+        Concentration Ratio: 3.02
+        Time: 16.25 minutes
+    Results:
+        STY: 4.2384e+01
+        E-factor: 21.1065
+
+2025-08-19 19:40:34,446 - Optimizer - INFO
+===================================
+ITERATION 97
+    Type: LHS
+    Conditions:
+        Temperature: 141.75 °C
+        Concentration Reactant 1: 399.9996
+        Concentration Ratio: 1.02
+        Time: 19.35 minutes
+    Results:
+        STY: 1.3311e+01
+        E-factor: 26.4387
+
+2025-08-19 19:40:36,422 - Optimizer - INFO
+===================================
+ITERATION 98
+    Type: LHS
+    Conditions:
+        Temperature: 130.75 °C
+        Concentration Reactant 1: 400.0
+        Concentration Ratio: 3.90
+        Time: 15.55 minutes
+    Results:
+        STY: 2.7279e+01
+        E-factor: 43.3561
+
+2025-08-19 19:40:38,279 - Optimizer - INFO
+===================================
+ITERATION 99
+    Type: LHS
+    Conditions:
+        Temperature: 108.25 °C
+        Concentration Reactant 1: 399.9993
+        Concentration Ratio: 4.10
+        Time: 18.55 minutes
+    Results:
+        STY: 7.6695e+00
+        E-factor: 136.9886
+
+2025-08-19 19:40:40,186 - Optimizer - INFO
+===================================
+ITERATION 100
+    Type: LHS
+    Conditions:
+        Temperature: 114.75 °C
+        Concentration Reactant 1: 399.9994
+        Concentration Ratio: 4.38
+        Time: 14.65 minutes
+    Results:
+        STY: 1.2323e+01
+        E-factor: 114.0682
 

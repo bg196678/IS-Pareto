@@ -152,19 +152,21 @@ reactor = Reactor(
 optimization_species = OptimizationSpecies(
     reactant_1=reactant_1,
     reactant_2=reactant_2,
-    products=[product_1,]
+    products=[product_1,],
 )
 optimization_boundaries = OptimizationBoundaries(
     temperature=(100, 150),
-    concentration_reactant_1=(100, 500),
+    concentration_reactant_1=(399.999, 400),
     concentration_ratio=(1.0, 5.0),
     time=(10.0, 20.0),
+    E_factor=(0.0, 15.0),
+    STY=(0.0, 500.0),
 )
 optimizer = TSEmoOptimizer(
     species=optimization_species,
     boundaries=optimization_boundaries,
     reactor=reactor,
     output_directory=output_dir,
-    num_initial_points=5,
+    num_initial_points=100,
 )
 optimizer.run(num_iterations=110)

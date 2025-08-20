@@ -59,7 +59,7 @@ class Solvation(ReactionInput, DataOutput):
                 temperature = float(parts)
 
             if "Nr Compound" in line:
-                # Count compounds by finding data lines after the header
+                # Last Compound is read in !!!
                 num_compounds = 0
                 j = i + 1
                 while j < len(lines):
