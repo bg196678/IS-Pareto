@@ -6,7 +6,7 @@ Ab-initio based optimization towards the Pareto front of multiple reaction condi
 
 **Version 0.1.0**
 
-![System 1 Pareto Front](examples/system_1/tsemo/output/plots/pareto_front_animation.gif)
+![System 1 Pareto Front](examples/system_3/tsemo/output/plots/pareto_front_animation.gif)
 
 
 ## Features
